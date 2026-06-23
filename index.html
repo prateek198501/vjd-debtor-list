@@ -1179,15 +1179,15 @@ const GITHUB_FILE_PATH  = 'bills.json';
 
 function saveGithubUrl(url){ localStorage.setItem(GITHUB_URL_KEY, url); }
 function loadGithubUrl(){
-  // Display URL — the fetch function tries both main and master automatically
-  return 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME + '/main-or-master/' + GITHUB_FILE_PATH;
+  // Return saved URL (user may have changed it) or the hardcoded default
+  const saved = localStorage.getItem(GITHUB_URL_KEY);
+  if(saved && saved.startsWith('https://') && !saved.includes('main-or-master')) return saved;
+  return 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME + '/main/' + GITHUB_FILE_PATH;
 }
 
 async function fetchBillsFromGithub(customUrl){
-  // Use custom URL if provided, otherwise use hardcoded repo
-  const defaultUrl = 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME + '/main/' + GITHUB_FILE_PATH;
-  const savedUrl = loadGithubUrl();
-  const baseUrl = customUrl || savedUrl || defaultUrl;
+  // Use custom URL if provided, otherwise load from saved/default
+  const baseUrl = customUrl || loadGithubUrl();
   const nc = '?nocache=' + Date.now();
   const fetchUrl = baseUrl.includes('?') ? baseUrl + '&_nc=' + Date.now() : baseUrl + nc;
 
@@ -2001,9 +2001,7 @@ document.getElementById('syncBtn').addEventListener('click', ()=>{
   const adminOnlySteps = document.getElementById('adminOnlySteps');
   if(adminOnlySteps) adminOnlySteps.style.display = isAdmin() ? 'block' : 'none';
   // Pre-fill with saved URL or default
-  const savedUrl = loadGithubUrl();
-  const defaultUrl = 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME + '/main/' + GITHUB_FILE_PATH;
-  document.getElementById('githubRawUrl').value = savedUrl || defaultUrl;
+  document.getElementById('githubRawUrl').value = loadGithubUrl();
   document.getElementById('githubUrlStatus').textContent = '';
   // Reset file state
   syncPendingParsed = null;
