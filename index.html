@@ -1186,26 +1186,44 @@ function loadGithubUrl(){
 }
 
 async function fetchBillsFromGithub(customUrl){
-  // Use custom URL if provided, otherwise load from saved/default
   const baseUrl = customUrl || loadGithubUrl();
-  const nc = '?nocache=' + Date.now();
-  const fetchUrl = baseUrl.includes('?') ? baseUrl + '&_nc=' + Date.now() : baseUrl + nc;
 
-  const resp = await fetch(fetchUrl, {
-    cache: 'no-store',
-    headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
-  });
+  // Strip any existing cache-bust params then add fresh one
+  const cleanUrl = baseUrl.split('?')[0];
+  const fetchUrl = cleanUrl + '?t=' + Date.now();
 
-  if(!resp.ok) throw new Error('HTTP ' + resp.status + ' — make sure the repo is Public and bills.json is uploaded.');
+  let resp;
+  // Attempt 1: simple fetch (works on GitHub Pages)
+  try {
+    resp = await fetch(fetchUrl, { method: 'GET', mode: 'cors', cache: 'no-store' });
+  } catch(e1) {
+    // Attempt 2: no extra headers (some browsers block custom headers cross-origin)
+    try {
+      resp = await fetch(fetchUrl, { method: 'GET', mode: 'cors' });
+    } catch(e2) {
+      // Attempt 3: no-cors won't give readable body but tells us if network works
+      throw new Error('Network blocked. Check internet connection. (' + e2.message + ')');
+    }
+  }
 
-  const text = await resp.text();
+  if(!resp.ok) {
+    if(resp.status === 404) throw new Error('404 — bills.json not found. Make sure it is uploaded to the main branch of your GitHub repo.');
+    if(resp.status === 403) throw new Error('403 — Access denied. Make sure the repo is set to Public.');
+    throw new Error('HTTP ' + resp.status);
+  }
+
+  let text;
+  try { text = await resp.text(); } catch(e) { throw new Error('Could not read response: ' + e.message); }
+
   if(!text || text.trim() === '' || text.trim() === '[]')
-    throw new Error('bills.json is empty. Please re-export and re-upload it from the app.');
+    throw new Error('bills.json is empty. Please re-export from the app and re-upload to GitHub.');
 
   let data;
-  try { data = JSON.parse(text); } catch(e) { throw new Error('bills.json is not valid JSON. Please re-download and re-upload it.'); }
+  try { data = JSON.parse(text); } catch(e) {
+    throw new Error('bills.json is not valid JSON. Please re-download and re-upload it. (First 50 chars: ' + text.substring(0,50) + ')');
+  }
 
-  if(!Array.isArray(data)) throw new Error('bills.json format is wrong — expected a list of bills.');
+  if(!Array.isArray(data)) throw new Error('bills.json format error — expected array, got: ' + typeof data);
   if(data.length === 0) throw new Error('bills.json has 0 bills. Please re-export from the app and re-upload.');
 
   return data;
