@@ -1063,8 +1063,9 @@ input[type=range].overdue-slider::-moz-range-thumb{
     <div style="background:var(--green-bg);border:1px solid #CFE0C8;border-radius:12px;padding:14px 16px;margin-bottom:14px;">
       <div style="font-weight:700;font-size:13px;color:#3A5C36;margin-bottom:6px;">🔄 Fetch Latest Data from GitHub</div>
       <p style="font-size:12.5px;color:#3A5C36;margin:0 0 10px;">Tap below to immediately pull the latest bills from your GitHub repo. Works on all devices — no setup needed.</p>
-      <input type="url" id="githubRawUrl" value="https://raw.githubusercontent.com/prateek198501/vji-khata/main/bills.json"
-        style="width:100%;padding:10px 12px;border:1.5px solid #CFE0C8;border-radius:9px;font-size:11.5px;background:#F4FAF4;color:var(--ink-soft);outline:none;margin-bottom:8px;word-break:break-all;" readonly>
+      <input type="url" id="githubRawUrl" value="https://raw.githubusercontent.com/prateek198501/vjd-debtor-list/main/bills.json"
+        placeholder="https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/bills.json"
+        style="width:100%;padding:10px 12px;border:1.5px solid var(--teal);border-radius:9px;font-size:12px;background:#FFFEFB;color:var(--ink);outline:none;margin-bottom:8px;">
       <button class="btn-primary" id="saveGithubUrlBtn" style="width:100%;background:var(--teal);border:none;">🔄 Fetch Latest Data Now</button>
       <div class="import-status" id="githubUrlStatus" style="margin-top:6px;"></div>
     </div>
@@ -1182,12 +1183,15 @@ function loadGithubUrl(){
   return 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME + '/main-or-master/' + GITHUB_FILE_PATH;
 }
 
-async function fetchBillsFromGithub(){
-  const rawBase = 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME;
+async function fetchBillsFromGithub(customUrl){
+  // Use custom URL if provided, otherwise use hardcoded repo
+  const defaultUrl = 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME + '/main/' + GITHUB_FILE_PATH;
+  const savedUrl = loadGithubUrl();
+  const baseUrl = customUrl || savedUrl || defaultUrl;
   const nc = '?nocache=' + Date.now();
+  const fetchUrl = baseUrl.includes('?') ? baseUrl + '&_nc=' + Date.now() : baseUrl + nc;
 
-  // Fetch raw URL on "main" branch with no-cache headers
-  const resp = await fetch(rawBase + '/main/' + GITHUB_FILE_PATH + nc, {
+  const resp = await fetch(fetchUrl, {
     cache: 'no-store',
     headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
   });
@@ -1996,6 +2000,11 @@ document.getElementById('syncBtn').addEventListener('click', ()=>{
   // Show/hide admin-only import steps based on role
   const adminOnlySteps = document.getElementById('adminOnlySteps');
   if(adminOnlySteps) adminOnlySteps.style.display = isAdmin() ? 'block' : 'none';
+  // Pre-fill with saved URL or default
+  const savedUrl = loadGithubUrl();
+  const defaultUrl = 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME + '/main/' + GITHUB_FILE_PATH;
+  document.getElementById('githubRawUrl').value = savedUrl || defaultUrl;
+  document.getElementById('githubUrlStatus').textContent = '';
   // Reset file state
   syncPendingParsed = null;
   document.getElementById('syncReadStatus').textContent = '';
@@ -2010,19 +2019,26 @@ document.getElementById('cancelSync').addEventListener('click', ()=>{
 /* Save GitHub URL */
 document.getElementById('saveGithubUrlBtn').addEventListener('click', ()=>{
   const st = document.getElementById('githubUrlStatus');
-  // The URL is hardcoded in the app — just show confirmation and trigger a manual refresh
-  st.textContent = '✓ URL is set. Click below to fetch latest data now.';
-  st.className = 'import-status ok';
-  fetchBillsFromGithub().then(bills=>{
+  const typedUrl = document.getElementById('githubRawUrl').value.trim();
+  if(!typedUrl || !typedUrl.startsWith('https://')){
+    st.textContent = 'Please enter a valid https:// URL.';
+    st.className = 'import-status err';
+    return;
+  }
+  // Save the custom URL and use it for fetching
+  saveGithubUrl(typedUrl);
+  st.textContent = 'Fetching from: ' + typedUrl;
+  st.className = 'import-status';
+  fetchBillsFromGithub(typedUrl).then(bills=>{
     if(bills && bills.length > 0){
       BILLS = bills;
       saveBills(BILLS);
       renderAll();
-      st.textContent = '✓ Fetched ' + bills.length + ' bills from GitHub successfully!';
+      st.textContent = '✓ Fetched ' + bills.length + ' bills successfully!';
       st.className = 'import-status ok';
     }
   }).catch(e=>{
-    st.textContent = 'Fetch failed: ' + e.message + '. Make sure bills.json is uploaded to your GitHub repo.';
+    st.textContent = 'Fetch failed: ' + e.message;
     st.className = 'import-status err';
   });
 });
@@ -2160,7 +2176,7 @@ document.getElementById('downloadJsonBtn').addEventListener('click', ()=>{
     currentUser = session;
     showApp(); // show immediately with cached/default data
     // ALL users — admin AND sales reps — always fetch latest from GitHub
-    fetchBillsFromGithub().then(bills=>{
+    fetchBillsFromGithub(loadGithubUrl() || null).then(bills=>{
       if(bills && bills.length > 0){
         BILLS = bills;
         saveBills(BILLS);
