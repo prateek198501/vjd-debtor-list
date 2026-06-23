@@ -1183,33 +1183,28 @@ function loadGithubUrl(){
 }
 
 async function fetchBillsFromGithub(){
-  const base = 'https://api.github.com/repos/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME;
   const rawBase = 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME;
   const nc = '?nocache=' + Date.now();
 
-  // Try GitHub API first (no cache, works on both main & master branches)
-  try {
-    const apiUrl = base + '/contents/' + GITHUB_FILE_PATH;
-    const resp = await fetch(apiUrl, { headers: { 'Accept': 'application/vnd.github.v3.raw' } });
-    if(resp.ok){
-      const data = await resp.json();
-      if(Array.isArray(data) && data.length > 0) return data;
-    }
-  } catch(e){ console.info('[VJI] API fetch failed:', e.message); }
+  // Fetch raw URL on "main" branch with no-cache headers
+  const resp = await fetch(rawBase + '/main/' + GITHUB_FILE_PATH + nc, {
+    cache: 'no-store',
+    headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+  });
 
-  // Try raw URL on "main" branch
-  try {
-    const resp = await fetch(rawBase + '/main/' + GITHUB_FILE_PATH + nc, { cache: 'no-store' });
-    if(resp.ok){ const d = await resp.json(); if(Array.isArray(d) && d.length > 0) return d; }
-  } catch(e){}
+  if(!resp.ok) throw new Error('HTTP ' + resp.status + ' — make sure the repo is Public and bills.json is uploaded.');
 
-  // Try raw URL on "master" branch (older GitHub repos use this)
-  try {
-    const resp = await fetch(rawBase + '/master/' + GITHUB_FILE_PATH + nc, { cache: 'no-store' });
-    if(resp.ok){ const d = await resp.json(); if(Array.isArray(d) && d.length > 0) return d; }
-  } catch(e){}
+  const text = await resp.text();
+  if(!text || text.trim() === '' || text.trim() === '[]')
+    throw new Error('bills.json is empty. Please re-export and re-upload it from the app.');
 
-  throw new Error('bills.json not found on GitHub. Please upload it to your repo (main or master branch).');
+  let data;
+  try { data = JSON.parse(text); } catch(e) { throw new Error('bills.json is not valid JSON. Please re-download and re-upload it.'); }
+
+  if(!Array.isArray(data)) throw new Error('bills.json format is wrong — expected a list of bills.');
+  if(data.length === 0) throw new Error('bills.json has 0 bills. Please re-export from the app and re-upload.');
+
+  return data;
 }
 
 function downloadJsonFile(bills){
