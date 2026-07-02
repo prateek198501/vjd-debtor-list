@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
-<title>VJD Khata — Debtor Reminders</title>
+<title>VJI Khata — Debtor Reminders</title>
 
 <!-- SheetJS for Excel import -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -395,10 +395,8 @@ main{max-width:1180px;margin:0 auto;padding:22px 18px 60px;}
   position:fixed;inset:0;
   background:rgba(32,41,36,0.5);
   z-index:100;
-  align-items:flex-start;justify-content:center;
-  padding:16px;
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
+  align-items:center;justify-content:center;
+  padding:20px;
 }
 .modal-overlay.show{display:flex;}
 .modal-box{
@@ -406,14 +404,8 @@ main{max-width:1180px;margin:0 auto;padding:22px 18px 60px;}
   border-radius:18px;
   max-width:460px;
   width:100%;
-  padding:22px;
+  padding:26px;
   box-shadow:var(--shadow-lift);
-  margin:auto;
-  max-height:none;
-}
-@media(max-width:600px){
-  .modal-overlay{ padding:10px; align-items:flex-start; }
-  .modal-box{ padding:16px; border-radius:14px; margin:8px auto; }
 }
 .modal-box h3{margin:0 0 8px;color:var(--teal-deep);font-size:18px;}
 .modal-box p{margin:0 0 18px;font-size:13.5px;color:var(--ink-soft);line-height:1.55;}
@@ -815,60 +807,65 @@ input[type=range].overdue-slider::-moz-range-thumb{
   color:var(--ink-soft);
 }
 
+
+/* ---- Credential manager modal ---- */
+#credModal .modal-box{ max-width:560px; }
+.cred-table{ width:100%; border-collapse:collapse; font-size:13px; margin-bottom:14px; }
+.cred-table th{
+  text-align:left; padding:8px 10px;
+  background:#F7F4EE; font-size:11px;
+  text-transform:uppercase; letter-spacing:.5px;
+  color:var(--ink-soft); border-bottom:1px solid var(--rule);
+}
+.cred-table td{ padding:8px 10px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.cred-table tr:last-child td{ border-bottom:none; }
+.cred-table tr:hover td{ background:#FDFAF4; }
+.cred-del-btn{
+  background:var(--rose-bg); color:#8C453C;
+  border:none; border-radius:6px;
+  padding:4px 10px; font-size:12px; cursor:pointer;
+  font-family:inherit; white-space:nowrap;
+}
+.cred-del-btn:hover{ background:#f5cdc8; }
+.cred-add-row{
+  display:grid; grid-template-columns:1fr 1fr 1fr auto;
+  gap:8px; align-items:end; margin-bottom:10px;
+}
+.cred-add-row input, .cred-add-row select{
+  padding:9px 10px; border:1.5px solid var(--rule-strong);
+  border-radius:8px; font-size:13px; background:#FFFEFB;
+  color:var(--ink); outline:none; width:100%;
+  font-family:inherit;
+}
+.cred-add-row input:focus, .cred-add-row select:focus{ border-color:var(--teal); }
+.cred-add-btn{
+  padding:9px 14px; border:none; border-radius:8px;
+  background:var(--teal); color:#FBF7F0;
+  font-size:13px; font-weight:600; cursor:pointer;
+  white-space:nowrap; font-family:inherit;
+}
+.cred-add-btn:hover{ background:var(--teal-deep); }
+.cred-section-label{
+  font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:.5px; color:var(--ink-soft); margin-bottom:8px; margin-top:14px;
+}
+.cred-notice{
+  font-size:12px; color:var(--ink-soft); margin-top:6px;
+  background:var(--amber-bg); border-radius:8px; padding:9px 12px;
+  border:1px solid #E9D6A3; line-height:1.5;
+}
+.pass-toggle{ position:relative; display:flex; align-items:center; }
+.pass-toggle input{ padding-right:32px; }
+.pass-toggle button{
+  position:absolute; right:8px; background:none; border:none;
+  cursor:pointer; color:var(--ink-soft); padding:0;
+  display:flex; align-items:center;
+}
+@media(max-width:520px){
+  .cred-add-row{ grid-template-columns:1fr 1fr; }
+  .cred-add-row select{ grid-column:1/-1; }
+}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
-
-/* ---- Date range filter bar ---- */
-.date-range-bar{
-  background:var(--paper-raised);
-  border:1px solid var(--rule);
-  border-radius:var(--radius);
-  padding:13px 16px;
-  margin-bottom:14px;
-  box-shadow:var(--shadow);
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.date-range-bar .dr-label{
-  font-size:12px;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.5px;color:var(--ink-soft);white-space:nowrap;flex:none;
-}
-.date-range-bar input[type=date]{
-  padding:8px 10px;
-  border:1.5px solid var(--rule-strong);
-  border-radius:9px;
-  font-size:13px;
-  background:var(--paper-raised);
-  color:var(--ink);
-  outline:none;
-  cursor:pointer;
-  flex:1;min-width:130px;
-}
-.date-range-bar input[type=date]:focus{ border-color:var(--teal); }
-.dr-sep{ color:var(--ink-soft);font-size:14px;flex:none; }
-.dr-clear{
-  padding:7px 12px;border-radius:9px;border:1.5px solid var(--rule-strong);
-  background:var(--paper-raised);color:var(--ink-soft);font-size:12.5px;
-  cursor:pointer;white-space:nowrap;flex:none;
-}
-.dr-clear:hover{ border-color:var(--rose);color:var(--rose); }
-.dr-summary{
-  width:100%;
-  margin-top:4px;
-  display:none;
-  background:linear-gradient(135deg,var(--teal),var(--teal-deep));
-  border-radius:10px;
-  padding:10px 14px;
-  display:none;
-  gap:18px;
-  flex-wrap:wrap;
-  align-items:center;
-}
-.dr-summary.visible{ display:flex; }
-.dr-stat{ color:#FBF7F0;font-size:13px; }
-.dr-stat span{ font-weight:700;font-size:15px; }
-
 </style>
 </head>
 <body>
@@ -879,8 +876,8 @@ input[type=range].overdue-slider::-moz-range-thumb{
     <div class="login-mark">
       <svg viewBox="0 0 24 24" fill="none" stroke="#FBF7F0" stroke-width="1.8"><path d="M6 3h12l3 5-9 13L3 8l3-5Z"/><path d="M3 8h18M9 3l3 5 3-5M12 8l-3 13M12 8l3 13"/></svg>
     </div>
-    <h1 class="login-title">VJD Khata</h1>
-    <p class="login-sub">Valentine Jadau &middot; Debtor Ledger</p>
+    <h1 class="login-title">Valentine Jadau</h1>
+    <p class="login-sub">VJI Khata &middot; Debtor Ledger</p>
 
     <div class="login-error" id="loginError">Username or password didn't match. Please try again.</div>
 
@@ -911,13 +908,13 @@ input[type=range].overdue-slider::-moz-range-thumb{
       </div>
     </div>
     <div class="topbar-right">
-      <button class="chip-btn" id="syncBtn" style="display:none;" title="Export bills.json for GitHub upload">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        <span id="hideOnMobileLabel">Export JSON</span>
-      </button>
-      <button class="chip-btn" id="importBtn" style="display:none;" title="Import from local Excel file">
+      <button class="chip-btn" id="importBtn" style="display:none;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
         <span id="hideOnMobileLabel">Import Excel</span>
+      </button>
+      <button class="chip-btn" id="credBtn" style="display:none;" title="Manage salesperson logins">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.87"/></svg>
+        <span id="hideOnMobileLabel3">Logins</span>
       </button>
       <button class="chip-btn" id="logoutBtn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
@@ -975,21 +972,6 @@ input[type=range].overdue-slider::-moz-range-thumb{
         <option value="name_asc">Sort: Party name (A–Z)</option>
         <option value="salesperson_asc">Sort: Sales person (A–Z)</option>
       </select>
-    </div>
-
-    <!-- Date range filter -->
-    <div class="date-range-bar" id="dateRangeBar">
-      <span class="dr-label">📅 Invoice Date</span>
-      <input type="date" id="drFrom" title="From date">
-      <span class="dr-sep">→</span>
-      <input type="date" id="drTo" title="To date">
-      <button class="dr-clear" id="drClear">✕ Clear</button>
-      <div class="dr-summary" id="drSummary">
-        <div class="dr-stat">Bills: <span id="drCount">0</span></div>
-        <div class="dr-stat">Parties: <span id="drParties">0</span></div>
-        <div class="dr-stat">Total Amount: <span id="drTotal">₹0</span></div>
-        <div class="dr-stat">Overdue: <span id="drOverdue">0</span></div>
-      </div>
     </div>
 
     <div class="view-tabs" id="viewTabs">
@@ -1050,59 +1032,6 @@ input[type=range].overdue-slider::-moz-range-thumb{
   <footer class="disclaimer">VJI Khata is an internal reminder tool. Figures are sourced from the latest imported Bills Receivable sheet — please verify against accounts before following up with a party.</footer>
 </div>
 
-
-<!-- ============ EXPORT MODAL ============ -->
-<div class="modal-overlay" id="syncModal">
-  <div class="modal-box" style="max-width:520px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-      <h3 style="margin:0;">📤 Export &amp; Sync</h3>
-      <button class="btn-secondary" id="cancelSync" style="padding:6px 14px;font-size:13px;">✕ Close</button>
-    </div>
-
-    <!-- Fetch Now — always at top, visible to all -->
-    <div style="background:var(--green-bg);border:1px solid #CFE0C8;border-radius:12px;padding:14px 16px;margin-bottom:14px;">
-      <div style="font-weight:700;font-size:13px;color:#3A5C36;margin-bottom:6px;">🔄 Fetch Latest Data from GitHub</div>
-      <p style="font-size:12.5px;color:#3A5C36;margin:0 0 10px;">Tap below to immediately pull the latest bills from your GitHub repo. Works on all devices — no setup needed.</p>
-      <input type="url" id="githubRawUrl" value="https://raw.githubusercontent.com/prateek198501/vjd-debtor-list/main/bills.json"
-        placeholder="https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/bills.json"
-        style="width:100%;padding:10px 12px;border:1.5px solid var(--teal);border-radius:9px;font-size:12px;background:#FFFEFB;color:var(--ink);outline:none;margin-bottom:8px;">
-      <button class="btn-primary" id="saveGithubUrlBtn" style="width:100%;background:var(--teal);border:none;">🔄 Fetch Latest Data Now</button>
-      <div class="import-status" id="githubUrlStatus" style="margin-top:6px;"></div>
-    </div>
-
-    <div id="adminOnlySteps">
-    <!-- STEP 1 -->
-    <div style="background:#F7F9F7;border:1px solid var(--rule);border-radius:12px;padding:14px 16px;margin-bottom:12px;">
-      <div style="font-weight:700;font-size:13.5px;color:var(--teal-deep);margin-bottom:10px;">① Import Excel file (Mac/PC only)</div>
-      <div class="drop-zone" id="syncDropZone" style="padding:18px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-        <div class="dz-text">Click to choose Excel file, or drag here</div>
-        <div class="dz-sub">.xlsx Bills Receivable export</div>
-      </div>
-      <input type="file" id="syncFileInput" accept=".xlsx,.xls" style="display:none;">
-      <div class="import-status" id="syncReadStatus"></div>
-    </div>
-
-    <!-- STEP 2 -->
-    <div style="background:#F7F9F7;border:1px solid var(--rule);border-radius:12px;padding:14px 16px;margin-bottom:12px;">
-      <div style="font-weight:700;font-size:13.5px;color:var(--teal-deep);margin-bottom:8px;">② Download bills.json</div>
-      <button class="btn-primary" id="downloadJsonBtn" disabled style="width:100%;">⬇ Download bills.json</button>
-    </div>
-
-    <!-- STEP 3 -->
-    <div style="background:#F7F9F7;border:1px solid var(--rule);border-radius:12px;padding:14px 16px;margin-bottom:14px;">
-      <div style="font-weight:700;font-size:13.5px;color:var(--teal-deep);margin-bottom:8px;">③ Upload bills.json to GitHub</div>
-      <ol style="font-size:13px;color:var(--ink-soft);line-height:2;margin:0 0 0 16px;padding:0;">
-        <li>Go to your GitHub repo → <b>Add file → Upload files</b></li>
-        <li>Drag <code style="background:#eee;padding:1px 5px;border-radius:4px;">bills.json</code> into the box</li>
-        <li>Click <b>Commit changes</b> — all devices update automatically!</li>
-      </ol>
-    </div>
-    </div><!-- end adminOnlySteps -->
-
-  </div>
-</div>
-
 <!-- ============ IMPORT MODAL ============ -->
 <div class="modal-overlay" id="importModal">
   <div class="modal-box">
@@ -1123,15 +1052,65 @@ input[type=range].overdue-slider::-moz-range-thumb{
   </div>
 </div>
 
+<!-- ============ CREDENTIAL MANAGER MODAL ============ -->
+<div class="modal-overlay" id="credModal">
+  <div class="modal-box">
+    <h3>Manage Salesperson Logins</h3>
+    <p>Create and manage login credentials for your sales team. Each login is tied to a sales rep name exactly as it appears in the Bills Receivable data.</p>
+
+    <div class="cred-section-label">Add new login</div>
+    <div class="cred-add-row">
+      <div>
+        <label style="font-size:11px;color:var(--ink-soft);font-weight:600;display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px">Username</label>
+        <input type="text" id="newCredUser" placeholder="e.g. hansraj" autocomplete="off" autocapitalize="none">
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--ink-soft);font-weight:600;display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px">Password</label>
+        <div class="pass-toggle">
+          <input type="password" id="newCredPass" placeholder="Set a password" autocomplete="new-password">
+          <button type="button" onclick="togglePassVis('newCredPass',this)" tabindex="-1">
+            <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--ink-soft);font-weight:600;display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px">Sales Rep</label>
+        <select id="newCredRep">
+          <option value="">— pick rep —</option>
+        </select>
+      </div>
+      <button class="cred-add-btn" onclick="addCredential()">+ Add</button>
+    </div>
+    <div id="credAddStatus" style="font-size:12.5px;min-height:18px;margin-bottom:10px;color:#8C453C;"></div>
+
+    <div class="cred-section-label">Existing logins</div>
+    <div style="overflow-x:auto;">
+      <table class="cred-table">
+        <thead><tr><th>Username</th><th>Password</th><th>Sales Rep</th><th></th></tr></thead>
+        <tbody id="credTableBody"></tbody>
+      </table>
+    </div>
+    <div id="credEmpty" style="display:none;text-align:center;padding:18px 0;font-size:13px;color:var(--ink-soft);">No logins created yet. Add one above.</div>
+
+    <div class="cred-notice">
+      🔒 Credentials are stored locally in this browser. Salesperson logins only see their own assigned clients. Passwords are shown here because this is an admin-only panel — share them securely.
+    </div>
+
+    <div class="modal-actions" style="margin-top:16px;">
+      <button class="btn-secondary" onclick="document.getElementById('credModal').classList.remove('show')">Close</button>
+    </div>
+  </div>
+</div>
+
+
 <script>
 /* =====================================================================
    EMBEDDED DEFAULT DATA — parsed from VJI's "Bills Receivable" report
    Each record: party, rep, date (invoice), ref, amount, due (due date)
    ===================================================================== */
-const DEFAULT_BILLS = [{"party":"Abha Sanjay Bafna","rep":"N/A","date":"2026-04-27","ref":"VJIB/2627/035","amount":670530.0,"due":"2026-05-27","overdue_in_sheet":"7"},{"party":"Ab Jewels","rep":"Hansraj Kunteta","date":"2026-05-13","ref":"VJIB/2627/061","amount":2307356.0,"due":"2026-08-11","overdue_in_sheet":""},{"party":"Ab Jewels","rep":"Hansraj Kunteta","date":"2026-05-28","ref":"VJIB/2627/079","amount":217230.0,"due":"2026-08-26","overdue_in_sheet":""},{"party":"A-Jewels","rep":"Shailendra Jain","date":"2026-04-30","ref":"VJIB/2627/038","amount":2329075.0,"due":"2026-06-29","overdue_in_sheet":""},{"party":"AKM Mehra Sons Jewellers","rep":"Hansraj Kunteta","date":"2024-05-02","ref":"VJIB/24-25/028","amount":494497.0,"due":"2024-07-01","overdue_in_sheet":"702"},{"party":"AKM Mehra Sons Jewellers","rep":"Hansraj Kunteta","date":"2024-05-17","ref":"VJIB/24-25/037","amount":2025942.0,"due":"2024-07-16","overdue_in_sheet":"687"},{"party":"AKM Mehra Sons Jewellers","rep":"Hansraj Kunteta","date":"2024-06-14","ref":"VJIB/24-25/055","amount":422662.0,"due":"2024-08-13","overdue_in_sheet":"659"},{"party":"AKM Mehra Sons Jewellers","rep":"Hansraj Kunteta","date":"2024-07-10","ref":"VJIB/24-25/070","amount":26631.0,"due":"2024-09-08","overdue_in_sheet":"633"},{"party":"AKM Mehra Sons Jewellers","rep":"Hansraj Kunteta","date":"2024-07-23","ref":"VJIB/24-25/076","amount":957123.0,"due":"2024-09-21","overdue_in_sheet":"620"},{"party":"AKM Mehra Sons Jewellers","rep":"Hansraj Kunteta","date":"2024-09-06","ref":"VJIB/24-25/104","amount":863180.0,"due":"2024-11-05","overdue_in_sheet":"575"},{"party":"Alankar Jewel Arts Pvt Ltd","rep":"Shailendra Jain","date":"2026-05-30","ref":"VJIB/2627/084","amount":4456665.0,"due":"2026-07-29","overdue_in_sheet":""},{"party":"Anmol Jewellers","rep":"Hansraj Kunteta","date":"2026-01-20","ref":"VJIB/25-26/312","amount":3059706.0,"due":"2026-03-21","overdue_in_sheet":"74"},{"party":"Anmol Jewellers","rep":"Hansraj Kunteta","date":"2026-02-03","ref":"VJIB/25-26/340","amount":204876.0,"due":"2026-04-04","overdue_in_sheet":"60"},{"party":"Anmol Jewellers","rep":"Hansraj Kunteta","date":"2026-02-16","ref":"VJIB/25-26/359","amount":501879.0,"due":"2026-04-17","overdue_in_sheet":"47"},{"party":"Anmol Jewellers","rep":"Hansraj Kunteta","date":"2026-03-13","ref":"VJIB/25-26/390","amount":162729.0,"due":"2026-05-12","overdue_in_sheet":"22"},{"party":"Anmol Jewellers","rep":"Hansraj Kunteta","date":"2026-04-03","ref":"VJIB/2627/008","amount":4082437.0,"due":"2026-06-02","overdue_in_sheet":"1"},{"party":"Anmol Jewellers","rep":"Hansraj Kunteta","date":"2026-04-10","ref":"VJIB/2627/020","amount":185230.0,"due":"2026-06-09","overdue_in_sheet":""},{"party":"Anmol Jewellers","rep":"Hansraj Kunteta","date":"2026-05-11","ref":"VJIB/2627/056","amount":922356.0,"due":"2026-07-10","overdue_in_sheet":""},{"party":"Anmol Jewellers","rep":"Hansraj Kunteta","date":"2026-05-15","ref":"VJIB/2627/063","amount":190778.0,"due":"2026-07-14","overdue_in_sheet":""},{"party":"Aurum by Sethis","rep":"Hansraj Kunteta","date":"2026-05-06","ref":"VJIB/2627/053","amount":701919.0,"due":"2026-07-05","overdue_in_sheet":""},{"party":"Bhandari Jewellers","rep":"N/A","date":"2026-02-20","ref":"VJIB/25-26/370","amount":3605427.0,"due":"2026-04-21","overdue_in_sheet":"43"},{"party":"Bhola Sons Jewellers","rep":"Hansraj Kunteta","date":"2026-03-06","ref":"VJIB/25-26/397","amount":79626.0,"due":"2026-06-04","overdue_in_sheet":""},{"party":"Bhola Sons Jewellers","rep":"Hansraj Kunteta","date":"2026-04-02","ref":"VJIB/2627/003","amount":192092.0,"due":"2026-07-01","overdue_in_sheet":""},{"party":"Bhola Sons Jewellers","rep":"Hansraj Kunteta","date":"2026-04-07","ref":"VJIB/2627/011","amount":171377.0,"due":"2026-07-06","overdue_in_sheet":""},{"party":"Bhola Sons Jewellers","rep":"Hansraj Kunteta","date":"2026-04-11","ref":"VJIB/2627/021","amount":197894.0,"due":"2026-07-10","overdue_in_sheet":""},{"party":"Bhola Sons Jewellers","rep":"Hansraj Kunteta","date":"2026-05-25","ref":"VJIB/2627/070","amount":865243.0,"due":"2026-08-23","overdue_in_sheet":""},{"party":"Carlos Castellano E Hijos SL ( Export )","rep":"N/A","date":"2026-02-10","ref":"VJIB/25-26/EX07","amount":255585.82,"due":"2026-05-11","overdue_in_sheet":"23"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-08-14","ref":"VJIB/25-26/113","amount":5221974.0,"due":"2025-10-13","overdue_in_sheet":"233"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-09-16","ref":"VJIB/25-26/161","amount":83137.0,"due":"2025-11-15","overdue_in_sheet":"200"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-11-04","ref":"VJIB/25-26/217","amount":104577.0,"due":"2026-01-03","overdue_in_sheet":"151"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-11-28","ref":"VJIB/25-26/248","amount":138948.0,"due":"2026-01-27","overdue_in_sheet":"127"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-12-27","ref":"VJIB/25-26/276","amount":432971.0,"due":"2026-02-25","overdue_in_sheet":"98"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-19","ref":"VJIB/25-26/307","amount":126516.0,"due":"2026-03-20","overdue_in_sheet":"75"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-02-18","ref":"VJIB/25-26/362","amount":843352.0,"due":"2026-04-19","overdue_in_sheet":"45"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-02-19","ref":"VJIB/25-26/364","amount":10970385.0,"due":"2026-04-20","overdue_in_sheet":"44"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-03-07","ref":"VJIB/25-26/382","amount":466587.0,"due":"2026-05-06","overdue_in_sheet":"28"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-03-24","ref":"VJIB/25-26/399","amount":15304488.0,"due":"2026-05-23","overdue_in_sheet":"11"},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-04-23","ref":"VJIB/2627/032","amount":71670.0,"due":"2026-06-22","overdue_in_sheet":""},{"party":"C.H. Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-05-02","ref":"VJIB/2627/045","amount":1968501.0,"due":"2026-07-01","overdue_in_sheet":""},{"party":"Divya Khandelwal Debtors","rep":"N/A","date":"2025-11-20","ref":"VJIB/25-26/240","amount":2474694.0,"due":"2026-01-19","overdue_in_sheet":"135"},{"party":"Divya Khandelwal Debtors","rep":"N/A","date":"2025-11-26","ref":"VJIB/25-26/245","amount":437352.0,"due":"2026-01-25","overdue_in_sheet":"129"},{"party":"D.P. Abhushan Ltd","rep":"Hansraj Kunteta","date":"2026-03-05","ref":"VJIB/25-26/378","amount":692423.0,"due":"2026-05-04","overdue_in_sheet":"30"},{"party":"D.P. Abhushan Ltd","rep":"Hansraj Kunteta","date":"2026-03-12","ref":"VJIB/25-26/387","amount":4665824.0,"due":"2026-05-11","overdue_in_sheet":"23"},{"party":"D.P. Abhushan Ltd","rep":"Hansraj Kunteta","date":"2026-03-20","ref":"VJIB/25-26/393","amount":2259658.0,"due":"2026-05-19","overdue_in_sheet":"15"},{"party":"D.P. Abhushan Ltd","rep":"Hansraj Kunteta","date":"2026-03-26","ref":"VJIB/25-26/402","amount":882303.0,"due":"2026-05-25","overdue_in_sheet":"9"},{"party":"D.P. Abhushan Ltd","rep":"Hansraj Kunteta","date":"2026-04-09","ref":"VJIB/2627/017","amount":568406.0,"due":"2026-06-08","overdue_in_sheet":""},{"party":"D.P. Abhushan Ltd","rep":"Hansraj Kunteta","date":"2026-05-19","ref":"VJIB/2627/066","amount":1327963.0,"due":"2026-07-18","overdue_in_sheet":""},{"party":"D.P. Abhushan Ltd","rep":"Hansraj Kunteta","date":"2026-05-27","ref":"VJIB/2627/075","amount":1306286.0,"due":"2026-07-26","overdue_in_sheet":""},{"party":"D.P Jewelline Pvt Ltd","rep":"N/A","date":"2026-05-01","ref":"VJIB/2627/042","amount":3914000.0,"due":"2026-06-30","overdue_in_sheet":""},{"party":"Fine Gems And Jewels ( Export )","rep":"N/A","date":"2025-09-08","ref":"VJIB/25-26/EX04","amount":5919683.0,"due":"2025-11-07","overdue_in_sheet":"208"},{"party":"Fortofino","rep":"N/A","date":"2025-01-02","ref":"VJIB/24-25/210","amount":98963.0,"due":"2025-03-03","overdue_in_sheet":"457"},{"party":"Frontier Jewellers","rep":"Shailendra Jain","date":"2025-09-15","ref":"VJIB/25-26/159","amount":742.0,"due":"2025-11-14","overdue_in_sheet":"201"},{"party":"Frontier Jewellers","rep":"Shailendra Jain","date":"2026-01-13","ref":"VJIB/25-26/295","amount":2272843.0,"due":"2026-03-14","overdue_in_sheet":"81"},{"party":"Frontier Jewellers","rep":"Shailendra Jain","date":"2026-01-23","ref":"VJIB/25-26/320","amount":61959.0,"due":"2026-03-24","overdue_in_sheet":"71"},{"party":"Gandhi Jewellers","rep":"Hansraj Kunteta","date":"2026-05-27","ref":"VJIB/2627/076","amount":2471291.0,"due":"2026-07-26","overdue_in_sheet":""},{"party":"GDK Jewels Pvt Ltd","rep":"Shailendra Jain","date":"2026-04-09","ref":"VJIB/2627/019","amount":2119803.0,"due":"2026-06-08","overdue_in_sheet":""},{"party":"Gehna Gems & Jewels Pvt Ltd","rep":"Shailendra Jain","date":"2026-04-18","ref":"VJIB/2627/027","amount":2165.0,"due":"2026-06-17","overdue_in_sheet":""},{"party":"Gem House","rep":"N/A","date":"2026-02-13","ref":"VJIB/25-26/356","amount":1966068.0,"due":"2026-03-30","overdue_in_sheet":"65"},{"party":"Gem House","rep":"N/A","date":"2026-02-19","ref":"VJIB/25-26/367","amount":8963954.0,"due":"2026-04-05","overdue_in_sheet":"59"},{"party":"Gem House","rep":"N/A","date":"2026-04-06","ref":"VJIB/2627/010","amount":12230452.0,"due":"2026-05-21","overdue_in_sheet":"13"},{"party":"Gem Plaza Private Limited","rep":"N/A","date":"2026-01-19","ref":"VJIB/25-26/305","amount":267800.0,"due":"2026-03-05","overdue_in_sheet":"90"},{"party":"Gems and Jewels Palace","rep":"Shailendra Jain","date":"2025-11-03","ref":"VJIB/25-26/216","amount":1485828.0,"due":"2026-01-02","overdue_in_sheet":"152"},{"party":"Gems and Jewels Palace","rep":"Shailendra Jain","date":"2025-11-06","ref":"VJIB/25-26/223","amount":209442.0,"due":"2026-01-05","overdue_in_sheet":"149"},{"party":"Gems and Jewels Palace","rep":"Shailendra Jain","date":"2025-11-19","ref":"VJIB/25-26/237","amount":15656000.0,"due":"2026-01-18","overdue_in_sheet":"136"},{"party":"Gems and Jewels Palace","rep":"Shailendra Jain","date":"2025-12-10","ref":"VJIB/25-26/262","amount":296944.0,"due":"2026-02-08","overdue_in_sheet":"115"},{"party":"Gems and Jewels Palace","rep":"Shailendra Jain","date":"2026-01-03","ref":"VJIB/25-26/282","amount":11039752.0,"due":"2026-03-04","overdue_in_sheet":"91"},{"party":"Gems and Jewels Palace","rep":"Shailendra Jain","date":"2026-03-05","ref":"VJIB/25-26/377","amount":3802396.0,"due":"2026-05-04","overdue_in_sheet":"30"},{"party":"Gems and Jewels Palace","rep":"Shailendra Jain","date":"2026-03-28","ref":"VJIB/25-26/405","amount":6872.0,"due":"2026-05-27","overdue_in_sheet":"7"},{"party":"Gems Paradise","rep":"N/A","date":"2026-03-11","ref":"VJIB/25-26/385","amount":10511231.0,"due":"2026-04-25","overdue_in_sheet":"39"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-08-13","ref":"VJIB/25-26/107","amount":2746736.0,"due":"2025-11-11","overdue_in_sheet":"204"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-08-26","ref":"VJIB/25-26/126","amount":1694049.0,"due":"2025-11-24","overdue_in_sheet":"191"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-09-03","ref":"VJIB/25-26/139","amount":369260.0,"due":"2025-12-02","overdue_in_sheet":"183"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-09-04","ref":"VJIB/25-26/145","amount":1747764.0,"due":"2025-12-03","overdue_in_sheet":"182"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-09-05","ref":"VJIB/25-26/146","amount":1324717.0,"due":"2025-12-04","overdue_in_sheet":"181"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-09-19","ref":"VJIB/25-26/162","amount":261878.0,"due":"2025-12-18","overdue_in_sheet":"167"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-09-25","ref":"VJIB/25-26/171","amount":1805.0,"due":"2025-12-24","overdue_in_sheet":"161"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-10-09","ref":"VJIB/25-26/194","amount":155228.0,"due":"2026-01-07","overdue_in_sheet":"147"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-11-05","ref":"VJIB/25-26/221","amount":53600.0,"due":"2026-02-03","overdue_in_sheet":"120"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-16","ref":"VJIB/25-26/300","amount":158913.0,"due":"2026-04-16","overdue_in_sheet":"48"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-21","ref":"VJIB/25-26/314","amount":75002.0,"due":"2026-04-21","overdue_in_sheet":"43"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-22","ref":"VJIB/25-26/316","amount":196773.0,"due":"2026-04-22","overdue_in_sheet":"42"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-29","ref":"VJIB/25-26/332","amount":79747.0,"due":"2026-04-29","overdue_in_sheet":"35"},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-04-16","ref":"VJIB/2627/023","amount":6606698.0,"due":"2026-07-15","overdue_in_sheet":""},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-04-17","ref":"VJIB/2627/026","amount":22494.0,"due":"2026-07-16","overdue_in_sheet":""},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-05-01","ref":"VJIB/2627/041","amount":803273.0,"due":"2026-07-30","overdue_in_sheet":""},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-05-19","ref":"VJIB/2627/065","amount":313060.0,"due":"2026-08-17","overdue_in_sheet":""},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-05-26","ref":"VJIB/2627/072","amount":113829.0,"due":"2026-08-24","overdue_in_sheet":""},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-05-28","ref":"VJIB/2627/078","amount":1493124.0,"due":"2026-08-26","overdue_in_sheet":""},{"party":"Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-06-01","ref":"VJIB/2627/087","amount":100611.0,"due":"2026-08-30","overdue_in_sheet":""},{"party":"Harsahaimal Shiamlal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-04-21","ref":"VJIB/2627/028","amount":91174.0,"due":"2026-06-20","overdue_in_sheet":""},{"party":"Harsahaimal Shiamlal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-04-28","ref":"VJIB/2627/037","amount":95877.0,"due":"2026-06-27","overdue_in_sheet":""},{"party":"Harsahaimal Shiamlal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-05-02","ref":"VJIB/2627/044","amount":146932.0,"due":"2026-07-01","overdue_in_sheet":""},{"party":"Hazoorilal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2025-12-31","ref":"VJIB/25-26/279","amount":22269413.0,"due":"2026-03-31","overdue_in_sheet":"64"},{"party":"Hazoorilal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-17","ref":"VJIB/25-26/304","amount":2989769.0,"due":"2026-04-17","overdue_in_sheet":"47"},{"party":"Hazoorilal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-20","ref":"VJIB/25-26/309","amount":680413.0,"due":"2026-04-20","overdue_in_sheet":"44"},{"party":"Hazoorilal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-22","ref":"VJIB/25-26/315","amount":1364989.0,"due":"2026-04-22","overdue_in_sheet":"42"},{"party":"Hazoorilal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-03-09","ref":"VJIB/25-26/383","amount":492737.0,"due":"2026-06-07","overdue_in_sheet":""},{"party":"Hazoorilal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-03-10","ref":"VJIB/25-26/384","amount":8835140.0,"due":"2026-06-08","overdue_in_sheet":""},{"party":"Hazoorilal Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-03-21","ref":"VJIB/25-26/395","amount":85043.0,"due":"2026-06-19","overdue_in_sheet":""},{"party":"Hazoorilal & Sons Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-20","ref":"VJIB/25-26/308","amount":13759653.0,"due":"2026-04-20","overdue_in_sheet":"44"},{"party":"Hazoorilal & Sons Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-01-29","ref":"VJIB/25-26/330","amount":148256.0,"due":"2026-04-29","overdue_in_sheet":"35"},{"party":"Hazoorilal & Sons Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-03-07","ref":"VJIB/25-26/381","amount":6024938.0,"due":"2026-06-05","overdue_in_sheet":""},{"party":"Hazoorilal & Sons Jewellers Pvt Ltd","rep":"Hansraj Kunteta","date":"2026-04-08","ref":"VJIB/2627/015","amount":5174.0,"due":"2026-07-07","overdue_in_sheet":""},{"party":"Jaisalmer Arts & Crafts","rep":"Shailendra Jain","date":"2026-01-05","ref":"VJIB/25-26/283","amount":2041261.0,"due":"2026-03-06","overdue_in_sheet":"89"},{"party":"Jaisalmer Arts & Crafts","rep":"Shailendra Jain","date":"2026-02-16","ref":"VJIB/25-26/358","amount":345366.0,"due":"2026-04-17","overdue_in_sheet":"47"},{"party":"Jugal Kishore the Jeweller","rep":"Shailendra Jain","date":"2025-12-24","ref":"VJIB/25-26/272","amount":762911.0,"due":"2026-02-22","overdue_in_sheet":"101"},{"party":"Lahore Jewellers","rep":"Shailendra Jain","date":"2026-04-22","ref":"VJIB/2627/029","amount":304792.0,"due":"2026-06-21","overdue_in_sheet":""},{"party":"Lahore Jewellers","rep":"Shailendra Jain","date":"2026-05-08","ref":"VJIB/2627/054","amount":548387.0,"due":"2026-07-07","overdue_in_sheet":""},{"party":"Lokit Kumar Jain","rep":"N/A","date":"2026-06-01","ref":"VJIB/2627/085","amount":266273.0,"due":"2026-07-31","overdue_in_sheet":""},{"party":"Madanlal Chhaganlal Jewellers","rep":"Hansraj Kunteta","date":"2026-05-13","ref":"VJIB/2627/059","amount":1392441.0,"due":"2026-07-12","overdue_in_sheet":""},{"party":"Madanlal Chhaganlal Jewellers","rep":"Hansraj Kunteta","date":"2026-05-21","ref":"VJIB/2627/068","amount":404096.0,"due":"2026-07-20","overdue_in_sheet":""},{"party":"Malabar Gold And Diamond FZCO ( Export)","rep":"N/A","date":"2026-03-13","ref":"VJIB/25-26/EX08","amount":4284900.0,"due":"2026-06-11","overdue_in_sheet":""},{"party":"Moti Gold And Diamonds LLP","rep":"Hansraj Kunteta","date":"2026-03-26","ref":"CSRRSB-23","amount":1746.0,"due":"2026-05-25","overdue_in_sheet":"9"},{"party":"M/s Karrat 22 Enterprises","rep":"N/A","date":"2025-09-01","ref":"VJIB/25-26/133","amount":4642417.0,"due":"2025-10-01","overdue_in_sheet":"245"},{"party":"M/s Karrat 22 Enterprises","rep":"N/A","date":"2025-09-23","ref":"VJIB/25-26/170","amount":655047.0,"due":"2025-10-23","overdue_in_sheet":"223"},{"party":"Neelkanth Gold and Diamonds Private Limited","rep":"Hansraj Kunteta","date":"2025-10-08","ref":"VJIB/25-26/190","amount":371817.0,"due":"2025-12-07","overdue_in_sheet":"178"},{"party":"Neelkanth Gold and Diamonds Private Limited","rep":"Hansraj Kunteta","date":"2026-03-04","ref":"VJIB/25-26/376","amount":59792.0,"due":"2026-05-03","overdue_in_sheet":"31"},{"party":"Neelkanth Jewellers Private Limited","rep":"Shailendra Jain","date":"2026-05-29","ref":"VJIB/2627/081","amount":762701.0,"due":"2026-07-28","overdue_in_sheet":""},{"party":"Nidhi Choudhary","rep":"N/A","date":"2026-05-01","ref":"VJIB/2627/040","amount":220264.0,"due":"2026-06-30","overdue_in_sheet":""},{"party":"OPS Jewells Pvt Ltd","rep":"Shailendra Jain","date":"2026-01-16","ref":"VJIB/25-26/298","amount":410391.0,"due":"2026-03-17","overdue_in_sheet":"78"},{"party":"OPS Jewells Pvt Ltd","rep":"Shailendra Jain","date":"2026-04-23","ref":"VJIB/2627/030","amount":1934209.0,"due":"2026-06-22","overdue_in_sheet":""},{"party":"OPS Jewells Pvt Ltd","rep":"Shailendra Jain","date":"2026-05-27","ref":"VJIB/2627/DN15","amount":9896.0,"due":"2026-07-26","overdue_in_sheet":""},{"party":"Panna Diamond World LLP","rep":"N/A","date":"2025-03-04","ref":"VJIB/24-25/272","amount":256244.0,"due":"2025-05-03","overdue_in_sheet":"396"},{"party":"Panna Diamond World LLP","rep":"N/A","date":"2025-11-12","ref":"VJIB/25-26/234","amount":608262.0,"due":"2026-01-11","overdue_in_sheet":"143"},{"party":"Panna Handicrafts","rep":"Shailendra Jain","date":"2025-12-04","ref":"VJIB/25-26/256","amount":4041866.0,"due":"2026-01-03","overdue_in_sheet":"151"},{"party":"P.C Chandra & Sons (India) Pvt Ltd BB","rep":"Hansraj Kunteta","date":"2026-05-21","ref":"VJIB/2627/067","amount":1995791.0,"due":"2026-07-20","overdue_in_sheet":""},{"party":"P N Gadgil Jewellers Limited","rep":"Hansraj Kunteta","date":"2025-05-24","ref":"VJIB/25-26/045","amount":12300.0,"due":"2025-08-22","overdue_in_sheet":"285"},{"party":"P N Gadgil Jewellers Limited","rep":"Hansraj Kunteta","date":"2025-11-10","ref":"VJIB/25-26/225","amount":323948.0,"due":"2026-02-08","overdue_in_sheet":"115"},{"party":"Pristine","rep":"N/A","date":"2025-10-07","ref":"VJIB/25-26/186","amount":179736.0,"due":"2025-12-06","overdue_in_sheet":"179"},{"party":"Pristine","rep":"N/A","date":"2025-12-29","ref":"VJIB/25-26/278","amount":371562.0,"due":"2026-02-27","overdue_in_sheet":"96"},{"party":"Pristine","rep":"N/A","date":"2026-01-12","ref":"VJIB/25-26/291","amount":42630.0,"due":"2026-03-13","overdue_in_sheet":"82"},{"party":"Pristine","rep":"N/A","date":"2026-03-12","ref":"VJIB/25-26/388","amount":236238.0,"due":"2026-05-11","overdue_in_sheet":"23"},{"party":"Punjab Jewels & Gems","rep":"Shailendra Jain","date":"2026-03-25","ref":"VJIB/25-26/401","amount":392121.0,"due":"2026-05-24","overdue_in_sheet":"10"},{"party":"Ranka Jewellers & Sons Private Limited","rep":"Hansraj Kunteta","date":"2025-10-15","ref":"VJIB/25-26/201","amount":5785037.0,"due":"2025-12-14","overdue_in_sheet":"171"},{"party":"Ranka Jewellers & Sons Private Limited","rep":"Hansraj Kunteta","date":"2026-01-06","ref":"VJIB/25-26/285","amount":449237.0,"due":"2026-03-07","overdue_in_sheet":"88"},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-04-14","ref":"VJIB/2627/022","amount":2466200.0,"due":"2026-07-13","overdue_in_sheet":""},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-04-17","ref":"VJIB/2627/024","amount":1044711.0,"due":"2026-07-16","overdue_in_sheet":""},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-05-04","ref":"VJIB/2627/047","amount":4247191.0,"due":"2026-08-02","overdue_in_sheet":""},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-05-05","ref":"VJIB/2627/050","amount":239290.0,"due":"2026-08-03","overdue_in_sheet":""},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-05-08","ref":"VJIB/2627/055","amount":49858.0,"due":"2026-08-06","overdue_in_sheet":""},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-05-12","ref":"VJIB/2627/058","amount":801504.0,"due":"2026-08-10","overdue_in_sheet":""},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-05-14","ref":"VJIB/2627/062","amount":230052.0,"due":"2026-08-12","overdue_in_sheet":""},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-05-25","ref":"VJIB/2627/069","amount":38665.0,"due":"2026-08-23","overdue_in_sheet":""},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-05-26","ref":"VJIB/2627/073","amount":47945.0,"due":"2026-08-24","overdue_in_sheet":""},{"party":"Rathod Jewellers","rep":"Hansraj Kunteta","date":"2026-05-29","ref":"VJIB/2627/080","amount":256754.0,"due":"2026-08-27","overdue_in_sheet":""},{"party":"Ratlam Abhushan Pvt.Ltd","rep":"Hansraj Kunteta","date":"2026-05-27","ref":"VJIB/2627/077","amount":168310.0,"due":"2026-07-26","overdue_in_sheet":""},{"party":"RCS Gem Co., Ltd ( Import )","rep":"N/A","date":"2026-05-30","ref":"234","amount":705600.0,"due":"2026-07-14","overdue_in_sheet":""},{"party":"Regal Jewellers LLP","rep":"N/A","date":"2025-04-12","ref":"VJIB/25-26/010","amount":50374.0,"due":"2025-05-27","overdue_in_sheet":"372"},{"party":"Regal Jewellers LLP","rep":"N/A","date":"2025-06-25","ref":"VJIB/25-26/074","amount":112448.0,"due":"2025-08-09","overdue_in_sheet":"298"},{"party":"Regal Jewellers LLP","rep":"N/A","date":"2025-08-05","ref":"VJIB/25-26/099","amount":101292.0,"due":"2025-09-19","overdue_in_sheet":"257"},{"party":"Regal Jewellers Llp Karnataka","rep":"N/A","date":"2025-11-14","ref":"VJIB/25-26/236","amount":14164.0,"due":"2025-12-29","overdue_in_sheet":"156"},{"party":"Regal Jewellers Pvt Ltd","rep":"N/A","date":"2026-03-19","ref":"VJIB/25-26/391","amount":63312.0,"due":"2026-05-03","overdue_in_sheet":"31"},{"party":"Rikhab Das Udai Chand","rep":"Hansraj Kunteta","date":"2026-04-24","ref":"VJIB/2627/033","amount":783775.0,"due":"2026-06-23","overdue_in_sheet":""},{"party":"Saloni Jain","rep":"N/A","date":"2026-04-02","ref":"VJIB/2627/002","amount":813700.0,"due":"2026-06-01","overdue_in_sheet":"2"},{"party":"Shop LC Global Inc ( Export )","rep":"N/A","date":"2024-08-02","ref":"VJIB/24-25/EX04","amount":237533.0,"due":"2024-10-01","overdue_in_sheet":"610"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-01-18","ref":"VJIB/24-25/228","amount":1560147.0,"due":"2025-01-25","overdue_in_sheet":"494"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-04-08","ref":"VJIB/25-26/005","amount":2951508.0,"due":"2025-05-08","overdue_in_sheet":"391"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-06-10","ref":"VJIB/25-26/061","amount":1871887.0,"due":"2025-07-10","overdue_in_sheet":"328"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-07-11","ref":"VJIB/25-26/085","amount":3838788.0,"due":"2025-08-10","overdue_in_sheet":"297"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-07-15","ref":"VJIB/25-26/089","amount":157193.0,"due":"2025-08-14","overdue_in_sheet":"293"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-08-20","ref":"VJIB/25-26/116","amount":1186505.0,"due":"2025-09-19","overdue_in_sheet":"257"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-08-23","ref":"VJIB/25-26/123","amount":2090458.0,"due":"2025-09-22","overdue_in_sheet":"254"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-08-30","ref":"VJIB/25-26/130","amount":18250859.0,"due":"2025-09-29","overdue_in_sheet":"247"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-09-03","ref":"VJIB/25-26/140","amount":1584188.0,"due":"2025-10-03","overdue_in_sheet":"243"},{"party":"Shri Krishna Jewellers Pvt Ltd ( B-Hills)","rep":"Hansraj Kunteta","date":"2025-10-29","ref":"VJIB/25-26/210","amount":1012918.0,"due":"2025-11-28","overdue_in_sheet":"187"},{"party":"Shri Ram Hari Ram Jewellers","rep":"Hansraj Kunteta","date":"2025-11-11","ref":"VJIB/25-26/230","amount":217170.0,"due":"2026-01-10","overdue_in_sheet":"144"},{"party":"Solitaire Diamond Boutique","rep":"Shailendra Jain","date":"2026-02-26","ref":"VJIB/25-26/374","amount":500000.0,"due":"2026-04-27","overdue_in_sheet":"37"},{"party":"Tarun Jethi A Luxury Jeweller","rep":"Shailendra Jain","date":"2025-08-19","ref":"VJIB/25-26/115","amount":435289.0,"due":"2025-10-18","overdue_in_sheet":"228"},{"party":"Tarun Jethi A Luxury Jeweller","rep":"Shailendra Jain","date":"2026-02-19","ref":"VJIB/25-26/365","amount":153637.0,"due":"2026-04-20","overdue_in_sheet":"44"},{"party":"Tarun Jethi A Luxury Jeweller","rep":"Shailendra Jain","date":"2026-03-28","ref":"VJIB/25-26/403","amount":291233.0,"due":"2026-05-27","overdue_in_sheet":"7"},{"party":"Valentine Jewellery (I) Pvt.Ltd.","rep":"N/A","date":"2026-05-30","ref":"VJIB/2627/083","amount":13991.0,"due":"2026-08-28","overdue_in_sheet":""},{"party":"Valentine Jewellery (I) Pvt.Ltd.","rep":"N/A","date":"2026-06-02","ref":"VJIB/2627/088","amount":43403.0,"due":"2026-08-31","overdue_in_sheet":""},{"party":"Verma Fine Jewels Pvt Ltd","rep":"Shailendra Jain","date":"2026-04-25","ref":"VJIB/2627/034","amount":716683.0,"due":"2026-06-24","overdue_in_sheet":""},{"party":"Vijay Jewellers","rep":"Shailendra Jain","date":"2026-01-24","ref":"VJIB/25-26/323","amount":995962.0,"due":"2026-03-25","overdue_in_sheet":"70"},{"party":"Vijay Jewellers","rep":"Shailendra Jain","date":"2026-02-14","ref":"VJIB/25-26/357","amount":136459.0,"due":"2026-04-15","overdue_in_sheet":"49"},{"party":"Vijay Jewellers","rep":"Shailendra Jain","date":"2026-05-27","ref":"VJIB/2627/074","amount":660908.0,"due":"2026-07-26","overdue_in_sheet":""},{"party":"Vijay Jewellers","rep":"Shailendra Jain","date":"2026-06-01","ref":"VJIB/2627/086","amount":178552.0,"due":"2026-07-31","overdue_in_sheet":""},{"party":"Vummidi Bangaru Jewellers (India) Private Limited","rep":"Hansraj Kunteta","date":"2026-05-02","ref":"VJIB/2627/046","amount":42000388.0,"due":"2026-07-01","overdue_in_sheet":""},{"party":"Vummidi Bangaru Jewellers (India) Private Limited","rep":"Hansraj Kunteta","date":"2026-05-30","ref":"VJIB/2627/082","amount":40513939.0,"due":"2026-07-29","overdue_in_sheet":""}];
+const DEFAULT_BILLS = [{"party": "A B Jewels", "rep": "chirag jadau", "date": "2026-06-19", "ref": "TI/26-27/0288", "amount": 7617.0, "due": "2026-08-18", "overdue_in_sheet": ""}, {"party": "ABS Jewels", "rep": "ved jadau", "date": "2026-05-21", "ref": "TI/26-27/0192", "amount": 948444.0, "due": "2026-07-20", "overdue_in_sheet": ""}, {"party": "ABS Jewels", "rep": "ved jadau", "date": "2026-06-08", "ref": "TI/26-27/0255", "amount": 23359.0, "due": "2026-08-07", "overdue_in_sheet": ""}, {"party": "Agarwal Jewels & Gems Pvt Ltd.", "rep": "kartik jadau", "date": "2025-11-27", "ref": "TI/25-26/1114", "amount": 645510.0, "due": "2026-01-26", "overdue_in_sheet": "147"}, {"party": "Agarwal Jewels & Gems Pvt Ltd.", "rep": "kartik jadau", "date": "2025-12-30", "ref": "TI/25-26/1256", "amount": 226642.0, "due": "2026-02-28", "overdue_in_sheet": "114"}, {"party": "Agarwal Jewels & Gems Pvt Ltd.", "rep": "kartik jadau", "date": "2026-02-05", "ref": "TI/25-26/1438", "amount": 274372.0, "due": "2026-04-06", "overdue_in_sheet": "77"}, {"party": "Agarwal Jewels & Gems Pvt Ltd.", "rep": "kartik jadau", "date": "2026-04-18", "ref": "TI/26-27/0090", "amount": 855333.0, "due": "2026-06-17", "overdue_in_sheet": "5"}, {"party": "Alankar Gems And Jewellery Pvt Ltd", "rep": "abhishek jadau", "date": "2026-04-09", "ref": "TI/26-27/0035", "amount": 1641121.0, "due": "2026-06-08", "overdue_in_sheet": "14"}, {"party": "Alankar Gems And Jewellery Pvt Ltd", "rep": "abhishek jadau", "date": "2026-04-11", "ref": "TI/26-27/0053", "amount": 229923.0, "due": "2026-06-10", "overdue_in_sheet": "12"}, {"party": "Alankar Gems And Jewellery Pvt Ltd", "rep": "abhishek jadau", "date": "2026-04-14", "ref": "TI/26-27/0068", "amount": 154592.0, "due": "2026-06-13", "overdue_in_sheet": "9"}, {"party": "Alankar Gems And Jewellery Pvt Ltd", "rep": "abhishek jadau", "date": "2026-05-15", "ref": "TI/26-27/0171", "amount": 133128.0, "due": "2026-07-14", "overdue_in_sheet": ""}, {"party": "Alankar Jewellers", "rep": "abhishek jadau", "date": "2026-04-18", "ref": "TI/26-27/0089", "amount": 448.0, "due": "2026-06-17", "overdue_in_sheet": "5"}, {"party": "Alankar Jewellers", "rep": "abhishek jadau", "date": "2026-04-28", "ref": "TI/26-27/0123", "amount": 1114269.0, "due": "2026-06-27", "overdue_in_sheet": ""}, {"party": "Alankar Jewellers", "rep": "abhishek jadau", "date": "2026-05-14", "ref": "TI/26-27/0168", "amount": 283809.0, "due": "2026-07-13", "overdue_in_sheet": ""}, {"party": "Alka Jewels", "rep": "kartik jadau", "date": "2026-03-27", "ref": "TI/25-26/1642", "amount": 1302753.0, "due": "2026-05-26", "overdue_in_sheet": "27"}, {"party": "Anand Jewels Indore Pvt Ltd", "rep": "Hansraj Kunteta", "date": "2026-05-19", "ref": "TI/26-27/0186", "amount": 1165295.0, "due": "2026-07-18", "overdue_in_sheet": ""}, {"party": "Anand Jewels Indore Pvt Ltd", "rep": "Hansraj Kunteta", "date": "2026-05-20", "ref": "TI/26-27/0190", "amount": 168817.0, "due": "2026-07-19", "overdue_in_sheet": ""}, {"party": "Anand Jewels Indore Pvt Ltd", "rep": "Hansraj Kunteta", "date": "2026-06-13", "ref": "TI/26-27/0269", "amount": 507552.0, "due": "2026-08-12", "overdue_in_sheet": ""}, {"party": "Anand Jewels Indore Pvt Ltd", "rep": "Hansraj Kunteta", "date": "2026-06-18", "ref": "TI/26-27/0282", "amount": 1281005.0, "due": "2026-08-17", "overdue_in_sheet": ""}, {"party": "Anupa M Patel", "rep": "RETAILER", "date": "2026-02-12", "ref": "TI/25-26/1484", "amount": 2449999.0, "due": "2026-04-13", "overdue_in_sheet": "70"}, {"party": "Asha Khatoria", "rep": "RETAILER", "date": "2026-02-28", "ref": "TI/25-26/1544", "amount": 360500.0, "due": "2026-04-29", "overdue_in_sheet": "54"}, {"party": "Ashtalaxmi Jewels", "rep": "sanjay jadau", "date": "2026-01-23", "ref": "TI/25-26/1367", "amount": 280.0, "due": "2026-03-24", "overdue_in_sheet": "90"}, {"party": "Azam Jewellers Private Limited", "rep": "shreen jadau", "date": "2026-03-28", "ref": "TI/25-26/1653", "amount": 855780.0, "due": "2026-05-27", "overdue_in_sheet": "26"}, {"party": "Beauty Creators LLP", "rep": "abhishek jadau", "date": "2026-04-18", "ref": "TI/26-27/0087", "amount": 342.0, "due": "2026-06-17", "overdue_in_sheet": "5"}, {"party": "Bhandari Jewellers", "rep": "MUKESH SIR", "date": "2026-01-07", "ref": "TI/25-26/1298", "amount": 7412999.0, "due": "2026-03-08", "overdue_in_sheet": "106"}, {"party": "Bhandari Jewellers", "rep": "MUKESH SIR", "date": "2026-01-24", "ref": "TI/25-26/1378", "amount": 14920454.0, "due": "2026-03-25", "overdue_in_sheet": "89"}, {"party": "Bhandari Jewellers", "rep": "MUKESH SIR", "date": "2026-03-12", "ref": "TI/25-26/1584", "amount": 13481493.0, "due": "2026-05-11", "overdue_in_sheet": "42"}, {"party": "Bishan Singh Jasbir Singh Jewellers LLP", "rep": "kartik jadau", "date": "2026-04-16", "ref": "TI/26-27/0075", "amount": 2950389.0, "due": "2026-06-15", "overdue_in_sheet": "7"}, {"party": "Bishan Singh Jasbir Singh Jewellers LLP", "rep": "kartik jadau", "date": "2026-05-28", "ref": "TI/26-27/0218", "amount": 776879.0, "due": "2026-07-27", "overdue_in_sheet": ""}, {"party": "Bothra & Bagmar Jewelles Pvt Ltd", "rep": "Hansraj Kunteta", "date": "2025-10-31", "ref": "TI/25-26/0935", "amount": 1363135.0, "due": "2025-12-30", "overdue_in_sheet": "174"}, {"party": "Challani Jewellery Mart", "rep": "abhishek jadau", "date": "2025-09-29", "ref": "TI/25-26/0762", "amount": 746973.0, "due": "2025-11-28", "overdue_in_sheet": "206"}, {"party": "Challani Jewellery Mart", "rep": "abhishek jadau", "date": "2025-10-06", "ref": "TI/25-26/0792", "amount": 709096.0, "due": "2025-12-05", "overdue_in_sheet": "199"}, {"party": "Challani Jewellery Mart", "rep": "abhishek jadau", "date": "2025-11-11", "ref": "TI/25-26/0997", "amount": 2489192.0, "due": "2026-01-10", "overdue_in_sheet": "163"}, {"party": "Challani Jewellery Mart", "rep": "abhishek jadau", "date": "2026-05-27", "ref": "TI/26-27/0208", "amount": 431240.0, "due": "2026-07-26", "overdue_in_sheet": ""}, {"party": "C.N Jewellers", "rep": "chirag jadau", "date": "2026-06-06", "ref": "TI/26-27/0250", "amount": 2143900.0, "due": "2026-08-05", "overdue_in_sheet": ""}, {"party": "D C Jewellers Gold & Diamonds", "rep": "abhishek jadau", "date": "2026-03-16", "ref": "TI/25-26/1598", "amount": 538019.0, "due": "2026-05-15", "overdue_in_sheet": "38"}, {"party": "D C Jewellers Gold & Diamonds", "rep": "abhishek jadau", "date": "2026-04-08", "ref": "TI/26-27/0024", "amount": 331818.0, "due": "2026-06-07", "overdue_in_sheet": "15"}, {"party": "D P Abhushan Ltd", "rep": "Hansraj Kunteta", "date": "2026-04-14", "ref": "TI/26-27/0065", "amount": 790944.0, "due": "2026-06-13", "overdue_in_sheet": "9"}, {"party": "D P Abhushan Ltd", "rep": "Hansraj Kunteta", "date": "2026-05-01", "ref": "TI/26-27/0129", "amount": 1528968.0, "due": "2026-06-30", "overdue_in_sheet": ""}, {"party": "D P Abhushan Ltd", "rep": "Hansraj Kunteta", "date": "2026-05-21", "ref": "TI/26-27/0191", "amount": 3223094.0, "due": "2026-07-20", "overdue_in_sheet": ""}, {"party": "D P Abhushan Ltd", "rep": "Hansraj Kunteta", "date": "2026-05-26", "ref": "TI/26-27/0201", "amount": 3197074.0, "due": "2026-07-25", "overdue_in_sheet": ""}, {"party": "D P Abhushan Ltd", "rep": "Hansraj Kunteta", "date": "2026-06-03", "ref": "TI/26-27/0236", "amount": 2551635.0, "due": "2026-08-02", "overdue_in_sheet": ""}, {"party": "D P Abhushan Ltd", "rep": "Hansraj Kunteta", "date": "2026-06-05", "ref": "TI/26-27/0247", "amount": 907382.0, "due": "2026-08-04", "overdue_in_sheet": ""}, {"party": "D P Abhushan Ltd", "rep": "Hansraj Kunteta", "date": "2026-06-20", "ref": "TI/26-27/0289", "amount": 346970.0, "due": "2026-08-19", "overdue_in_sheet": ""}, {"party": "D P Jewelline Private Limited", "rep": "MUKESH SIR", "date": "2026-05-01", "ref": "TI/26-27/0130", "amount": 9259341.0, "due": "2026-06-30", "overdue_in_sheet": ""}, {"party": "D P Jewelline Private Limited", "rep": "MUKESH SIR", "date": "2026-05-08", "ref": "TI/26-27/0152", "amount": 5210520.0, "due": "2026-07-07", "overdue_in_sheet": ""}, {"party": "D P Jewelline Private Limited", "rep": "MUKESH SIR", "date": "2026-05-08", "ref": "TI/26-27/0153", "amount": 13129648.0, "due": "2026-07-07", "overdue_in_sheet": ""}, {"party": "D P Jewelline Private Limited", "rep": "MUKESH SIR", "date": "2026-06-03", "ref": "TI/26-27/0238", "amount": 11758966.0, "due": "2026-08-02", "overdue_in_sheet": ""}, {"party": "Dutta Heritage Private Limited", "rep": "kartik jadau", "date": "2026-01-16", "ref": "TI/25-26/1317", "amount": 352725.0, "due": "2026-03-17", "overdue_in_sheet": "97"}, {"party": "Emerald Jewel Industry India Ltd", "rep": "shreen jadau", "date": "2025-09-23", "ref": "TI/25-26/0710", "amount": 70832.0, "due": "2025-11-22", "overdue_in_sheet": "212"}, {"party": "Emerald Jewel Industry India Ltd", "rep": "shreen jadau", "date": "2025-09-23", "ref": "TI/25-26/0711", "amount": 189101.0, "due": "2025-11-22", "overdue_in_sheet": "212"}, {"party": "Fuzion Jewels Pvt Ltd", "rep": "chirag jadau", "date": "2026-04-18", "ref": "TI/26-27/0091", "amount": 486670.0, "due": "2026-06-17", "overdue_in_sheet": "5"}, {"party": "Fuzion Jewels Pvt Ltd", "rep": "chirag jadau", "date": "2026-05-13", "ref": "TI/26-27/0167", "amount": 1999701.0, "due": "2026-07-12", "overdue_in_sheet": ""}, {"party": "Fuzion Jewels Pvt Ltd", "rep": "chirag jadau", "date": "2026-05-27", "ref": "TI/26-27/0211", "amount": 1069024.0, "due": "2026-07-26", "overdue_in_sheet": ""}, {"party": "Fuzion Jewels Pvt Ltd", "rep": "chirag jadau", "date": "2026-06-04", "ref": "TI/26-27/0240", "amount": 277587.0, "due": "2026-08-03", "overdue_in_sheet": ""}, {"party": "Fuzion Jewels Pvt Ltd", "rep": "chirag jadau", "date": "2026-06-08", "ref": "TI/26-27/0256", "amount": 198550.0, "due": "2026-08-07", "overdue_in_sheet": ""}, {"party": "Gandhi Jewellers", "rep": "chirag jadau", "date": "2026-01-12", "ref": "TI/25-26/1310", "amount": 94.0, "due": "2026-03-13", "overdue_in_sheet": "101"}, {"party": "Gandhi Jewellers", "rep": "chirag jadau", "date": "2026-01-20", "ref": "TI/25-26/1340", "amount": 486308.0, "due": "2026-03-21", "overdue_in_sheet": "93"}, {"party": "Gandhi Jewellers", "rep": "chirag jadau", "date": "2026-02-13", "ref": "TI/25-26/1485", "amount": 415473.0, "due": "2026-04-14", "overdue_in_sheet": "69"}, {"party": "Gandhi Jewellers", "rep": "chirag jadau", "date": "2026-02-13", "ref": "TI/25-26/1486", "amount": 86882.0, "due": "2026-04-14", "overdue_in_sheet": "69"}, {"party": "Gandhi Jewellers", "rep": "chirag jadau", "date": "2026-03-09", "ref": "TI/25-26/1575", "amount": 12037.0, "due": "2026-05-08", "overdue_in_sheet": "45"}, {"party": "Gandhi Jewellers", "rep": "chirag jadau", "date": "2026-03-20", "ref": "TI/25-26/1618", "amount": 87932.0, "due": "2026-05-19", "overdue_in_sheet": "34"}, {"party": "Gem House", "rep": "MUKESH SIR", "date": "2026-02-14", "ref": "TI/25-26/1498", "amount": 7718027.0, "due": "2026-04-15", "overdue_in_sheet": "68"}, {"party": "Gem House", "rep": "MUKESH SIR", "date": "2026-03-12", "ref": "TI/25-26/1585", "amount": 5677849.0, "due": "2026-05-11", "overdue_in_sheet": "42"}, {"party": "Gems & Jewels Palace", "rep": "MUKESH SIR", "date": "2025-12-25", "ref": "TI/25-26/1231", "amount": 2735.0, "due": "2026-02-23", "overdue_in_sheet": "119"}, {"party": "Gems Paradise", "rep": "MUKESH SIR", "date": "2026-02-14", "ref": "TI/25-26/1497", "amount": 11266131.0, "due": "2026-04-15", "overdue_in_sheet": "68"}, {"party": "Gems Paradise", "rep": "MUKESH SIR", "date": "2026-02-20", "ref": "TI/25-26/1520", "amount": 8599017.0, "due": "2026-04-21", "overdue_in_sheet": "62"}, {"party": "Gems Paradise", "rep": "MUKESH SIR", "date": "2026-03-12", "ref": "TI/25-26/1586", "amount": 1471902.0, "due": "2026-05-11", "overdue_in_sheet": "42"}, {"party": "Gems Paradise", "rep": "MUKESH SIR", "date": "2026-04-11", "ref": "TI/26-27/0050", "amount": 2035713.0, "due": "2026-06-10", "overdue_in_sheet": "12"}, {"party": "Gems Paradise", "rep": "MUKESH SIR", "date": "2026-04-11", "ref": "TI/26-27/0051", "amount": 10552926.0, "due": "2026-06-10", "overdue_in_sheet": "12"}, {"party": "GRT Jewellers ( India) Private Limited", "rep": "abhishek jadau", "date": "2026-05-05", "ref": "TI/26-27/0136", "amount": 145164.0, "due": "2026-07-04", "overdue_in_sheet": ""}, {"party": "GRT Jewellers ( India) Private Limited", "rep": "abhishek jadau", "date": "2026-06-05", "ref": "TI/26-27/0246", "amount": 85560.0, "due": "2026-08-04", "overdue_in_sheet": ""}, {"party": "GRT Jewellers ( India) Private Limited", "rep": "abhishek jadau", "date": "2026-06-15", "ref": "TI/26-27/0270", "amount": 135142.0, "due": "2026-08-14", "overdue_in_sheet": ""}, {"party": "GRT Jewellers ( India) Private Limited", "rep": "abhishek jadau", "date": "2026-06-15", "ref": "TI/26-27/0271", "amount": 259149.0, "due": "2026-08-14", "overdue_in_sheet": ""}, {"party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd", "rep": "kartik jadau", "date": "2025-08-30", "ref": "TI/25-26/0576", "amount": 5091.0, "due": "2025-10-29", "overdue_in_sheet": "236"}, {"party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd", "rep": "kartik jadau", "date": "2025-09-02", "ref": "TI/25-26/0593", "amount": 58254.0, "due": "2025-11-01", "overdue_in_sheet": "233"}, {"party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd", "rep": "kartik jadau", "date": "2025-12-09", "ref": "TI/25-26/1166", "amount": 226709.0, "due": "2026-02-07", "overdue_in_sheet": "135"}, {"party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd", "rep": "kartik jadau", "date": "2025-12-13", "ref": "TI/25-26/1189", "amount": 920802.0, "due": "2026-02-11", "overdue_in_sheet": "131"}, {"party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd", "rep": "kartik jadau", "date": "2026-01-07", "ref": "TI/25-26/1299", "amount": 146909.0, "due": "2026-03-08", "overdue_in_sheet": "106"}, {"party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd", "rep": "kartik jadau", "date": "2026-02-06", "ref": "TI/25-26/1443", "amount": 610613.0, "due": "2026-04-07", "overdue_in_sheet": "76"}, {"party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd", "rep": "kartik jadau", "date": "2026-02-14", "ref": "TI/25-26/1499", "amount": 67538.0, "due": "2026-04-15", "overdue_in_sheet": "68"}, {"party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd", "rep": "kartik jadau", "date": "2026-04-10", "ref": "TI/26-27/0041", "amount": 216298.0, "due": "2026-06-09", "overdue_in_sheet": "13"}, {"party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd", "rep": "kartik jadau", "date": "2026-06-03", "ref": "TI/26-27/0234", "amount": 256577.0, "due": "2026-08-02", "overdue_in_sheet": ""}, {"party": "Hazoorilal Jewellers Private Limited", "rep": "kartik jadau", "date": "2025-12-30", "ref": "TI/25-26/1260", "amount": 107000.0, "due": "2026-02-28", "overdue_in_sheet": "114"}, {"party": "House Of Jewels", "rep": "chirag jadau", "date": "2026-05-08", "ref": "TI/26-27/0151", "amount": 3330.0, "due": "2026-07-07", "overdue_in_sheet": ""}, {"party": "Iyra Jewels Diamonds", "rep": "sanjay jadau", "date": "2026-02-24", "ref": "TI/25-26/1535", "amount": 7617.0, "due": "2026-04-25", "overdue_in_sheet": "58"}, {"party": "Jatin Mor Jewels Private Limited", "rep": "sanjay jadau", "date": "2026-04-24", "ref": "TI/26-27/0110", "amount": 1667764.0, "due": "2026-06-23", "overdue_in_sheet": ""}, {"party": "Jatin Mor Jewels Private Limited", "rep": "sanjay jadau", "date": "2026-06-11", "ref": "TI/26-27/0263", "amount": 2291449.0, "due": "2026-08-10", "overdue_in_sheet": ""}, {"party": "Jawanmal Prakashchand", "rep": "Hansraj Kunteta", "date": "2025-10-15", "ref": "TI/25-26/0845", "amount": 106538.0, "due": "2025-12-14", "overdue_in_sheet": "190"}, {"party": "Jewel World", "rep": "chirag jadau", "date": "2025-11-12", "ref": "TI/25-26/1002", "amount": 88567.0, "due": "2026-01-11", "overdue_in_sheet": "162"}, {"party": "Jewel World", "rep": "chirag jadau", "date": "2026-01-06", "ref": "TI/25-26/1287", "amount": 322899.0, "due": "2026-03-07", "overdue_in_sheet": "107"}, {"party": "Jewel World", "rep": "chirag jadau", "date": "2026-03-19", "ref": "TI/25-26/1610", "amount": 276391.0, "due": "2026-05-18", "overdue_in_sheet": "35"}, {"party": "Jugal Kishore The Jewellers", "rep": "kartik jadau", "date": "2026-01-17", "ref": "TI/25-26/1327", "amount": 440178.0, "due": "2026-03-18", "overdue_in_sheet": "96"}, {"party": "Jugal Kishore The Jewellers", "rep": "kartik jadau", "date": "2026-03-14", "ref": "TI/25-26/1596", "amount": 5549771.0, "due": "2026-05-13", "overdue_in_sheet": "40"}, {"party": "Jugal Kishore The Jewellers", "rep": "kartik jadau", "date": "2026-04-11", "ref": "TI/26-27/0046", "amount": 787189.0, "due": "2026-06-10", "overdue_in_sheet": "12"}, {"party": "Kantilal & Bros Jewellers", "rep": "chirag jadau", "date": "2025-09-19", "ref": "TI/25-26/0678", "amount": 544298.0, "due": "2025-11-18", "overdue_in_sheet": "216"}, {"party": "Kantilal & Bros Jewellers", "rep": "chirag jadau", "date": "2025-10-13", "ref": "TI/25-26/0836", "amount": 188933.0, "due": "2025-12-12", "overdue_in_sheet": "192"}, {"party": "Kantilal & Bros Jewellers", "rep": "chirag jadau", "date": "2025-11-12", "ref": "TI/25-26/1000", "amount": 315734.0, "due": "2026-01-11", "overdue_in_sheet": "162"}, {"party": "Kantilal & Bros Jewellers", "rep": "chirag jadau", "date": "2025-11-24", "ref": "TI/25-26/1095", "amount": 427477.0, "due": "2026-01-23", "overdue_in_sheet": "150"}, {"party": "Keshavlal Nathubhai Jewellers", "rep": "chirag jadau", "date": "2026-02-07", "ref": "TI/25-26/1461", "amount": 494880.0, "due": "2026-04-08", "overdue_in_sheet": "75"}, {"party": "Keshavlal Nathubhai Jewellers", "rep": "chirag jadau", "date": "2026-03-05", "ref": "TI/25-26/1561", "amount": 1938517.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Keshavlal Nathubhai Jewellers", "rep": "chirag jadau", "date": "2026-03-07", "ref": "TI/25-26/1570", "amount": 42389.0, "due": "2026-05-06", "overdue_in_sheet": "47"}, {"party": "Keshavlal Nathubhai Jewellers", "rep": "chirag jadau", "date": "2026-05-04", "ref": "TI/26-27/0131", "amount": 1020021.0, "due": "2026-07-03", "overdue_in_sheet": ""}, {"party": "Keshavlal Nathubhai Jewellers", "rep": "chirag jadau", "date": "2026-05-22", "ref": "TI/26-27/0198", "amount": 956111.0, "due": "2026-07-21", "overdue_in_sheet": ""}, {"party": "Keshavlal Nathubhai Jewellers", "rep": "chirag jadau", "date": "2026-06-05", "ref": "TI/26-27/0249", "amount": 1029137.0, "due": "2026-08-04", "overdue_in_sheet": ""}, {"party": "Keshavlal Nathubhai Jewellers", "rep": "chirag jadau", "date": "2026-06-20", "ref": "TI/26-27/0290", "amount": 941551.0, "due": "2026-08-19", "overdue_in_sheet": ""}, {"party": "Khurana Jewellers & SONS Pvt Ltd", "rep": "kartik jadau", "date": "2026-02-20", "ref": "TI/25-26/1525", "amount": 1704415.0, "due": "2026-04-21", "overdue_in_sheet": "62"}, {"party": "Khurana Jewellers & SONS Pvt Ltd", "rep": "kartik jadau", "date": "2026-03-20", "ref": "TI/25-26/1619", "amount": 42135.0, "due": "2026-05-19", "overdue_in_sheet": "34"}, {"party": "Khurana Jewellers & SONS Pvt Ltd", "rep": "kartik jadau", "date": "2026-04-02", "ref": "TI/26-27/0007", "amount": 146829.0, "due": "2026-06-01", "overdue_in_sheet": "21"}, {"party": "Khurana Jewellers & SONS Pvt Ltd", "rep": "kartik jadau", "date": "2026-05-26", "ref": "TI/26-27/0205", "amount": 453489.0, "due": "2026-07-25", "overdue_in_sheet": ""}, {"party": "Kishan R Jewels", "rep": "chirag jadau", "date": "2025-09-19", "ref": "TI/25-26/0675", "amount": 3164376.0, "due": "2025-11-18", "overdue_in_sheet": "216"}, {"party": "Kishan R Jewels", "rep": "chirag jadau", "date": "2026-01-19", "ref": "TI/25-26/1330", "amount": 47866.0, "due": "2026-03-20", "overdue_in_sheet": "94"}, {"party": "Kishan R Jewels", "rep": "chirag jadau", "date": "2026-05-14", "ref": "TI/26-27/0169", "amount": 972251.0, "due": "2026-07-13", "overdue_in_sheet": ""}, {"party": "K M Choksi Jewellers Private Limited", "rep": "chirag jadau", "date": "2026-05-29", "ref": "TI/26-27/0222", "amount": 713680.0, "due": "2026-07-28", "overdue_in_sheet": ""}, {"party": "Kothari Jewellers", "rep": "chirag jadau", "date": "2025-11-17", "ref": "TI/25-26/1042", "amount": 131150.0, "due": "2026-01-16", "overdue_in_sheet": "157"}, {"party": "Kothari Jewellers", "rep": "chirag jadau", "date": "2025-11-20", "ref": "TI/25-26/1071", "amount": 607313.0, "due": "2026-01-19", "overdue_in_sheet": "154"}, {"party": "Kothari Jewellers", "rep": "chirag jadau", "date": "2026-01-02", "ref": "TI/25-26/1272", "amount": 94583.0, "due": "2026-03-03", "overdue_in_sheet": "111"}, {"party": "K R Sons Ahmedabad", "rep": "chirag jadau", "date": "2026-04-02", "ref": "TI/26-27/0005", "amount": 194452.0, "due": "2026-06-01", "overdue_in_sheet": "21"}, {"party": "K R Sons Ahmedabad", "rep": "chirag jadau", "date": "2026-04-02", "ref": "TI/26-27/0012", "amount": 27208.0, "due": "2026-06-01", "overdue_in_sheet": "21"}, {"party": "Kundan Jewellers Pvt Ltd", "rep": "chirag jadau", "date": "2026-02-16", "ref": "TI/25-26/1505", "amount": 5130778.0, "due": "2026-04-17", "overdue_in_sheet": "66"}, {"party": "Kundan Jewellers Pvt Ltd", "rep": "chirag jadau", "date": "2026-02-20", "ref": "TI/25-26/1523", "amount": 721610.0, "due": "2026-04-21", "overdue_in_sheet": "62"}, {"party": "Kundan Jewellers Pvt Ltd", "rep": "chirag jadau", "date": "2026-04-18", "ref": "TI/26-27/0093", "amount": 778669.0, "due": "2026-06-17", "overdue_in_sheet": "5"}, {"party": "Laxmi Ganesh Jewellers", "rep": "sanjay jadau", "date": "2026-02-06", "ref": "TI/25-26/1439", "amount": 1351630.0, "due": "2026-04-07", "overdue_in_sheet": "76"}, {"party": "Madan Lal Chhagan Lal Jewellers", "rep": "chirag jadau", "date": "2026-06-02", "ref": "TI/26-27/0233", "amount": 346818.0, "due": "2026-08-01", "overdue_in_sheet": ""}, {"party": "Madan Lal Chhagan Lal Jewellers", "rep": "chirag jadau", "date": "2026-06-03", "ref": "TI/26-27/0239", "amount": 464167.0, "due": "2026-08-02", "overdue_in_sheet": ""}, {"party": "Madan Lal Chhagan Lal Jewellers", "rep": "chirag jadau", "date": "2026-06-13", "ref": "TI/26-27/0267", "amount": 1145552.0, "due": "2026-08-12", "overdue_in_sheet": ""}, {"party": "Mahendra Jewellers", "rep": "chirag jadau", "date": "2026-01-05", "ref": "TI/25-26/1283", "amount": 39707.0, "due": "2026-03-06", "overdue_in_sheet": "108"}, {"party": "Mahendra Jewellers", "rep": "chirag jadau", "date": "2026-04-23", "ref": "TI/26-27/0103", "amount": 2335052.0, "due": "2026-06-22", "overdue_in_sheet": "0"}, {"party": "Mahendra Jewellers", "rep": "chirag jadau", "date": "2026-04-23", "ref": "TI/26-27/0104", "amount": 233426.0, "due": "2026-06-22", "overdue_in_sheet": "0"}, {"party": "Malabar Gold And Diamonds Ltd Jaipur", "rep": "abhishek jadau", "date": "2026-05-12", "ref": "TI/26-27/0163", "amount": 603182.0, "due": "2026-07-11", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-05", "ref": "TI/25-26/1553", "amount": 37923.14, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-05", "ref": "TI/25-26/1554", "amount": 825557.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-05", "ref": "TI/25-26/1555", "amount": 653182.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-05", "ref": "TI/25-26/1556", "amount": 487757.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-05", "ref": "TI/25-26/1557", "amount": 343779.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-05", "ref": "TI/25-26/1558", "amount": 1434439.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-05", "ref": "TI/25-26/1559", "amount": 248910.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-05", "ref": "TI/25-26/1560", "amount": 833401.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-05", "ref": "TI/25-26/1562", "amount": 287439.83, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-06", "ref": "TI/25-26/1563", "amount": 2449467.0, "due": "2026-05-05", "overdue_in_sheet": "48"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-09", "ref": "TI/25-26/1576", "amount": 2095371.0, "due": "2026-05-08", "overdue_in_sheet": "45"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-09", "ref": "TI/25-26/1577", "amount": 1223783.0, "due": "2026-05-08", "overdue_in_sheet": "45"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-19", "ref": "TI/25-26/1605", "amount": 662521.0, "due": "2026-05-18", "overdue_in_sheet": "35"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-19", "ref": "TI/25-26/1606", "amount": 246659.0, "due": "2026-05-18", "overdue_in_sheet": "35"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-19", "ref": "TI/25-26/1608", "amount": 678913.0, "due": "2026-05-18", "overdue_in_sheet": "35"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-20", "ref": "TI/25-26/1615", "amount": 344736.0, "due": "2026-05-19", "overdue_in_sheet": "34"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-21", "ref": "TI/25-26/1621", "amount": 7759746.98, "due": "2026-05-20", "overdue_in_sheet": "33"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-03-28", "ref": "TI/25-26/1654", "amount": 526835.0, "due": "2026-05-27", "overdue_in_sheet": "26"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-06", "ref": "TI/26-27/0020", "amount": 709401.12, "due": "2026-06-05", "overdue_in_sheet": "17"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-08", "ref": "TI/26-27/0027", "amount": 1290286.0, "due": "2026-06-07", "overdue_in_sheet": "15"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-14", "ref": "TI/26-27/0060", "amount": 1634841.0, "due": "2026-06-13", "overdue_in_sheet": "9"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-14", "ref": "TI/26-27/0062", "amount": 774651.0, "due": "2026-06-13", "overdue_in_sheet": "9"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-14", "ref": "TI/26-27/0063", "amount": 482962.0, "due": "2026-06-13", "overdue_in_sheet": "9"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-14", "ref": "TI/26-27/0069", "amount": 852435.0, "due": "2026-06-13", "overdue_in_sheet": "9"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-16", "ref": "TI/26-27/0077", "amount": 30877573.0, "due": "2026-06-15", "overdue_in_sheet": "7"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-17", "ref": "TI/26-27/0084", "amount": 363422.0, "due": "2026-06-16", "overdue_in_sheet": "6"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-17", "ref": "TI/26-27/0085", "amount": 99226.0, "due": "2026-06-16", "overdue_in_sheet": "6"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-17", "ref": "TI/26-27/0086", "amount": 111901.0, "due": "2026-06-16", "overdue_in_sheet": "6"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-21", "ref": "TI/26-27/0096", "amount": 1859683.03, "due": "2026-06-20", "overdue_in_sheet": "2"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-22", "ref": "TI/26-27/0099", "amount": 258150.0, "due": "2026-06-21", "overdue_in_sheet": "1"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-22", "ref": "TI/26-27/0100", "amount": 549946.0, "due": "2026-06-21", "overdue_in_sheet": "1"}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-24", "ref": "TI/26-27/0111", "amount": 387053.0, "due": "2026-06-23", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-24", "ref": "TI/26-27/0112", "amount": 464376.0, "due": "2026-06-23", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-24", "ref": "TI/26-27/0113", "amount": 3789.0, "due": "2026-06-23", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-25", "ref": "TI/26-27/0116", "amount": 1597109.0, "due": "2026-06-24", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-04-25", "ref": "TI/26-27/0117", "amount": 53984.0, "due": "2026-06-24", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-05", "ref": "TI/26-27/0137", "amount": 255550.0, "due": "2026-07-04", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-05", "ref": "TI/26-27/0138", "amount": 1228092.0, "due": "2026-07-04", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-05", "ref": "TI/26-27/0139", "amount": 1383406.0, "due": "2026-07-04", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-05", "ref": "TI/26-27/0140", "amount": 147808.0, "due": "2026-07-04", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-07", "ref": "TI/26-27/0149", "amount": 87942.0, "due": "2026-07-06", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-16", "ref": "TI/26-27/0181", "amount": 100281.0, "due": "2026-07-15", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-22", "ref": "TI/26-27/0196", "amount": 205580.92, "due": "2026-07-21", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-22", "ref": "TI/26-27/0199", "amount": 584496.0, "due": "2026-07-21", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-27", "ref": "TI/26-27/0206", "amount": 144568.0, "due": "2026-07-26", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-28", "ref": "TI/26-27/0212", "amount": 796.0, "due": "2026-07-27", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-29", "ref": "TI/26-27/0224", "amount": 1173134.0, "due": "2026-07-28", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-05-30", "ref": "TI/26-27/0226", "amount": 340797.0, "due": "2026-07-29", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-06-02", "ref": "TI/26-27/0231", "amount": 19828.0, "due": "2026-08-01", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-06-06", "ref": "TI/26-27/0254", "amount": 705859.0, "due": "2026-08-05", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-06-09", "ref": "TI/26-27/0257", "amount": 1593823.0, "due": "2026-08-08", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-06-09", "ref": "TI/26-27/0258", "amount": 51271.0, "due": "2026-08-08", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-06-13", "ref": "TI/26-27/0268", "amount": 155608.0, "due": "2026-08-12", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-06-15", "ref": "TI/26-27/0273", "amount": 114503.0, "due": "2026-08-14", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-06-15", "ref": "TI/26-27/0274", "amount": 311907.0, "due": "2026-08-14", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-06-15", "ref": "TI/26-27/0275", "amount": 112709.0, "due": "2026-08-14", "overdue_in_sheet": ""}, {"party": "Malabar Gold Pvt Ltd ( Mumbai)", "rep": "abhishek jadau", "date": "2026-06-18", "ref": "TI/26-27/0283", "amount": 656688.0, "due": "2026-08-17", "overdue_in_sheet": ""}, {"party": "Manek Gem Art International", "rep": "chirag jadau", "date": "2025-11-26", "ref": "TI/25-26/1104", "amount": 547.0, "due": "2026-01-25", "overdue_in_sheet": "148"}, {"party": "Manek Gem Art International", "rep": "chirag jadau", "date": "2026-04-17", "ref": "TI/26-27/0083", "amount": 106788.0, "due": "2026-06-16", "overdue_in_sheet": "6"}, {"party": "Manek Gem Art International", "rep": "chirag jadau", "date": "2026-06-13", "ref": "TI/26-27/0266", "amount": 20526.0, "due": "2026-08-12", "overdue_in_sheet": ""}, {"party": "Manik Chand & Sons ( Jewellers ) Pvt Ltd", "rep": "kartik jadau", "date": "2026-01-13", "ref": "TI/25-26/1312", "amount": 295212.0, "due": "2026-03-14", "overdue_in_sheet": "100"}, {"party": "Mani Ratna The Jewel Paradise", "rep": "chirag jadau", "date": "2026-03-13", "ref": "TI/25-26/1595", "amount": 562065.0, "due": "2026-05-12", "overdue_in_sheet": "41"}, {"party": "Mani Ratna The Jewel Paradise", "rep": "chirag jadau", "date": "2026-04-22", "ref": "TI/26-27/0102", "amount": 2278349.0, "due": "2026-06-21", "overdue_in_sheet": "1"}, {"party": "Manohar Lal Sarraf & Sons Jewellers Pvt Ltd", "rep": "kartik jadau", "date": "2026-02-27", "ref": "TI/25-26/1538", "amount": 2375416.0, "due": "2026-04-28", "overdue_in_sheet": "55"}, {"party": "Manohar Lal Sarraf & Sons Jewellers Pvt Ltd", "rep": "kartik jadau", "date": "2026-03-12", "ref": "TI/25-26/1587", "amount": 3200280.0, "due": "2026-05-11", "overdue_in_sheet": "42"}, {"party": "Manohar Lal Sarraf & Sons Jewellers Pvt Ltd", "rep": "kartik jadau", "date": "2026-03-12", "ref": "TI/25-26/1588", "amount": 2601953.0, "due": "2026-05-11", "overdue_in_sheet": "42"}, {"party": "Manohar Lal Sarraf & Sons Jewellers Pvt Ltd", "rep": "kartik jadau", "date": "2026-04-10", "ref": "TI/26-27/0037", "amount": 145586.0, "due": "2026-06-09", "overdue_in_sheet": "13"}, {"party": "Manohar Lal Sarraf & Sons Jewellers Pvt Ltd", "rep": "kartik jadau", "date": "2026-04-10", "ref": "TI/26-27/0038", "amount": 1066.0, "due": "2026-06-09", "overdue_in_sheet": "13"}, {"party": "Manohar Lal Sarraf & Sons Jewellers Pvt Ltd", "rep": "kartik jadau", "date": "2026-04-30", "ref": "TI/26-27/0128", "amount": 2619205.0, "due": "2026-06-29", "overdue_in_sheet": ""}, {"party": "Manubhai Gems Pvt Ltd", "rep": "chirag jadau", "date": "2026-06-11", "ref": "TI/26-27/0264", "amount": 60315.5, "due": "2026-08-10", "overdue_in_sheet": ""}, {"party": "Manubhai Gems Pvt Ltd", "rep": "chirag jadau", "date": "2026-06-15", "ref": "TI/26-27/0276", "amount": 625339.0, "due": "2026-08-14", "overdue_in_sheet": ""}, {"party": "Manubhai Gems Pvt Ltd", "rep": "chirag jadau", "date": "2026-06-17", "ref": "TI/26-27/0281", "amount": 1777510.0, "due": "2026-08-16", "overdue_in_sheet": ""}, {"party": "Manubhai Gems Pvt Ltd", "rep": "chirag jadau", "date": "2026-06-19", "ref": "TI/26-27/0285", "amount": 17052.0, "due": "2026-08-18", "overdue_in_sheet": ""}, {"party": "Manubhai Gems Pvt Ltd", "rep": "chirag jadau", "date": "2026-06-19", "ref": "TI/26-27/0286", "amount": 1109205.0, "due": "2026-08-18", "overdue_in_sheet": ""}, {"party": "Manubhai Gems Pvt Ltd", "rep": "chirag jadau", "date": "2026-06-19", "ref": "TI/26-27/0287", "amount": 1490857.0, "due": "2026-08-18", "overdue_in_sheet": ""}, {"party": "Mawsim Gold Private Limited", "rep": "ved jadau", "date": "2025-12-23", "ref": "TI/25-26/1227", "amount": 663132.0, "due": "2026-02-21", "overdue_in_sheet": "121"}, {"party": "Mawsim Gold Private Limited", "rep": "ved jadau", "date": "2026-02-12", "ref": "TI/25-26/1477", "amount": 302426.0, "due": "2026-04-13", "overdue_in_sheet": "70"}, {"party": "Maya Sanghavi Jewels LLP", "rep": "chirag jadau", "date": "2025-10-08", "ref": "TI/25-26/0804", "amount": 423915.0, "due": "2025-12-07", "overdue_in_sheet": "197"}, {"party": "Maya Sanghavi Jewels LLP", "rep": "chirag jadau", "date": "2026-01-15", "ref": "TI/25-26/1315", "amount": 7228530.0, "due": "2026-03-16", "overdue_in_sheet": "98"}, {"party": "Maya Sanghavi Jewels LLP", "rep": "chirag jadau", "date": "2026-01-30", "ref": "TI/25-26/1404", "amount": 38115.0, "due": "2026-03-31", "overdue_in_sheet": "83"}, {"party": "Maya Sanghavi Jewels LLP", "rep": "chirag jadau", "date": "2026-02-17", "ref": "TI/25-26/1506", "amount": 761433.0, "due": "2026-04-18", "overdue_in_sheet": "65"}, {"party": "Maya Sanghavi Jewels LLP", "rep": "chirag jadau", "date": "2026-02-23", "ref": "TI/25-26/1533", "amount": 282636.0, "due": "2026-04-24", "overdue_in_sheet": "59"}, {"party": "Maya Sanghavi Jewels LLP", "rep": "chirag jadau", "date": "2026-05-15", "ref": "TI/26-27/0175", "amount": 307237.0, "due": "2026-07-14", "overdue_in_sheet": ""}, {"party": "Mile Stone Precious Creations LLP", "rep": "sanjay jadau", "date": "2026-05-16", "ref": "TI/26-27/0182", "amount": 969460.0, "due": "2026-07-15", "overdue_in_sheet": ""}, {"party": "M Leena Fashion Jewellery & Clothings", "rep": "chirag jadau", "date": "2026-04-28", "ref": "TI/26-27/0121", "amount": 7402.0, "due": "2026-06-27", "overdue_in_sheet": ""}, {"party": "M Leena Fashion Jewellery & Clothings", "rep": "chirag jadau", "date": "2026-05-06", "ref": "TI/26-27/0147", "amount": 3511.0, "due": "2026-07-05", "overdue_in_sheet": ""}, {"party": "M Leena Fashion Jewellery & Clothings", "rep": "chirag jadau", "date": "2026-06-04", "ref": "TI/26-27/0245", "amount": 54250.0, "due": "2026-08-03", "overdue_in_sheet": ""}, {"party": "M Leena Fashion Jewellery & Clothings", "rep": "chirag jadau", "date": "2026-06-18", "ref": "TI/26-27/0284", "amount": 66386.0, "due": "2026-08-17", "overdue_in_sheet": ""}, {"party": "M/S Karrat 22 Enterprises", "rep": "abhishek jadau", "date": "2025-04-10", "ref": "TI/25-26/0026", "amount": 82565.0, "due": "2025-06-09", "overdue_in_sheet": "378"}, {"party": "M/S Karrat 22 Enterprises", "rep": "abhishek jadau", "date": "2025-04-22", "ref": "TI/25-26/0077", "amount": 2065753.0, "due": "2025-06-21", "overdue_in_sheet": "366"}, {"party": "M/S Karrat 22 Enterprises", "rep": "abhishek jadau", "date": "2025-04-28", "ref": "TI/25-26/0102", "amount": 859966.0, "due": "2025-06-27", "overdue_in_sheet": "360"}, {"party": "M/S Karrat 22 Enterprises", "rep": "abhishek jadau", "date": "2025-05-30", "ref": "TI/25-26/0216", "amount": 2240804.0, "due": "2025-07-29", "overdue_in_sheet": "328"}, {"party": "M/S Karrat 22 Enterprises", "rep": "abhishek jadau", "date": "2025-06-25", "ref": "TI/25-26/0286", "amount": 568072.0, "due": "2025-08-24", "overdue_in_sheet": "302"}, {"party": "M/S Karrat 22 Enterprises", "rep": "abhishek jadau", "date": "2025-08-20", "ref": "TI/25-26/0496", "amount": 6443.0, "due": "2025-10-19", "overdue_in_sheet": "246"}, {"party": "M/S Karrat 22 Enterprises", "rep": "abhishek jadau", "date": "2025-09-22", "ref": "TI/25-26/0697", "amount": 1906101.0, "due": "2025-11-21", "overdue_in_sheet": "213"}, {"party": "M/S Karrat 22 Enterprises", "rep": "abhishek jadau", "date": "2025-09-22", "ref": "TI/25-26/0698", "amount": 6999516.0, "due": "2025-11-21", "overdue_in_sheet": "213"}, {"party": "Mukund International Private Limited", "rep": "abhishek jadau", "date": "2026-04-11", "ref": "TI/26-27/0048", "amount": 174947.0, "due": "2026-06-10", "overdue_in_sheet": "12"}, {"party": "Neelkanth Gold & Diamonds", "rep": "sanjay jadau", "date": "2026-04-28", "ref": "TI/26-27/0120", "amount": 1558178.0, "due": "2026-06-27", "overdue_in_sheet": ""}, {"party": "Nikita Jewellers Pvt Ltd", "rep": "chirag jadau", "date": "2026-05-28", "ref": "TI/26-27/0213", "amount": 352268.0, "due": "2026-07-27", "overdue_in_sheet": ""}, {"party": "N S Jewellers", "rep": "kartik jadau", "date": "2025-05-21", "ref": "TI/25-26/0193", "amount": 151244.0, "due": "2025-07-20", "overdue_in_sheet": "337"}, {"party": "N S Jewellers", "rep": "kartik jadau", "date": "2025-05-23", "ref": "TI/25-26/0197", "amount": 7115331.0, "due": "2025-07-22", "overdue_in_sheet": "335"}, {"party": "N S Jewellers", "rep": "kartik jadau", "date": "2025-10-11", "ref": "TI/25-26/0830", "amount": 62877.0, "due": "2025-12-10", "overdue_in_sheet": "194"}, {"party": "Pallavi Vikram", "rep": "chirag jadau", "date": "2026-03-07", "ref": "TI/25-26/1567", "amount": 56110.68, "due": "2026-05-06", "overdue_in_sheet": "47"}, {"party": "Pallavi Vikram", "rep": "chirag jadau", "date": "2026-03-07", "ref": "TI/25-26/1568", "amount": 423330.0, "due": "2026-05-06", "overdue_in_sheet": "47"}, {"party": "Pallavi Vikram", "rep": "chirag jadau", "date": "2026-03-07", "ref": "TI/25-26/1569", "amount": 22723.0, "due": "2026-05-06", "overdue_in_sheet": "47"}, {"party": "Pallavi Vikram", "rep": "chirag jadau", "date": "2026-03-27", "ref": "TI/25-26/1639", "amount": 216855.0, "due": "2026-05-26", "overdue_in_sheet": "27"}, {"party": "Pallavi Vikram", "rep": "chirag jadau", "date": "2026-03-27", "ref": "TI/25-26/1640", "amount": 15087.0, "due": "2026-05-26", "overdue_in_sheet": "27"}, {"party": "Pallavi Vikram", "rep": "chirag jadau", "date": "2026-03-27", "ref": "TI/25-26/1641", "amount": 398497.0, "due": "2026-05-26", "overdue_in_sheet": "27"}, {"party": "Pallavi Vikram", "rep": "chirag jadau", "date": "2026-03-28", "ref": "TI/25-26/1661", "amount": 6591.0, "due": "2026-05-27", "overdue_in_sheet": "26"}, {"party": "Parekh Borthers", "rep": "chirag jadau", "date": "2026-06-16", "ref": "TI/26-27/0280", "amount": 873437.0, "due": "2026-08-15", "overdue_in_sheet": ""}, {"party": "Parekh Ornaments LLP", "rep": "chirag jadau", "date": "2026-04-02", "ref": "TI/25-26/0004", "amount": 352629.0, "due": "2026-06-01", "overdue_in_sheet": "21"}, {"party": "Parekh Ornaments LLP", "rep": "chirag jadau", "date": "2026-04-06", "ref": "TI/26-27/0019", "amount": 1423366.0, "due": "2026-06-05", "overdue_in_sheet": "17"}, {"party": "Parekh Ornaments LLP", "rep": "chirag jadau", "date": "2026-04-13", "ref": "TI/26-27/0059", "amount": 413973.0, "due": "2026-06-12", "overdue_in_sheet": "10"}, {"party": "Parekh Ornaments LLP", "rep": "chirag jadau", "date": "2026-06-02", "ref": "TI/26-27/0232", "amount": 2084.0, "due": "2026-08-01", "overdue_in_sheet": ""}, {"party": "Parekh Ornaments LLP", "rep": "chirag jadau", "date": "2026-06-10", "ref": "TI/26-27/0261", "amount": 3391379.0, "due": "2026-08-09", "overdue_in_sheet": ""}, {"party": "Parekh Ornaments LLP", "rep": "chirag jadau", "date": "2026-06-16", "ref": "TI/26-27/0277", "amount": 3187534.0, "due": "2026-08-15", "overdue_in_sheet": ""}, {"party": "Parekh Ornaments LLP", "rep": "chirag jadau", "date": "2026-06-16", "ref": "TI/26-27/0279", "amount": 458434.0, "due": "2026-08-15", "overdue_in_sheet": ""}, {"party": "Parshwa Diamond Debor", "rep": "SUSPENSE", "date": "2026-03-31", "ref": "TI/25-26/1673", "amount": 9038415.0, "due": "2026-09-27", "overdue_in_sheet": ""}, {"party": "P K Jewellers Pvt Ltd", "rep": "PRATEEK SIR", "date": "2026-05-30", "ref": "TI/26-27/0227", "amount": 463193.0, "due": "2026-07-29", "overdue_in_sheet": ""}, {"party": "Pooja Ornaments Pvt Ltd", "rep": "chirag jadau", "date": "2026-04-28", "ref": "TI/26-27/0122", "amount": 6912509.0, "due": "2026-06-27", "overdue_in_sheet": ""}, {"party": "Pooja Ornaments Pvt Ltd", "rep": "chirag jadau", "date": "2026-05-26", "ref": "TI/26-27/0200", "amount": 1193278.0, "due": "2026-07-25", "overdue_in_sheet": ""}, {"party": "Raj Tarun Diamond", "rep": "sanjay jadau", "date": "2026-06-01", "ref": "TI/26-27/0230", "amount": 398754.0, "due": "2026-07-31", "overdue_in_sheet": ""}, {"party": "Ranka Jewellers Z3", "rep": "chirag jadau", "date": "2026-04-02", "ref": "TI/26-27/0013", "amount": 821738.0, "due": "2026-06-01", "overdue_in_sheet": "21"}, {"party": "Ranka Jewellers Z3", "rep": "chirag jadau", "date": "2026-04-06", "ref": "TI/26-27/0017", "amount": 1031731.0, "due": "2026-06-05", "overdue_in_sheet": "17"}, {"party": "Ranka Jewellers Z3", "rep": "chirag jadau", "date": "2026-06-15", "ref": "TI/26-27/0272", "amount": 359449.0, "due": "2026-08-14", "overdue_in_sheet": ""}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-02-10", "ref": "TI/25-26/1468", "amount": 750484.28, "due": "2026-04-11", "overdue_in_sheet": "72"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-02-10", "ref": "TI/25-26/1469", "amount": 935697.0, "due": "2026-04-11", "overdue_in_sheet": "72"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-02-17", "ref": "TI/25-26/1507", "amount": 118616.0, "due": "2026-04-18", "overdue_in_sheet": "65"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-02-17", "ref": "TI/25-26/1514", "amount": 6659.0, "due": "2026-04-18", "overdue_in_sheet": "65"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-03-05", "ref": "TI/25-26/1549", "amount": 659031.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-03-05", "ref": "TI/25-26/1551", "amount": 52406.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-03-05", "ref": "TI/25-26/1552", "amount": 1834.0, "due": "2026-05-04", "overdue_in_sheet": "49"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-03-07", "ref": "TI/25-26/1571", "amount": 41830.0, "due": "2026-05-06", "overdue_in_sheet": "47"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-03-17", "ref": "TI/25-26/1600", "amount": 6556.0, "due": "2026-05-16", "overdue_in_sheet": "37"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-03-20", "ref": "TI/25-26/1616", "amount": 474120.0, "due": "2026-05-19", "overdue_in_sheet": "34"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-03-26", "ref": "TI/25-26/1637", "amount": 361960.0, "due": "2026-05-25", "overdue_in_sheet": "28"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-03-31", "ref": "TI/25-26/1668", "amount": 1190647.0, "due": "2026-05-30", "overdue_in_sheet": "23"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-04-09", "ref": "TI/26-27/0029", "amount": 2467858.0, "due": "2026-06-08", "overdue_in_sheet": "14"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-04-09", "ref": "TI/26-27/0033", "amount": 83174.0, "due": "2026-06-08", "overdue_in_sheet": "14"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-04-13", "ref": "TI/26-27/0056", "amount": 18858.0, "due": "2026-06-12", "overdue_in_sheet": "10"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-04-14", "ref": "TI/26-27/0066", "amount": 28361.0, "due": "2026-06-13", "overdue_in_sheet": "9"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-04-16", "ref": "TI/26-27/0073", "amount": 929003.0, "due": "2026-06-15", "overdue_in_sheet": "7"}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-05-05", "ref": "TI/26-27/0143", "amount": 897378.0, "due": "2026-07-04", "overdue_in_sheet": ""}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-05-06", "ref": "TI/26-27/0146", "amount": 487319.0, "due": "2026-07-05", "overdue_in_sheet": ""}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-05-19", "ref": "TI/26-27/0185", "amount": 816486.0, "due": "2026-07-18", "overdue_in_sheet": ""}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-05-26", "ref": "TI/26-27/0202", "amount": 961399.0, "due": "2026-07-25", "overdue_in_sheet": ""}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-05-29", "ref": "TI/26-27/0223", "amount": 31029.0, "due": "2026-07-28", "overdue_in_sheet": ""}, {"party": "Rathod Jewellers", "rep": "chirag jadau", "date": "2026-06-03", "ref": "TI/26-27/0237", "amount": 16078.0, "due": "2026-08-02", "overdue_in_sheet": ""}, {"party": "Ratlam Abhushan Private Limited", "rep": "chirag jadau", "date": "2026-04-08", "ref": "TI/26-27/0025", "amount": 26855.0, "due": "2026-06-07", "overdue_in_sheet": "15"}, {"party": "Ratlam Abhushan Private Limited", "rep": "chirag jadau", "date": "2026-04-22", "ref": "TI/26-27/0101", "amount": 1193151.0, "due": "2026-06-21", "overdue_in_sheet": "1"}, {"party": "Ratlam Abhushan Private Limited", "rep": "chirag jadau", "date": "2026-06-06", "ref": "TI/26-27/0253", "amount": 252091.0, "due": "2026-08-05", "overdue_in_sheet": ""}, {"party": "Regal Jewellers Pvt Ltd", "rep": "abhishek jadau", "date": "2026-04-09", "ref": "TI/26-27/0028", "amount": 9751878.0, "due": "2026-06-08", "overdue_in_sheet": "14"}, {"party": "Regal Jewellers Pvt Ltd", "rep": "abhishek jadau", "date": "2026-04-09", "ref": "TI/26-27/0034", "amount": 103153.0, "due": "2026-06-08", "overdue_in_sheet": "14"}, {"party": "Regal Jewellers Pvt Ltd", "rep": "abhishek jadau", "date": "2026-05-11", "ref": "TI/26-27/0161", "amount": 958370.0, "due": "2026-07-10", "overdue_in_sheet": ""}, {"party": "Rikhab Das Udai Chand", "rep": "kartik jadau", "date": "2026-04-18", "ref": "TI/26-27/0088", "amount": 771585.0, "due": "2026-06-17", "overdue_in_sheet": "5"}, {"party": "Rikhab Das Udai Chand", "rep": "kartik jadau", "date": "2026-05-15", "ref": "TI/26-27/0176", "amount": 3136946.0, "due": "2026-07-14", "overdue_in_sheet": ""}, {"party": "Rikhab Das Udai Chand", "rep": "kartik jadau", "date": "2026-06-10", "ref": "TI/26-27/0260", "amount": 1344516.0, "due": "2026-08-09", "overdue_in_sheet": ""}, {"party": "Sagarmal & Sons Ventures Private Limited", "rep": "abhishek jadau", "date": "2026-02-24", "ref": "TI/25-26/1534", "amount": 803758.0, "due": "2026-04-25", "overdue_in_sheet": "58"}, {"party": "Sajavat Jewels", "rep": "chirag jadau", "date": "2025-10-01", "ref": "TI/25-26/0807", "amount": 125.0, "due": "2025-10-01", "overdue_in_sheet": "264"}, {"party": "Sajavat Jewels", "rep": "chirag jadau", "date": "2026-05-21", "ref": "TI/26-27/0195", "amount": 34160.0, "due": "2026-07-20", "overdue_in_sheet": ""}, {"party": "Sajavat Jewels", "rep": "chirag jadau", "date": "2026-06-10", "ref": "TI/26-27/0262", "amount": 83131.0, "due": "2026-08-09", "overdue_in_sheet": ""}, {"party": "Senco Gold Limited", "rep": "abhishek jadau", "date": "2026-04-13", "ref": "TI/26-27/0055", "amount": 6386.0, "due": "2026-06-12", "overdue_in_sheet": "10"}, {"party": "Senco Gold Limited", "rep": "abhishek jadau", "date": "2026-05-27", "ref": "TI/26-27/0209", "amount": 2206340.0, "due": "2026-07-26", "overdue_in_sheet": ""}, {"party": "Shah Virchand Govanji Jewellers Pvt Ltd", "rep": "chirag jadau", "date": "2026-02-12", "ref": "TI/25-26/1474", "amount": 1188360.0, "due": "2026-04-13", "overdue_in_sheet": "70"}, {"party": "Shah Virchand Govanji Jewellers Pvt Ltd", "rep": "chirag jadau", "date": "2026-02-12", "ref": "TI/25-26/1475", "amount": 611073.0, "due": "2026-04-13", "overdue_in_sheet": "70"}, {"party": "Shah Virchand Govanji Jewellers Pvt Ltd", "rep": "chirag jadau", "date": "2026-03-26", "ref": "TI/25-26/1635", "amount": 252625.0, "due": "2026-05-25", "overdue_in_sheet": "28"}, {"party": "Shah Virchand Govanji Jewellers Pvt Ltd", "rep": "chirag jadau", "date": "2026-04-18", "ref": "TI/26-27/0095", "amount": 170910.0, "due": "2026-06-17", "overdue_in_sheet": "5"}, {"party": "Shah Virchand Govanji Jewellers Pvt Ltd", "rep": "chirag jadau", "date": "2026-06-16", "ref": "TI/26-27/0278", "amount": 897645.0, "due": "2026-08-15", "overdue_in_sheet": ""}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-01-23", "ref": "TI/25-26/1372", "amount": 953835.0, "due": "2026-03-24", "overdue_in_sheet": "90"}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-01-23", "ref": "TI/25-26/1370", "amount": 1209929.0, "due": "2026-03-24", "overdue_in_sheet": "90"}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-01-23", "ref": "TI/25-26/1371", "amount": 350501.0, "due": "2026-03-24", "overdue_in_sheet": "90"}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-01-29", "ref": "TI/25-26/1394", "amount": 1829468.0, "due": "2026-03-30", "overdue_in_sheet": "84"}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-02-12", "ref": "TI/25-26/1479", "amount": 4002143.0, "due": "2026-04-13", "overdue_in_sheet": "70"}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-02-12", "ref": "TI/25-26/1480", "amount": 1392737.0, "due": "2026-04-13", "overdue_in_sheet": "70"}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-02-12", "ref": "TI/25-26/1481", "amount": 661681.0, "due": "2026-04-13", "overdue_in_sheet": "70"}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-02-12", "ref": "TI/25-26/1482", "amount": 1304690.0, "due": "2026-04-13", "overdue_in_sheet": "70"}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-02-21", "ref": "TI/25-26/1532", "amount": 1231420.0, "due": "2026-04-22", "overdue_in_sheet": "61"}, {"party": "Shilpa Jewellers", "rep": "chirag jadau", "date": "2026-03-19", "ref": "TI/25-26/1609", "amount": 670574.0, "due": "2026-05-18", "overdue_in_sheet": "35"}, {"party": "Solitaire Diamond Boutique", "rep": "kartik jadau", "date": "2025-11-26", "ref": "TI/25-26/1106", "amount": 228907.0, "due": "2026-01-25", "overdue_in_sheet": "148"}, {"party": "Solitaire Diamond Boutique", "rep": "kartik jadau", "date": "2026-01-29", "ref": "TI/25-26/1395", "amount": 1299683.0, "due": "2026-03-30", "overdue_in_sheet": "84"}, {"party": "Solitaire Diamond Boutique", "rep": "kartik jadau", "date": "2026-02-05", "ref": "TI/25-26/1436", "amount": 981396.0, "due": "2026-04-06", "overdue_in_sheet": "77"}, {"party": "Suncity Jewels", "rep": "MUKESH SIR", "date": "2026-06-03", "ref": "TI/26-27/0235", "amount": 133479.5, "due": "2026-08-02", "overdue_in_sheet": ""}, {"party": "Swarna Shilpi Jewellers Chennai Pvt Ltd", "rep": "abhishek jadau", "date": "2026-05-30", "ref": "TI/26-27/0228", "amount": 2705774.0, "due": "2026-07-29", "overdue_in_sheet": ""}, {"party": "Tarun Jethi A Luxury Jeweller", "rep": "kartik jadau", "date": "2026-04-16", "ref": "TI/26-27/0074", "amount": 240974.0, "due": "2026-06-15", "overdue_in_sheet": "7"}, {"party": "Tejaswi Jewellers Jawaharlal Motilal Saraf", "rep": "chirag jadau", "date": "2025-11-25", "ref": "TI/25-26/1100", "amount": 293232.0, "due": "2026-01-24", "overdue_in_sheet": "149"}, {"party": "Tejaswi Jewellers Jawaharlal Motilal Saraf", "rep": "chirag jadau", "date": "2025-11-26", "ref": "TI/25-26/1105", "amount": 1664738.0, "due": "2026-01-25", "overdue_in_sheet": "148"}, {"party": "Tejaswi Jewellers Jawaharlal Motilal Saraf", "rep": "chirag jadau", "date": "2025-11-29", "ref": "TI/25-26/1127", "amount": 1686087.0, "due": "2026-01-28", "overdue_in_sheet": "145"}, {"party": "Tejaswi Jewellers Jawaharlal Motilal Saraf", "rep": "chirag jadau", "date": "2025-12-03", "ref": "TI/25-26/1147", "amount": 207221.0, "due": "2026-02-01", "overdue_in_sheet": "141"}, {"party": "Tejaswi Jewellers Jawaharlal Motilal Saraf", "rep": "chirag jadau", "date": "2026-03-26", "ref": "TI/25-26/1633", "amount": 1446277.0, "due": "2026-05-25", "overdue_in_sheet": "28"}, {"party": "Tejaswi Jewellers Jawaharlal Motilal Saraf", "rep": "chirag jadau", "date": "2026-04-11", "ref": "TI/26-27/0047", "amount": 37073.0, "due": "2026-06-10", "overdue_in_sheet": "12"}, {"party": "Tejaswi Jewellers Jawaharlal Motilal Saraf", "rep": "chirag jadau", "date": "2026-04-18", "ref": "TI/26-27/0094", "amount": 35212.0, "due": "2026-06-17", "overdue_in_sheet": "5"}, {"party": "Tejaswi Jewellers Jawaharlal Motilal Saraf", "rep": "chirag jadau", "date": "2026-05-26", "ref": "TI/26-27/0203", "amount": 845296.0, "due": "2026-07-25", "overdue_in_sheet": ""}, {"party": "Thakur Prasad Gopal Das Jewellers  Pvt Ltd", "rep": "kartik jadau", "date": "2026-02-14", "ref": "TI/25-26/1489", "amount": 2050539.0, "due": "2026-04-15", "overdue_in_sheet": "68"}, {"party": "Thakur Prasad Gopal Das Jewellers  Pvt Ltd", "rep": "kartik jadau", "date": "2026-02-17", "ref": "TI/25-26/1510", "amount": 575970.0, "due": "2026-04-18", "overdue_in_sheet": "65"}, {"party": "Thakur Prasad Gopal Das Jewellers  Pvt Ltd", "rep": "kartik jadau", "date": "2026-04-08", "ref": "TI/26-27/0023", "amount": 812674.0, "due": "2026-06-07", "overdue_in_sheet": "15"}, {"party": "Thakur Prasad Gopal Das Jewellers  Pvt Ltd", "rep": "kartik jadau", "date": "2026-05-06", "ref": "TI/26-27/0144", "amount": 471103.0, "due": "2026-07-05", "overdue_in_sheet": ""}, {"party": "Thakur Prasad Gopal Das Jewellers  Pvt Ltd", "rep": "kartik jadau", "date": "2026-05-28", "ref": "TI/26-27/0214", "amount": 668645.0, "due": "2026-07-27", "overdue_in_sheet": ""}, {"party": "Thakur Prasad Gopal Das Jewellers  Pvt Ltd", "rep": "kartik jadau", "date": "2026-06-06", "ref": "TI/26-27/0252", "amount": 247241.0, "due": "2026-08-05", "overdue_in_sheet": ""}, {"party": "Ujjwal Jewellers", "rep": "kartik jadau", "date": "2025-10-01", "ref": "TI/25-26/0773", "amount": 1758.0, "due": "2025-11-30", "overdue_in_sheet": "204"}, {"party": "Ujjwal Jewellers", "rep": "kartik jadau", "date": "2025-11-05", "ref": "TI/25-26/0958", "amount": 347.0, "due": "2026-01-04", "overdue_in_sheet": "169"}, {"party": "Valentine Jewellery International Basment", "rep": "MUKESH SIR", "date": "2026-05-16", "ref": "TI/26-27/0180", "amount": 34.0, "due": "2026-08-14", "overdue_in_sheet": ""}, {"party": "Valentine Jewellery International Basment", "rep": "MUKESH SIR", "date": "2026-06-12", "ref": "TI/26-27/0265", "amount": 82053.0, "due": "2026-08-11", "overdue_in_sheet": ""}, {"party": "Varaa Jewels Private Limited", "rep": "sanjay jadau", "date": "2026-04-17", "ref": "TI/26-27/0080", "amount": 379975.0, "due": "2026-06-16", "overdue_in_sheet": "6"}, {"party": "Varaa Jewels Private Limited", "rep": "sanjay jadau", "date": "2026-04-24", "ref": "TI/26-27/0114", "amount": 1572285.0, "due": "2026-06-23", "overdue_in_sheet": ""}, {"party": "Varaa Jewels Private Limited", "rep": "sanjay jadau", "date": "2026-05-21", "ref": "TI/265-27/0193", "amount": 4167247.0, "due": "2026-07-20", "overdue_in_sheet": ""}, {"party": "Varaa Jewels Private Limited", "rep": "sanjay jadau", "date": "2026-05-26", "ref": "TI/26-27/0204", "amount": 649040.0, "due": "2026-07-25", "overdue_in_sheet": ""}, {"party": "Vummidi Bangaru Jewellers (India) Private Limited", "rep": "abhishek jadau", "date": "2026-06-06", "ref": "TI/26-27/0251", "amount": 5409373.0, "due": "2026-08-05", "overdue_in_sheet": ""}, {"party": "Waman Hari Pathe Jewellers", "rep": "chirag jadau", "date": "2026-04-14", "ref": "TI/26-27/0064", "amount": 114890.0, "due": "2026-06-13", "overdue_in_sheet": "9"}];
 
 const STORAGE_KEY = 'vji_khata_bills_v1';
-const GITHUB_URL_KEY = 'vji_github_raw_url';
 const REMINDER_WINDOW_DAYS = 7; // show reminder once a bill is due within 7 days (or already overdue)
 
 /* ---------------- date helpers ---------------- */
@@ -1169,75 +1148,6 @@ function loadBills(){
 function saveBills(bills){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(bills));
 }
-
-/* ---------------- GitHub fetch helper ---------------- */
-// Hardcoded repo URL — change this if your repo moves
-// Using GitHub API endpoint (not raw) to always bypass CDN cache
-const GITHUB_REPO_OWNER = 'prateek198501';
-const GITHUB_REPO_NAME  = 'vjd-debtor-list';
-const GITHUB_FILE_PATH  = 'bills.json';
-
-function saveGithubUrl(url){ localStorage.setItem(GITHUB_URL_KEY, url); }
-function loadGithubUrl(){
-  // Return saved URL (user may have changed it) or the hardcoded default
-  const saved = localStorage.getItem(GITHUB_URL_KEY);
-  if(saved && saved.startsWith('https://') && !saved.includes('main-or-master')) return saved;
-  return 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME + '/main/' + GITHUB_FILE_PATH;
-}
-
-async function fetchBillsFromGithub(customUrl){
-  const baseUrl = customUrl || loadGithubUrl();
-
-  // Strip any existing cache-bust params then add fresh one
-  const cleanUrl = baseUrl.split('?')[0];
-  const fetchUrl = cleanUrl + '?t=' + Date.now();
-
-  let resp;
-  // Attempt 1: simple fetch (works on GitHub Pages)
-  try {
-    resp = await fetch(fetchUrl, { method: 'GET', mode: 'cors', cache: 'no-store' });
-  } catch(e1) {
-    // Attempt 2: no extra headers (some browsers block custom headers cross-origin)
-    try {
-      resp = await fetch(fetchUrl, { method: 'GET', mode: 'cors' });
-    } catch(e2) {
-      // Attempt 3: no-cors won't give readable body but tells us if network works
-      throw new Error('Network blocked. Check internet connection. (' + e2.message + ')');
-    }
-  }
-
-  if(!resp.ok) {
-    if(resp.status === 404) throw new Error('404 — bills.json not found. Make sure it is uploaded to the main branch of your GitHub repo.');
-    if(resp.status === 403) throw new Error('403 — Access denied. Make sure the repo is set to Public.');
-    throw new Error('HTTP ' + resp.status);
-  }
-
-  let text;
-  try { text = await resp.text(); } catch(e) { throw new Error('Could not read response: ' + e.message); }
-
-  if(!text || text.trim() === '' || text.trim() === '[]')
-    throw new Error('bills.json is empty. Please re-export from the app and re-upload to GitHub.');
-
-  let data;
-  try { data = JSON.parse(text); } catch(e) {
-    throw new Error('bills.json is not valid JSON. Please re-download and re-upload it. (First 50 chars: ' + text.substring(0,50) + ')');
-  }
-
-  if(!Array.isArray(data)) throw new Error('bills.json format error — expected array, got: ' + typeof data);
-  if(data.length === 0) throw new Error('bills.json has 0 bills. Please re-export from the app and re-upload.');
-
-  return data;
-}
-
-function downloadJsonFile(bills){
-  const blob = new Blob([JSON.stringify(bills, null, 2)], {type: 'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'bills.json';
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-}
-
 let BILLS = loadBills();
 
 /* ---------------- derive status for a bill ---------------- */
@@ -1255,23 +1165,25 @@ function billStatus(b, today){
 }
 
 /* ---------------- auth ---------------- */
-function buildCredentials(bills){
-  const reps = {};
-  bills.forEach(b=>{
-    if(b.rep && b.rep.trim() && b.rep.trim().toUpperCase()!=='N/A'){
-      reps[b.rep.trim()] = true;
-    }
-  });
-  const creds = {}; // username(lower) -> {pass, rep, label}
-  Object.keys(reps).forEach(rep=>{
-    const parts = rep.trim().split(/\s+/);
-    const first = parts[0];
-    const last = parts[parts.length-1];
-    creds[first.toLowerCase()] = {pass: last.toLowerCase(), rep: rep, label: first};
-  });
-  return creds;
-}
+/* ══════════════════════════════════════════════════
+   AUTH — admin-managed salesperson credentials
+   Stored in localStorage under SP_CREDS_KEY so admin
+   can add / edit / remove logins without re-importing data.
+   ══════════════════════════════════════════════════ */
 const ADMIN_USER = 'admin', ADMIN_PASS = 'admin@123';
+const SP_CREDS_KEY = 'vji_sp_credentials_v1';
+
+/* Load custom creds: [{username, password, rep, label}] */
+function loadSpCreds(){
+  try{
+    const raw = localStorage.getItem(SP_CREDS_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return [];
+}
+function saveSpCreds(arr){
+  localStorage.setItem(SP_CREDS_KEY, JSON.stringify(arr));
+}
 
 let currentUser = null; // {rep: 'all'|repname, label}
 
@@ -1279,15 +1191,36 @@ function isAdmin(){
   return !!currentUser && currentUser.rep === 'all';
 }
 
+/* Hardcoded fallback logins: firstname / "jadau" — always works even if
+   localStorage was cleared or never seeded. Admin can still add/edit/remove
+   logins via the credentials manager (those are checked too, below). */
+const HARDCODED_SP_CREDS = [
+  {username:'hansraj',  password:'jadau', rep:'Hansraj Kunteta', label:'Hansraj'},
+  {username:'mukesh',   password:'jadau', rep:'MUKESH SIR',      label:'Mukesh'},
+  {username:'prateek',  password:'jadau', rep:'PRATEEK SIR',     label:'Prateek'},
+  {username:'retailer', password:'jadau', rep:'RETAILER',        label:'Retailer'},
+  {username:'suspense', password:'jadau', rep:'SUSPENSE',        label:'Suspense'},
+  {username:'abhishek', password:'jadau', rep:'abhishek jadau',  label:'Abhishek'},
+  {username:'chirag',   password:'jadau', rep:'chirag jadau',    label:'Chirag'},
+  {username:'kartik',   password:'jadau', rep:'kartik jadau',    label:'Kartik'},
+  {username:'sanjay',   password:'jadau', rep:'sanjay jadau',    label:'Sanjay'},
+  {username:'shreen',   password:'jadau', rep:'shreen jadau',    label:'Shreen'},
+  {username:'ved',      password:'jadau', rep:'ved jadau',       label:'Ved'}
+];
+
 function attemptLogin(username, password){
   const u = username.trim().toLowerCase();
-  const p = password.trim().toLowerCase();
-  if(u===ADMIN_USER && p===ADMIN_PASS){
-    return {rep:'all', label:'Admin'};
+  const p = password.trim();
+  if(u === ADMIN_USER && p === ADMIN_PASS){
+    return {rep:'all', label:'Valentine Jadau'};
   }
-  const creds = buildCredentials(BILLS);
-  const match = creds[u];
-  if(match && match.pass===p){
+  const hardMatch = HARDCODED_SP_CREDS.find(c => c.username.toLowerCase() === u && c.password.toLowerCase() === p);
+  if(hardMatch){
+    return {rep: hardMatch.rep, label: hardMatch.label};
+  }
+  const creds = loadSpCreds();
+  const match = creds.find(c => c.username.toLowerCase() === u && c.password.toLowerCase() === p);
+  if(match){
     return {rep: match.rep, label: match.label};
   }
   return null;
@@ -1312,8 +1245,6 @@ function clearSession(){
 let activeFilter = 'all';
 let activeSort = 'overdue_desc';
 let searchTerm = '';
-let drFromDate = null; // Date object or null
-let drToDate   = null; // Date object or null
 
 function visibleBills(){
   let bills;
@@ -1347,13 +1278,13 @@ function initials(name){
 
 function renderTopbar(){
   document.getElementById('welcomeName').textContent =
-    currentUser.rep==='all' ? 'Welcome, Admin' : `Welcome, ${currentUser.label}`;
+    currentUser.rep==='all' ? 'Welcome, Valentine Jadau' : `Welcome, ${currentUser.label}`;
   const today = todayMidnight();
   const dayName = today.toLocaleDateString('en-GB',{weekday:'long'});
   document.getElementById('todayLine').textContent =
     `${dayName}, ${fmtDate(today)}${isMonday(today)?' · Monday review':''}`;
   document.getElementById('importBtn').style.display = isAdmin() ? 'flex' : 'none';
-  document.getElementById('syncBtn').style.display = 'flex'; // all users can fetch latest
+  document.getElementById('credBtn').style.display = isAdmin() ? 'flex' : 'none';
 }
 
 function renderReminderBanner(){
@@ -1526,15 +1457,6 @@ function filteredSortedBills(){
     const t = searchTerm.trim().toLowerCase();
     mine = mine.filter(b => b.party.toLowerCase().includes(t) || (b.ref||'').toLowerCase().includes(t));
   }
-  // date range filter on invoice date
-  if(drFromDate){
-    mine = mine.filter(b => { const d = parseISO(b.date); return d && d >= drFromDate; });
-  }
-  if(drToDate){
-    // include the whole "to" day
-    const toEnd = new Date(drToDate); toEnd.setHours(23,59,59,999);
-    mine = mine.filter(b => { const d = parseISO(b.date); return d && d <= toEnd; });
-  }
 
   switch(activeSort){
     case 'overdue_desc':
@@ -1564,22 +1486,6 @@ function renderGroups(){
   const container = document.getElementById('groupsContainer');
   const sub = document.getElementById('sectionSub');
   sub.textContent = `${bills.length} bill${bills.length!==1?'s':''} across ${new Set(bills.map(b=>b.party)).size} account${new Set(bills.map(b=>b.party)).size!==1?'s':''}`;
-  // update date range summary strip
-  const hasDr = drFromDate || drToDate;
-  const summary = document.getElementById('drSummary');
-  if(hasDr && summary){
-    const today = todayMidnight();
-    const drBills = bills; // already filtered
-    const totalAmt = drBills.reduce((s,b)=>s+b.amount,0);
-    const overdueCt = drBills.filter(b=>{ const s=billStatus(b,today); return s.status==='overdue'; }).length;
-    document.getElementById('drCount').textContent = drBills.length;
-    document.getElementById('drParties').textContent = new Set(drBills.map(b=>b.party)).size;
-    document.getElementById('drTotal').textContent = fmtMoney(totalAmt);
-    document.getElementById('drOverdue').textContent = overdueCt;
-    summary.classList.add('visible');
-  } else if(summary){
-    summary.classList.remove('visible');
-  }
 
   if(bills.length===0){
     container.innerHTML = `
@@ -1819,42 +1725,25 @@ function renderCalendarDayDetail(index){
   }
 
   const dueRows = entry.due.map(b=>`
-    <div class="ddp-row" style="flex-direction:column;align-items:stretch;gap:6px;padding:12px 0;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
-        <div class="ddp-row-left" style="min-width:0;">
-          <div class="ddp-party">${b.party}</div>
-          <div class="ddp-ref" style="margin-top:2px;">
-            📄 ${b.ref}
-            ${b.rep && b.rep!=='N/A' ? `· 👤 ${b.rep}` : ''}
-          </div>
-        </div>
-        <div class="ddp-row-right" style="flex:none;text-align:right;">
-          <div class="ddp-amt">${fmtMoney(b.amount)}</div>
-          ${statusChip(b)}
-        </div>
+    <div class="ddp-row">
+      <div class="ddp-row-left">
+        <div class="ddp-party">${b.party}</div>
+        <div class="ddp-ref">${b.ref}${b.status==='overdue' ? ` · ${b.overdueDays} day${b.overdueDays!==1?'s':''} overdue` : ''}</div>
       </div>
-      <div style="display:flex;gap:16px;font-size:11.5px;color:var(--ink-soft);flex-wrap:wrap;padding-top:2px;">
-        <span>🗓 Invoice: ${fmtDate(parseISO(b.date))}</span>
-        <span>⏰ Due: ${fmtDate(parseISO(b.due))}</span>
-        ${b.status==='overdue' ? `<span style="color:var(--rose);font-weight:600;">⚠ ${b.overdueDays} day${b.overdueDays!==1?'s':''} overdue</span>` : ''}
+      <div class="ddp-row-right">
+        <div class="ddp-amt">${fmtMoney(b.amount)}</div>
+        ${statusChip(b)}
       </div>
     </div>`).join('');
 
   const reminderRows = entry.reminders.map(b=>`
-    <div class="ddp-row" style="flex-direction:column;align-items:stretch;gap:6px;padding:12px 0;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
-        <div class="ddp-row-left" style="min-width:0;">
-          <div class="ddp-party">${b.party}</div>
-          <div class="ddp-ref">📄 ${b.ref}${b.rep && b.rep!=='N/A' ? ` · 👤 ${b.rep}` : ''}</div>
-        </div>
-        <div class="ddp-row-right" style="flex:none;text-align:right;">
-          <div class="ddp-amt">${fmtMoney(b.amount)}</div>
-        </div>
+    <div class="ddp-row">
+      <div class="ddp-row-left">
+        <div class="ddp-party">${b.party}</div>
+        <div class="ddp-ref">${b.ref} · follow-up: ${b.stage} (due ${fmtDate(parseISO(b.due))})</div>
       </div>
-      <div style="display:flex;gap:16px;font-size:11.5px;color:var(--ink-soft);flex-wrap:wrap;padding-top:2px;">
-        <span>🗓 Invoice: ${fmtDate(parseISO(b.date))}</span>
-        <span>⏰ Actual due: ${fmtDate(parseISO(b.due))}</span>
-        <span style="color:var(--teal);font-weight:600;">🔔 Follow-up: ${b.stage}</span>
+      <div class="ddp-row-right">
+        <div class="ddp-amt">${fmtMoney(b.amount)}</div>
       </div>
     </div>`).join('');
 
@@ -1925,6 +1814,7 @@ document.getElementById('logoutBtn').addEventListener('click', function(){
   updateSlider(0);
   document.getElementById('spTabs').style.display='none';
   document.getElementById('sliderWrap').style.display='none';
+  document.getElementById('credBtn').style.display='none';
   document.getElementById('app').style.display='none';
   document.getElementById('loginScreen').style.display='flex';
   document.getElementById('username').value='';
@@ -1934,25 +1824,6 @@ document.getElementById('logoutBtn').addEventListener('click', function(){
 document.getElementById('searchInput').addEventListener('input', function(e){
   searchTerm = e.target.value;
   renderGroups();
-});
-
-// Date range wiring
-document.getElementById('drFrom').addEventListener('change', function(){
-  drFromDate = this.value ? new Date(this.value + 'T00:00:00') : null;
-  renderGroups();
-  if(document.getElementById('calendarView').style.display !== 'none') renderCalendar();
-});
-document.getElementById('drTo').addEventListener('change', function(){
-  drToDate = this.value ? new Date(this.value + 'T00:00:00') : null;
-  renderGroups();
-  if(document.getElementById('calendarView').style.display !== 'none') renderCalendar();
-});
-document.getElementById('drClear').addEventListener('click', function(){
-  drFromDate = null; drToDate = null;
-  document.getElementById('drFrom').value = '';
-  document.getElementById('drTo').value = '';
-  renderGroups();
-  if(document.getElementById('calendarView').style.display !== 'none') renderCalendar();
 });
 document.getElementById('sortSelect').addEventListener('change', function(e){
   activeSort = e.target.value;
@@ -2009,148 +1880,25 @@ document.getElementById('importBtn').addEventListener('click', ()=>{
   importStatus.textContent='';
   importStatus.className='import-status';
 });
-
-/* ---------------- Export / GitHub sync modal wiring ---------------- */
-const syncModal = document.getElementById('syncModal');
-
-document.getElementById('syncBtn').addEventListener('click', ()=>{
-  syncModal.classList.add('show');
-  // Show/hide admin-only import steps based on role
-  const adminOnlySteps = document.getElementById('adminOnlySteps');
-  if(adminOnlySteps) adminOnlySteps.style.display = isAdmin() ? 'block' : 'none';
-  // Pre-fill with saved URL or default
-  document.getElementById('githubRawUrl').value = loadGithubUrl();
-  document.getElementById('githubUrlStatus').textContent = '';
-  // Reset file state
-  syncPendingParsed = null;
-  document.getElementById('syncReadStatus').textContent = '';
-  document.getElementById('syncReadStatus').className = 'import-status';
-  document.getElementById('downloadJsonBtn').disabled = true;
+document.getElementById('cancelImport').addEventListener('click', ()=>{
+  importModal.classList.remove('show');
+});
+dropZone.addEventListener('click', ()=> fileInput.click());
+dropZone.addEventListener('dragover', e=>{ e.preventDefault(); dropZone.classList.add('drag'); });
+dropZone.addEventListener('dragleave', ()=> dropZone.classList.remove('drag'));
+dropZone.addEventListener('drop', e=>{
+  e.preventDefault();
+  dropZone.classList.remove('drag');
+  if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change', e=>{
+  if(e.target.files.length) handleFile(e.target.files[0]);
 });
 
-document.getElementById('cancelSync').addEventListener('click', ()=>{
-  syncModal.classList.remove('show');
-});
-
-/* Save GitHub URL */
-document.getElementById('saveGithubUrlBtn').addEventListener('click', ()=>{
-  const st = document.getElementById('githubUrlStatus');
-  const typedUrl = document.getElementById('githubRawUrl').value.trim();
-  if(!typedUrl || !typedUrl.startsWith('https://')){
-    st.textContent = 'Please enter a valid https:// URL.';
-    st.className = 'import-status err';
-    return;
-  }
-  // Save the custom URL and use it for fetching
-  saveGithubUrl(typedUrl);
-  st.textContent = 'Fetching from: ' + typedUrl;
-  st.className = 'import-status';
-  fetchBillsFromGithub(typedUrl).then(bills=>{
-    if(bills && bills.length > 0){
-      BILLS = bills;
-      saveBills(BILLS);
-      renderAll();
-      st.textContent = '✓ Fetched ' + bills.length + ' bills successfully!';
-      st.className = 'import-status ok';
-    }
-  }).catch(e=>{
-    st.textContent = 'Fetch failed: ' + e.message;
-    st.className = 'import-status err';
-  });
-});
-
-/* File drop zone inside export modal */
-let syncPendingParsed = null;
-const syncDropZone = document.getElementById('syncDropZone');
-const syncFileInput = document.getElementById('syncFileInput');
-
-syncDropZone.addEventListener('click', ()=> syncFileInput.click());
-syncDropZone.addEventListener('dragover', e=>{ e.preventDefault(); syncDropZone.classList.add('drag'); });
-syncDropZone.addEventListener('dragleave', ()=> syncDropZone.classList.remove('drag'));
-syncDropZone.addEventListener('drop', e=>{
-  e.preventDefault(); syncDropZone.classList.remove('drag');
-  if(e.dataTransfer.files.length) handleSyncFile(e.dataTransfer.files[0]);
-});
-syncFileInput.addEventListener('change', e=>{ if(e.target.files.length) handleSyncFile(e.target.files[0]); });
-
-/* ── Parse VJI Bills Receivable sheet ──────────────────────────────────────
-   Column layout (0-based):
-     0=Date  1=Ref.No  2=Party Name (header rows) or blank (bill rows)
-     3=Sales Person    4=Pending Amount   5=Due Date   6=Overdue days
-   Party header row:  col0 empty, col2 has party name, col4 empty
-   Bill row:          col0 has date, col1 has ref no, col4 has amount
-   Subtotal row:      col0 empty, col1 empty/blank, col4 has total
-   ───────────────────────────────────────────────────────────────────── */
-function parseBillsSheet(rows){
-  const out = [];
-  let currentParty = null, currentRep = 'N/A';
-
-  function toISO(v){
-    if(!v && v !== 0) return null;
-    if(v instanceof Date){
-      if(isNaN(v)) return null;
-      const y = v.getFullYear(), m = v.getMonth()+1, d = v.getDate();
-      return y+'-'+String(m).padStart(2,'0')+'-'+String(d).padStart(2,'0');
-    }
-    if(typeof v === 'number'){
-      try{
-        const parsed = XLSX.SSF.parse_date_code(v);
-        if(parsed) return parsed.y+'-'+String(parsed.m).padStart(2,'0')+'-'+String(parsed.d).padStart(2,'0');
-      }catch(e){}
-    }
-    if(typeof v === 'string'){
-      const s = v.trim();
-      if(/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0,10);
-      // DD/MM/YYYY or DD-MM-YYYY
-      const m2 = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
-      if(m2) return m2[3]+'-'+m2[2].padStart(2,'0')+'-'+m2[1].padStart(2,'0');
-    }
-    return null;
-  }
-
-  function str(v){ return (v === null || v === undefined) ? '' : String(v).trim(); }
-
-  for(const r of rows){
-    const col0 = r[0], col1 = r[1], col2 = r[2], col3 = r[3], col4 = r[4], col5 = r[5];
-    const s0 = str(col0), s1 = str(col1), s2 = str(col2);
-
-    // Skip header / title rows (no date in col0, no ref in col1, col2 has text but looks like title)
-    if(!col0 && s2 && col4 === null || col4 === undefined){
-      // Could be party header: col0 empty, col2 has party name, col4 null/undefined
-      if(/party'?s\s*name/i.test(s2)) continue; // skip column label row
-      if(s2.length > 0){
-        currentParty = s2;
-        currentRep = str(col3) || 'N/A';
-      }
-      continue;
-    }
-
-    // Subtotal row: col0 empty, col1 empty/blank, col4 is a number
-    if(!col0 && s1 === '' && typeof col4 === 'number') continue;
-
-    // Bill row: col0 has a date, col1 has ref no
-    const dateISO = toISO(col0);
-    const refStr = s1;
-    if(dateISO && refStr && refStr !== '' && currentParty){
-      const dueISO = toISO(col5);
-      out.push({
-        party: currentParty,
-        rep: currentRep,
-        date: dateISO,
-        ref: refStr,
-        amount: typeof col4 === 'number' ? col4 : parseFloat(col4)||0,
-        due: dueISO
-      });
-    }
-  }
-  return out;
-}
-
-function handleSyncFile(file){
-  const st = document.getElementById('syncReadStatus');
-  st.textContent = 'Reading file…'; st.className = 'import-status';
-  document.getElementById('downloadJsonBtn').disabled = true;
-  syncPendingParsed = null;
+function handleFile(file){
+  importStatus.textContent = 'Reading file…';
+  importStatus.className='import-status';
+  confirmBtn.disabled = true;
   const reader = new FileReader();
   reader.onload = function(evt){
     try{
@@ -2159,47 +1907,222 @@ function handleSyncFile(file){
       const sheet = wb.Sheets[wb.SheetNames[0]];
       const rows = XLSX.utils.sheet_to_json(sheet, {header:1, defval:null});
       const parsed = parseBillsSheet(rows);
-      if(parsed.length === 0){
-        st.textContent = 'No bill rows found. Check the file format.';
-        st.className = 'import-status err';
+      if(parsed.length===0){
+        importStatus.textContent = 'Could not find any bill rows in this file. Please check the format.';
+        importStatus.className='import-status err';
+        confirmBtn.disabled = true;
         return;
       }
-      syncPendingParsed = parsed;
-      BILLS = parsed;
-      saveBills(BILLS);
-      renderAll();
-      st.textContent = '✓ Read ' + parsed.length + ' bills. Now click Download bills.json below.';
-      st.className = 'import-status ok';
-      document.getElementById('downloadJsonBtn').disabled = false;
-    }catch(e){
-      st.textContent = 'Could not read file: ' + e.message;
-      st.className = 'import-status err';
+      pendingParsed = parsed;
+      importStatus.textContent = `Found ${parsed.length} bills across ${new Set(parsed.map(p=>p.party)).size} accounts. Ready to import.`;
+      importStatus.className='import-status ok';
+      confirmBtn.disabled = false;
+    }catch(err){
+      console.error(err);
+      importStatus.textContent = 'Could not read this file. Please make sure it is a valid Excel export.';
+      importStatus.className='import-status err';
+      confirmBtn.disabled = true;
     }
   };
   reader.readAsArrayBuffer(file);
 }
 
-/* Download JSON button */
-document.getElementById('downloadJsonBtn').addEventListener('click', ()=>{
-  if(!syncPendingParsed) return;
-  downloadJsonFile(syncPendingParsed);
+/* Parses the same grouped structure as the original VJI Bills Receivable export:
+   a party-name row (with sales person), followed by bill rows, followed by a subtotal row. */
+function parseBillsSheet(rows){
+  const out = [];
+  let currentParty = null, currentRep = 'N/A';
+
+  function toISO(v){
+    if(v instanceof Date) return v.toISOString().slice(0,10);
+    if(typeof v === 'number'){ // excel serial fallback
+      const d = XLSX.SSF.parse_date_code(v);
+      if(d) return `${d.y}-${String(d.m).padStart(2,'0')}-${String(d.d).padStart(2,'0')}`;
+    }
+    if(typeof v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(v)) return v.slice(0,10);
+    return null;
+  }
+
+  for(const r of rows){
+    const date_ = r[0], ref = r[1], party = r[2], rep = r[3], amount = r[4], due = r[5];
+    const partyStr = (party!==null && party!==undefined) ? String(party).trim() : '';
+    const refStr = (ref!==null && ref!==undefined) ? String(ref).trim() : '';
+
+    // party header row
+    if(partyStr !== '' && !date_ && (amount===null || amount===undefined)){
+      // skip the literal column-header label row, e.g. "Party's Name"
+      if(/party'?s\s*name/i.test(partyStr)) continue;
+      currentParty = partyStr;
+      const repStr = (rep!==null && rep!==undefined) ? String(rep).trim() : '';
+      currentRep = repStr || 'N/A';
+      continue;
+    }
+
+    // subtotal row: no date, no ref, has amount
+    if(!date_ && amount!==null && amount!==undefined && refStr===''){
+      continue;
+    }
+
+    // bill row
+    const iso = toISO(date_);
+    if(iso && refStr && currentParty){
+      const dueIso = toISO(due);
+      out.push({
+        party: currentParty,
+        rep: currentRep,
+        date: iso,
+        ref: refStr,
+        amount: typeof amount === 'number' ? amount : parseFloat(amount)||0,
+        due: dueIso
+      });
+    }
+  }
+  return out;
+}
+
+confirmBtn.addEventListener('click', ()=>{
+  if(!isAdmin()) return; // final safeguard: only the master/admin login can replace the debtor list
+  if(!pendingParsed) return;
+  BILLS = pendingParsed;
+  saveBills(BILLS);
+  importModal.classList.remove('show');
+  // re-check current user's rep still exists; admin always fine
+  renderAll();
+  importStatus.textContent='';
+});
+
+
+/* ══════════════════════════════════════════════════
+   CREDENTIAL MANAGER
+   ══════════════════════════════════════════════════ */
+function getRepNamesFromBills(){
+  const reps = new Set();
+  BILLS.forEach(b => {
+    const r = (b.rep||'').trim();
+    if(r && r.toUpperCase() !== 'N/A') reps.add(r);
+  });
+  return Array.from(reps).sort();
+}
+
+function refreshCredModal(){
+  // Populate rep dropdown
+  const sel = document.getElementById('newCredRep');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">— pick rep —</option>';
+  getRepNamesFromBills().forEach(rep => {
+    const opt = document.createElement('option');
+    opt.value = rep; opt.textContent = rep;
+    if(rep === current) opt.selected = true;
+    sel.appendChild(opt);
+  });
+
+  // Render table
+  const creds = loadSpCreds();
+  const tbody = document.getElementById('credTableBody');
+  const empty = document.getElementById('credEmpty');
+  if(creds.length === 0){
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  tbody.innerHTML = creds.map((c, i) => `
+    <tr>
+      <td><strong>${escAttr(c.username)}</strong></td>
+      <td>
+        <span class="pass-toggle" style="display:inline-flex;align-items:center;gap:6px;">
+          <span id="cpv${i}" style="font-family:monospace;letter-spacing:.1em">••••••••</span>
+          <button type="button" onclick="toggleCredPassVis(${i},'${escAttr(c.password)}')" style="background:none;border:none;cursor:pointer;color:var(--ink-soft);padding:0;display:flex;align-items:center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </span>
+      </td>
+      <td>${escAttr(c.rep)}</td>
+      <td><button class="cred-del-btn" onclick="deleteCredential(${i})">Remove</button></td>
+    </tr>`).join('');
+}
+
+function toggleCredPassVis(idx, pass){
+  const span = document.getElementById('cpv'+idx);
+  if(span) span.textContent = span.textContent.includes('•') ? pass : '••••••••';
+}
+
+function addCredential(){
+  const username = document.getElementById('newCredUser').value.trim().toLowerCase();
+  const password = document.getElementById('newCredPass').value.trim();
+  const rep      = document.getElementById('newCredRep').value;
+  const status   = document.getElementById('credAddStatus');
+
+  if(!username){ status.textContent = 'Username is required.'; return; }
+  if(!password){ status.textContent = 'Password is required.'; return; }
+  if(!rep)      { status.textContent = 'Please select a sales rep.'; return; }
+  if(username === ADMIN_USER){ status.textContent = 'Cannot use "admin" as a username.'; return; }
+
+  const creds = loadSpCreds();
+  if(creds.find(c => c.username.toLowerCase() === username)){
+    status.textContent = `Username "${username}" already exists. Remove it first to update.`;
+    return;
+  }
+
+  const parts = rep.trim().split(/\s+/);
+  const label = parts[0];
+  creds.push({ username, password, rep, label });
+  saveSpCreds(creds);
+
+  document.getElementById('newCredUser').value = '';
+  document.getElementById('newCredPass').value = '';
+  document.getElementById('newCredRep').value  = '';
+  status.style.color = 'var(--green)';
+  status.textContent = `Login for "${username}" created.`;
+  setTimeout(() => { status.textContent = ''; status.style.color = '#8C453C'; }, 3000);
+  refreshCredModal();
+}
+
+function deleteCredential(idx){
+  const creds = loadSpCreds();
+  const name = creds[idx]?.username;
+  if(!name) return;
+  if(!confirm(`Remove login for "${name}"? They will no longer be able to sign in.`)) return;
+  creds.splice(idx, 1);
+  saveSpCreds(creds);
+  refreshCredModal();
+}
+
+function togglePassVis(inputId, btn){
+  const inp = document.getElementById(inputId);
+  if(!inp) return;
+  const isHidden = inp.type === 'password';
+  inp.type = isHidden ? 'text' : 'password';
+  btn.querySelector('svg').style.opacity = isHidden ? '0.4' : '1';
+}
+
+function escAttr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+document.getElementById('credBtn').addEventListener('click', () => {
+  if(!isAdmin()) return;
+  document.getElementById('credAddStatus').textContent = '';
+  refreshCredModal();
+  document.getElementById('credModal').classList.add('show');
+});
+
+// Close modal on overlay click
+document.getElementById('credModal').addEventListener('click', function(e){
+  if(e.target === this) this.classList.remove('show');
 });
 
 /* ---------------- boot ---------------- */
 (function boot(){
+  /* ── Seed salesperson credentials from Excel data (one-time if not yet set) ── */
+  const SEED_VERSION = 'vjd_seed_v2';
+  if(!localStorage.getItem(SEED_VERSION)){
+    const seededCreds = [{"username": "hansraj", "password": "kunteta", "rep": "Hansraj Kunteta", "label": "Hansraj"}, {"username": "mukesh", "password": "sir", "rep": "MUKESH SIR", "label": "Mukesh"}, {"username": "prateek", "password": "sir", "rep": "PRATEEK SIR", "label": "Prateek"}, {"username": "retailer", "password": "jadau", "rep": "RETAILER", "label": "Retailer"}, {"username": "suspense", "password": "jadau", "rep": "SUSPENSE", "label": "Suspense"}, {"username": "abhishek", "password": "jadau", "rep": "abhishek jadau", "label": "Abhishek"}, {"username": "chirag", "password": "jadau", "rep": "chirag jadau", "label": "Chirag"}, {"username": "kartik", "password": "jadau", "rep": "kartik jadau", "label": "Kartik"}, {"username": "sanjay", "password": "jadau", "rep": "sanjay jadau", "label": "Sanjay"}, {"username": "shreen", "password": "jadau", "rep": "shreen jadau", "label": "Shreen"}, {"username": "ved", "password": "jadau", "rep": "ved jadau", "label": "Ved"}];
+    saveSpCreds(seededCreds);
+    localStorage.setItem(SEED_VERSION, '1');
+  }
   const session = restoreSession();
   if(session){
     currentUser = session;
-    showApp(); // show immediately with cached/default data
-    // ALL users — admin AND sales reps — always fetch latest from GitHub
-    fetchBillsFromGithub(loadGithubUrl() || null).then(bills=>{
-      if(bills && bills.length > 0){
-        BILLS = bills;
-        saveBills(BILLS);
-        renderAll();
-        console.info('[VJI] Fetched ' + bills.length + ' bills from GitHub.');
-      }
-    }).catch(e=> console.info('[VJI] GitHub fetch failed (offline?):', e.message));
+    showApp();
   }
 })();
 </script>
