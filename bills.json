@@ -8,8 +8,16 @@
     "due": "2026-08-17"
   },
   {
+    "party": "A B Jewels",
+    "rep": "chirag jadau",
+    "date": "2026-06-23",
+    "ref": "TI/26-27/0296",
+    "amount": 23294,
+    "due": "2026-08-22"
+  },
+  {
     "party": "ABS Jewels",
-    "rep": "ved jadau",
+    "rep": "chirag jadau",
     "date": "2026-05-20",
     "ref": "TI/26-27/0192",
     "amount": 948444,
@@ -17,7 +25,7 @@
   },
   {
     "party": "ABS Jewels",
-    "rep": "ved jadau",
+    "rep": "chirag jadau",
     "date": "2026-06-07",
     "ref": "TI/26-27/0255",
     "amount": 23359,
@@ -57,31 +65,15 @@
   },
   {
     "party": "Alankar Gems And Jewellery Pvt Ltd",
-    "rep": "abhishek jadau",
-    "date": "2026-04-08",
-    "ref": "TI/26-27/0035",
-    "amount": 1641121,
-    "due": "2026-06-07"
-  },
-  {
-    "party": "Alankar Gems And Jewellery Pvt Ltd",
-    "rep": "abhishek jadau",
-    "date": "2026-04-10",
-    "ref": "TI/26-27/0053",
-    "amount": 229923,
-    "due": "2026-06-09"
-  },
-  {
-    "party": "Alankar Gems And Jewellery Pvt Ltd",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-13",
     "ref": "TI/26-27/0068",
-    "amount": 154592,
+    "amount": 1966,
     "due": "2026-06-12"
   },
   {
     "party": "Alankar Gems And Jewellery Pvt Ltd",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-14",
     "ref": "TI/26-27/0171",
     "amount": 133128,
@@ -89,7 +81,7 @@
   },
   {
     "party": "Alankar Jewellers",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-17",
     "ref": "TI/26-27/0089",
     "amount": 448,
@@ -97,7 +89,7 @@
   },
   {
     "party": "Alankar Jewellers",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-27",
     "ref": "TI/26-27/0123",
     "amount": 1114269,
@@ -105,23 +97,31 @@
   },
   {
     "party": "Alankar Jewellers",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-13",
     "ref": "TI/26-27/0168",
     "amount": 283809,
     "due": "2026-07-12"
   },
   {
+    "party": "Alankar Jewellers",
+    "rep": "abhishek  jadau",
+    "date": "2026-06-21",
+    "ref": "TI/26-27/0292",
+    "amount": 1718271,
+    "due": "2026-08-20"
+  },
+  {
     "party": "Alka Jewels",
     "rep": "kartik jadau",
     "date": "2026-03-26",
     "ref": "TI/25-26/1642",
-    "amount": 1302753,
+    "amount": 91223,
     "due": "2026-05-25"
   },
   {
     "party": "Anand Jewels Indore Pvt Ltd",
-    "rep": "Hansraj Kunteta",
+    "rep": "hansraj khunteta",
     "date": "2026-05-18",
     "ref": "TI/26-27/0186",
     "amount": 1165295,
@@ -129,7 +129,7 @@
   },
   {
     "party": "Anand Jewels Indore Pvt Ltd",
-    "rep": "Hansraj Kunteta",
+    "rep": "hansraj khunteta",
     "date": "2026-05-19",
     "ref": "TI/26-27/0190",
     "amount": 168817,
@@ -137,7 +137,7 @@
   },
   {
     "party": "Anand Jewels Indore Pvt Ltd",
-    "rep": "Hansraj Kunteta",
+    "rep": "hansraj khunteta",
     "date": "2026-06-12",
     "ref": "TI/26-27/0269",
     "amount": 507552,
@@ -145,23 +145,15 @@
   },
   {
     "party": "Anand Jewels Indore Pvt Ltd",
-    "rep": "Hansraj Kunteta",
+    "rep": "hansraj khunteta",
     "date": "2026-06-17",
     "ref": "TI/26-27/0282",
     "amount": 1281005,
     "due": "2026-08-16"
   },
   {
-    "party": "Anupa M Patel",
-    "rep": "RETAILER",
-    "date": "2026-02-11",
-    "ref": "TI/25-26/1484",
-    "amount": 2449999,
-    "due": "2026-04-12"
-  },
-  {
     "party": "Asha Khatoria",
-    "rep": "RETAILER",
+    "rep": "SUSPENSE",
     "date": "2026-02-27",
     "ref": "TI/25-26/1544",
     "amount": 360500,
@@ -177,7 +169,7 @@
   },
   {
     "party": "Azam Jewellers Private Limited",
-    "rep": "shreen jadau",
+    "rep": "sanjay jadau",
     "date": "2026-03-27",
     "ref": "TI/25-26/1653",
     "amount": 855780,
@@ -185,7 +177,7 @@
   },
   {
     "party": "Beauty Creators LLP",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-17",
     "ref": "TI/26-27/0087",
     "amount": 342,
@@ -232,6 +224,14 @@
     "due": "2026-07-26"
   },
   {
+    "party": "Bishan Singh Jasbir Singh Jewellers LLP",
+    "rep": "kartik jadau",
+    "date": "2026-06-24",
+    "ref": "TI/26-27/0304",
+    "amount": 664835,
+    "due": "2026-08-23"
+  },
+  {
     "party": "Bombay Jewellers",
     "rep": "SUSPENSE",
     "date": "2020-01-29",
@@ -240,24 +240,8 @@
     "due": "2020-03-29"
   },
   {
-    "party": "Bothra & Bagmar Jewelles Pvt Ltd",
-    "rep": "Hansraj Kunteta",
-    "date": "2024-03-30",
-    "ref": "Bothra TCS",
-    "amount": 563,
-    "due": "2024-04-29"
-  },
-  {
-    "party": "Bothra & Bagmar Jewelles Pvt Ltd",
-    "rep": "Hansraj Kunteta",
-    "date": "2025-10-30",
-    "ref": "TI/25-26/0935",
-    "amount": 1363135,
-    "due": "2025-12-29"
-  },
-  {
     "party": "Challani Jewellery Mart",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-09-28",
     "ref": "TI/25-26/0762",
     "amount": 746973,
@@ -265,7 +249,7 @@
   },
   {
     "party": "Challani Jewellery Mart",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-10-05",
     "ref": "TI/25-26/0792",
     "amount": 709096,
@@ -273,7 +257,7 @@
   },
   {
     "party": "Challani Jewellery Mart",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-11-10",
     "ref": "TI/25-26/0997",
     "amount": 2489192,
@@ -281,7 +265,7 @@
   },
   {
     "party": "Challani Jewellery Mart",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-26",
     "ref": "TI/26-27/0208",
     "amount": 431240,
@@ -294,22 +278,6 @@
     "ref": "TI/26-27/0250",
     "amount": 2143900,
     "due": "2026-08-04"
-  },
-  {
-    "party": "D C Jewellers Gold & Diamonds",
-    "rep": "abhishek jadau",
-    "date": "2026-03-15",
-    "ref": "TI/25-26/1598",
-    "amount": 538019,
-    "due": "2026-05-14"
-  },
-  {
-    "party": "D C Jewellers Gold & Diamonds",
-    "rep": "abhishek jadau",
-    "date": "2026-04-07",
-    "ref": "TI/26-27/0024",
-    "amount": 331818,
-    "due": "2026-06-06"
   },
   {
     "party": "Diamond India Limited",
@@ -329,31 +297,15 @@
   },
   {
     "party": "D P Abhushan Ltd",
-    "rep": "Hansraj Kunteta",
-    "date": "2026-04-13",
-    "ref": "TI/26-27/0065",
-    "amount": 790944,
-    "due": "2026-06-12"
-  },
-  {
-    "party": "D P Abhushan Ltd",
-    "rep": "Hansraj Kunteta",
-    "date": "2026-04-30",
-    "ref": "TI/26-27/0129",
-    "amount": 1528968,
-    "due": "2026-06-29"
-  },
-  {
-    "party": "D P Abhushan Ltd",
-    "rep": "Hansraj Kunteta",
+    "rep": "hansraj khunteta",
     "date": "2026-05-20",
     "ref": "TI/26-27/0191",
-    "amount": 3223094,
+    "amount": 1343006,
     "due": "2026-07-19"
   },
   {
     "party": "D P Abhushan Ltd",
-    "rep": "Hansraj Kunteta",
+    "rep": "hansraj khunteta",
     "date": "2026-05-25",
     "ref": "TI/26-27/0201",
     "amount": 3197074,
@@ -361,7 +313,7 @@
   },
   {
     "party": "D P Abhushan Ltd",
-    "rep": "Hansraj Kunteta",
+    "rep": "hansraj khunteta",
     "date": "2026-06-02",
     "ref": "TI/26-27/0236",
     "amount": 2551635,
@@ -369,7 +321,7 @@
   },
   {
     "party": "D P Abhushan Ltd",
-    "rep": "Hansraj Kunteta",
+    "rep": "hansraj khunteta",
     "date": "2026-06-04",
     "ref": "TI/26-27/0247",
     "amount": 907382,
@@ -377,7 +329,7 @@
   },
   {
     "party": "D P Abhushan Ltd",
-    "rep": "Hansraj Kunteta",
+    "rep": "hansraj khunteta",
     "date": "2026-06-19",
     "ref": "TI/26-27/0289",
     "amount": 346970,
@@ -386,17 +338,9 @@
   {
     "party": "D P Jewelline Private Limited",
     "rep": "MUKESH SIR",
-    "date": "2026-04-30",
-    "ref": "TI/26-27/0130",
-    "amount": 9259341,
-    "due": "2026-06-29"
-  },
-  {
-    "party": "D P Jewelline Private Limited",
-    "rep": "MUKESH SIR",
     "date": "2026-05-07",
     "ref": "TI/26-27/0152",
-    "amount": 5210520,
+    "amount": 169861,
     "due": "2026-07-06"
   },
   {
@@ -425,7 +369,7 @@
   },
   {
     "party": "Emerald Jewel Industry India Ltd",
-    "rep": "shreen jadau",
+    "rep": "MUKESH SIR",
     "date": "2025-09-22",
     "ref": "TI/25-26/0710",
     "amount": 70832,
@@ -433,26 +377,42 @@
   },
   {
     "party": "Emerald Jewel Industry India Ltd",
-    "rep": "shreen jadau",
+    "rep": "MUKESH SIR",
     "date": "2025-09-22",
     "ref": "TI/25-26/0711",
     "amount": 189101,
     "due": "2025-11-21"
   },
   {
-    "party": "Fuzion Jewels Pvt Ltd",
-    "rep": "chirag jadau",
-    "date": "2026-04-17",
-    "ref": "TI/26-27/0091",
-    "amount": 486670,
-    "due": "2026-06-16"
+    "party": "Emerald Jewel Industry India Ltd",
+    "rep": "MUKESH SIR",
+    "date": "2026-06-29",
+    "ref": "TI/26-27/0319",
+    "amount": 792969,
+    "due": "2026-08-28"
+  },
+  {
+    "party": "Emerald Jewel Industry India Ltd",
+    "rep": "MUKESH SIR",
+    "date": "2026-06-29",
+    "ref": "TI/26-27/0320",
+    "amount": 532904,
+    "due": "2026-08-28"
+  },
+  {
+    "party": "Emerald Jewel Industry India Ltd",
+    "rep": "MUKESH SIR",
+    "date": "2026-06-29",
+    "ref": "TI/26-27/0321",
+    "amount": 140809,
+    "due": "2026-08-28"
   },
   {
     "party": "Fuzion Jewels Pvt Ltd",
     "rep": "chirag jadau",
     "date": "2026-05-12",
     "ref": "TI/26-27/0167",
-    "amount": 1999701,
+    "amount": 1940971,
     "due": "2026-07-11"
   },
   {
@@ -482,33 +442,9 @@
   {
     "party": "Gandhi Jewellers",
     "rep": "chirag jadau",
-    "date": "2026-01-11",
-    "ref": "TI/25-26/1310",
-    "amount": 94,
-    "due": "2026-03-12"
-  },
-  {
-    "party": "Gandhi Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-01-19",
-    "ref": "TI/25-26/1340",
-    "amount": 486308,
-    "due": "2026-03-20"
-  },
-  {
-    "party": "Gandhi Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-02-12",
-    "ref": "TI/25-26/1485",
-    "amount": 415473,
-    "due": "2026-04-13"
-  },
-  {
-    "party": "Gandhi Jewellers",
-    "rep": "chirag jadau",
     "date": "2026-02-12",
     "ref": "TI/25-26/1486",
-    "amount": 86882,
+    "amount": 94,
     "due": "2026-04-13"
   },
   {
@@ -526,6 +462,14 @@
     "ref": "TI/25-26/1618",
     "amount": 87932,
     "due": "2026-05-18"
+  },
+  {
+    "party": "Gandhi Jewellers",
+    "rep": "chirag jadau",
+    "date": "2026-06-25",
+    "ref": "TI/26-27/0307",
+    "amount": 144027,
+    "due": "2026-08-24"
   },
   {
     "party": "Gem House",
@@ -556,7 +500,7 @@
     "rep": "MUKESH SIR",
     "date": "2026-02-13",
     "ref": "TI/25-26/1497",
-    "amount": 11266131,
+    "amount": 8766131,
     "due": "2026-04-14"
   },
   {
@@ -593,15 +537,15 @@
   },
   {
     "party": "GRT Jewellers ( India) Private Limited",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-04",
     "ref": "TI/26-27/0136",
-    "amount": 145164,
+    "amount": 144109,
     "due": "2026-07-03"
   },
   {
     "party": "GRT Jewellers ( India) Private Limited",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-04",
     "ref": "TI/26-27/0246",
     "amount": 85560,
@@ -609,15 +553,7 @@
   },
   {
     "party": "GRT Jewellers ( India) Private Limited",
-    "rep": "abhishek jadau",
-    "date": "2026-06-14",
-    "ref": "TI/26-27/0270",
-    "amount": 135142,
-    "due": "2026-08-13"
-  },
-  {
-    "party": "GRT Jewellers ( India) Private Limited",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-14",
     "ref": "TI/26-27/0271",
     "amount": 259149,
@@ -626,49 +562,9 @@
   {
     "party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd",
     "rep": "kartik jadau",
-    "date": "2025-08-29",
-    "ref": "TI/25-26/0576",
-    "amount": 5091,
-    "due": "2025-10-28"
-  },
-  {
-    "party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd",
-    "rep": "kartik jadau",
-    "date": "2025-09-01",
-    "ref": "TI/25-26/0593",
-    "amount": 58254,
-    "due": "2025-10-31"
-  },
-  {
-    "party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd",
-    "rep": "kartik jadau",
-    "date": "2025-12-08",
-    "ref": "TI/25-26/1166",
-    "amount": 226709,
-    "due": "2026-02-06"
-  },
-  {
-    "party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd",
-    "rep": "kartik jadau",
-    "date": "2025-12-12",
-    "ref": "TI/25-26/1189",
-    "amount": 920802,
-    "due": "2026-02-10"
-  },
-  {
-    "party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd",
-    "rep": "kartik jadau",
-    "date": "2026-01-06",
-    "ref": "TI/25-26/1299",
-    "amount": 146909,
-    "due": "2026-03-07"
-  },
-  {
-    "party": "Harsahaimal Shiamlal Jewellers Lucknow Pvt Ltd",
-    "rep": "kartik jadau",
     "date": "2026-02-05",
     "ref": "TI/25-26/1443",
-    "amount": 610613,
+    "amount": 368378,
     "due": "2026-04-06"
   },
   {
@@ -706,10 +602,10 @@
   {
     "party": "House Of Jewels",
     "rep": "chirag jadau",
-    "date": "2026-05-07",
-    "ref": "TI/26-27/0151",
-    "amount": 3330,
-    "due": "2026-07-06"
+    "date": "2026-06-24",
+    "ref": "TI/26-27/0305",
+    "amount": 556455,
+    "due": "2026-08-23"
   },
   {
     "party": "Iyra Jewels Diamonds",
@@ -734,22 +630,6 @@
     "ref": "TI/26-27/0263",
     "amount": 2291449,
     "due": "2026-08-09"
-  },
-  {
-    "party": "Jawanmal Prakashchand",
-    "rep": "Hansraj Kunteta",
-    "date": "2024-12-16",
-    "ref": "VJD/24-25/962",
-    "amount": 186064,
-    "due": "2025-02-14"
-  },
-  {
-    "party": "Jawanmal Prakashchand",
-    "rep": "Hansraj Kunteta",
-    "date": "2025-10-14",
-    "ref": "TI/25-26/0845",
-    "amount": 106538,
-    "due": "2025-12-13"
   },
   {
     "party": "Jewel World",
@@ -800,38 +680,6 @@
     "due": "2026-06-09"
   },
   {
-    "party": "Kantilal & Bros Jewellers",
-    "rep": "chirag jadau",
-    "date": "2025-09-18",
-    "ref": "TI/25-26/0678",
-    "amount": 544298,
-    "due": "2025-11-17"
-  },
-  {
-    "party": "Kantilal & Bros Jewellers",
-    "rep": "chirag jadau",
-    "date": "2025-10-12",
-    "ref": "TI/25-26/0836",
-    "amount": 188933,
-    "due": "2025-12-11"
-  },
-  {
-    "party": "Kantilal & Bros Jewellers",
-    "rep": "chirag jadau",
-    "date": "2025-11-11",
-    "ref": "TI/25-26/1000",
-    "amount": 315734,
-    "due": "2026-01-10"
-  },
-  {
-    "party": "Kantilal & Bros Jewellers",
-    "rep": "chirag jadau",
-    "date": "2025-11-23",
-    "ref": "TI/25-26/1095",
-    "amount": 427477,
-    "due": "2026-01-22"
-  },
-  {
     "party": "K.D Diamond",
     "rep": "chirag jadau",
     "date": "2024-07-11",
@@ -842,17 +690,9 @@
   {
     "party": "Keshavlal Nathubhai Jewellers",
     "rep": "chirag jadau",
-    "date": "2026-02-06",
-    "ref": "TI/25-26/1461",
-    "amount": 494880,
-    "due": "2026-04-07"
-  },
-  {
-    "party": "Keshavlal Nathubhai Jewellers",
-    "rep": "chirag jadau",
     "date": "2026-03-04",
     "ref": "TI/25-26/1561",
-    "amount": 1938517,
+    "amount": 1933397,
     "due": "2026-05-03"
   },
   {
@@ -986,25 +826,17 @@
   {
     "party": "K R Sons Ahmedabad",
     "rep": "chirag jadau",
-    "date": "2026-04-01",
-    "ref": "TI/26-27/0005",
-    "amount": 194452,
-    "due": "2026-05-31"
-  },
-  {
-    "party": "K R Sons Ahmedabad",
-    "rep": "chirag jadau",
-    "date": "2026-04-01",
-    "ref": "TI/26-27/0012",
-    "amount": 27208,
-    "due": "2026-05-31"
+    "date": "2026-06-24",
+    "ref": "TI/26-27/0301",
+    "amount": 2500202,
+    "due": "2026-08-23"
   },
   {
     "party": "Kundan Jewellers Pvt Ltd",
     "rep": "chirag jadau",
     "date": "2026-02-15",
     "ref": "TI/25-26/1505",
-    "amount": 5130778,
+    "amount": 4130778,
     "due": "2026-04-16"
   },
   {
@@ -1056,6 +888,30 @@
     "due": "2026-08-11"
   },
   {
+    "party": "Madan Lal Chhagan Lal Jewellers",
+    "rep": "chirag jadau",
+    "date": "2026-06-24",
+    "ref": "TI/26-27/0302",
+    "amount": 1745246,
+    "due": "2026-08-23"
+  },
+  {
+    "party": "Madan Lal Chhagan Lal Jewellers",
+    "rep": "chirag jadau",
+    "date": "2026-06-25",
+    "ref": "TI/26-27/0308",
+    "amount": 364281,
+    "due": "2026-08-24"
+  },
+  {
+    "party": "Madan Lal Chhagan Lal Jewellers",
+    "rep": "chirag jadau",
+    "date": "2026-06-25",
+    "ref": "TI/26-27/0309",
+    "amount": 845749,
+    "due": "2026-08-24"
+  },
+  {
     "party": "Mahendra Jewellers",
     "rep": "chirag jadau",
     "date": "2026-01-04",
@@ -1081,7 +937,7 @@
   },
   {
     "party": "Malabar Gold And Diamonds FZCO ( Export)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-10",
     "ref": "EI/26-27/EX01",
     "amount": 598650,
@@ -1089,7 +945,7 @@
   },
   {
     "party": "Malabar Gold And Diamonds FZCO ( Export)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-17",
     "ref": "EI/26-27/EX03",
     "amount": 4373460,
@@ -1097,7 +953,7 @@
   },
   {
     "party": "Malabar Gold And Diamonds Ltd Jaipur",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-11",
     "ref": "TI/26-27/0163",
     "amount": 603182,
@@ -1105,87 +961,15 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1553",
-    "amount": 37923.14,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1554",
-    "amount": 825557,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1555",
-    "amount": 653182,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1556",
-    "amount": 487757,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1557",
-    "amount": 343779,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1558",
-    "amount": 1434439,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1559",
-    "amount": 248910,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1560",
-    "amount": 833401,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1562",
-    "amount": 287439.83,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-03-05",
     "ref": "TI/25-26/1563",
-    "amount": 2449467,
+    "amount": 601854.97,
     "due": "2026-05-04"
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-03-08",
     "ref": "TI/25-26/1576",
     "amount": 2095371,
@@ -1193,7 +977,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-03-08",
     "ref": "TI/25-26/1577",
     "amount": 1223783,
@@ -1201,7 +985,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-03-18",
     "ref": "TI/25-26/1605",
     "amount": 662521,
@@ -1209,7 +993,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-03-18",
     "ref": "TI/25-26/1606",
     "amount": 246659,
@@ -1217,7 +1001,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-03-18",
     "ref": "TI/25-26/1608",
     "amount": 678913,
@@ -1225,7 +1009,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-03-19",
     "ref": "TI/25-26/1615",
     "amount": 344736,
@@ -1233,7 +1017,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-03-20",
     "ref": "TI/25-26/1621",
     "amount": 7759746.98,
@@ -1241,7 +1025,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-03-27",
     "ref": "TI/25-26/1654",
     "amount": 526835,
@@ -1249,7 +1033,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-05",
     "ref": "TI/26-27/0020",
     "amount": 709401.12,
@@ -1257,7 +1041,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-07",
     "ref": "TI/26-27/0027",
     "amount": 1290286,
@@ -1265,7 +1049,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-13",
     "ref": "TI/26-27/0060",
     "amount": 1634841,
@@ -1273,7 +1057,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-13",
     "ref": "TI/26-27/0062",
     "amount": 774651,
@@ -1281,7 +1065,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-13",
     "ref": "TI/26-27/0063",
     "amount": 482962,
@@ -1289,7 +1073,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-13",
     "ref": "TI/26-27/0069",
     "amount": 852435,
@@ -1297,7 +1081,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-15",
     "ref": "TI/26-27/0077",
     "amount": 30877573,
@@ -1305,7 +1089,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-16",
     "ref": "TI/26-27/0084",
     "amount": 363422,
@@ -1313,7 +1097,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-16",
     "ref": "TI/26-27/0085",
     "amount": 99226,
@@ -1321,7 +1105,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-16",
     "ref": "TI/26-27/0086",
     "amount": 111901,
@@ -1329,7 +1113,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-20",
     "ref": "TI/26-27/0096",
     "amount": 1859683.03,
@@ -1337,7 +1121,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-21",
     "ref": "TI/26-27/0099",
     "amount": 258150,
@@ -1345,7 +1129,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-21",
     "ref": "TI/26-27/0100",
     "amount": 549946,
@@ -1353,7 +1137,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-23",
     "ref": "TI/26-27/0111",
     "amount": 387053,
@@ -1361,7 +1145,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-23",
     "ref": "TI/26-27/0112",
     "amount": 464376,
@@ -1369,7 +1153,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-23",
     "ref": "TI/26-27/0113",
     "amount": 3789,
@@ -1377,7 +1161,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-24",
     "ref": "TI/26-27/0116",
     "amount": 1597109,
@@ -1385,7 +1169,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-24",
     "ref": "TI/26-27/0117",
     "amount": 53984,
@@ -1393,7 +1177,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-04",
     "ref": "TI/26-27/0137",
     "amount": 255550,
@@ -1401,7 +1185,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-04",
     "ref": "TI/26-27/0138",
     "amount": 1228092,
@@ -1409,7 +1193,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-04",
     "ref": "TI/26-27/0139",
     "amount": 1383406,
@@ -1417,7 +1201,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-04",
     "ref": "TI/26-27/0140",
     "amount": 147808,
@@ -1425,7 +1209,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-06",
     "ref": "TI/26-27/0149",
     "amount": 87942,
@@ -1433,7 +1217,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-15",
     "ref": "TI/26-27/0181",
     "amount": 100281,
@@ -1441,7 +1225,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-21",
     "ref": "TI/26-27/0196",
     "amount": 205580.92,
@@ -1449,7 +1233,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-21",
     "ref": "TI/26-27/0199",
     "amount": 584496,
@@ -1457,7 +1241,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-26",
     "ref": "TI/26-27/0206",
     "amount": 144568,
@@ -1465,7 +1249,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-27",
     "ref": "TI/26-27/0212",
     "amount": 796,
@@ -1473,7 +1257,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-28",
     "ref": "TI/26-27/0224",
     "amount": 1173134,
@@ -1481,7 +1265,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-29",
     "ref": "TI/26-27/0226",
     "amount": 340797,
@@ -1489,15 +1273,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-06-01",
-    "ref": "TI/26-27/0231",
-    "amount": 19828,
-    "due": "2026-07-31"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-05",
     "ref": "TI/26-27/0254",
     "amount": 705859,
@@ -1505,23 +1281,15 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-08",
     "ref": "TI/26-27/0257",
-    "amount": 1593823,
+    "amount": 676120.6,
     "due": "2026-08-07"
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
-    "date": "2026-06-08",
-    "ref": "TI/26-27/0258",
-    "amount": 51271,
-    "due": "2026-08-07"
-  },
-  {
-    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-12",
     "ref": "TI/26-27/0268",
     "amount": 155608,
@@ -1529,7 +1297,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-14",
     "ref": "TI/26-27/0273",
     "amount": 114503,
@@ -1537,7 +1305,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-14",
     "ref": "TI/26-27/0274",
     "amount": 311907,
@@ -1545,7 +1313,7 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-14",
     "ref": "TI/26-27/0275",
     "amount": 112709,
@@ -1553,11 +1321,43 @@
   },
   {
     "party": "Malabar Gold Pvt Ltd ( Mumbai)",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-17",
     "ref": "TI/26-27/0283",
     "amount": 656688,
     "due": "2026-08-16"
+  },
+  {
+    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
+    "rep": "abhishek  jadau",
+    "date": "2026-06-24",
+    "ref": "TI/26-27/0303",
+    "amount": 109964,
+    "due": "2026-08-23"
+  },
+  {
+    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
+    "rep": "abhishek  jadau",
+    "date": "2026-06-26",
+    "ref": "TI/26-27/0311",
+    "amount": 3293792,
+    "due": "2026-08-25"
+  },
+  {
+    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
+    "rep": "abhishek  jadau",
+    "date": "2026-06-26",
+    "ref": "TI/26-27/0312",
+    "amount": 475148,
+    "due": "2026-08-25"
+  },
+  {
+    "party": "Malabar Gold Pvt Ltd ( Mumbai)",
+    "rep": "abhishek  jadau",
+    "date": "2026-06-26",
+    "ref": "TI/26-27/0313",
+    "amount": 10417318,
+    "due": "2026-08-25"
   },
   {
     "party": "Manek Gem Art International",
@@ -1584,6 +1384,14 @@
     "due": "2026-08-11"
   },
   {
+    "party": "Mangatria Neeraj Jewellers Pvt Ltd",
+    "rep": "sanjay jadau",
+    "date": "2026-06-21",
+    "ref": "TI/26-27/0293",
+    "amount": 1306172,
+    "due": "2026-08-20"
+  },
+  {
     "party": "Manik Chand & Sons ( Jewellers ) Pvt Ltd",
     "rep": "kartik jadau",
     "date": "2026-01-12",
@@ -1608,11 +1416,19 @@
     "due": "2026-06-20"
   },
   {
+    "party": "Mani Ratna The Jewel Paradise",
+    "rep": "chirag jadau",
+    "date": "2026-06-28",
+    "ref": "TI/26-27/0317",
+    "amount": 73156,
+    "due": "2026-08-27"
+  },
+  {
     "party": "Manohar Lal Sarraf & Sons Jewellers Pvt Ltd",
     "rep": "kartik jadau",
     "date": "2026-02-26",
     "ref": "TI/25-26/1538",
-    "amount": 2375416,
+    "amount": 1140619,
     "due": "2026-04-27"
   },
   {
@@ -1658,50 +1474,42 @@
   {
     "party": "Manubhai Gems Pvt Ltd",
     "rep": "chirag jadau",
-    "date": "2026-06-10",
-    "ref": "TI/26-27/0264",
-    "amount": 60315.5,
-    "due": "2026-08-09"
-  },
-  {
-    "party": "Manubhai Gems Pvt Ltd",
-    "rep": "chirag jadau",
-    "date": "2026-06-14",
-    "ref": "TI/26-27/0276",
-    "amount": 625339,
-    "due": "2026-08-13"
-  },
-  {
-    "party": "Manubhai Gems Pvt Ltd",
-    "rep": "chirag jadau",
-    "date": "2026-06-16",
-    "ref": "TI/26-27/0281",
-    "amount": 1777510,
-    "due": "2026-08-15"
-  },
-  {
-    "party": "Manubhai Gems Pvt Ltd",
-    "rep": "chirag jadau",
-    "date": "2026-06-18",
-    "ref": "TI/26-27/0285",
-    "amount": 17052,
-    "due": "2026-08-17"
-  },
-  {
-    "party": "Manubhai Gems Pvt Ltd",
-    "rep": "chirag jadau",
-    "date": "2026-06-18",
-    "ref": "TI/26-27/0286",
-    "amount": 1109205,
-    "due": "2026-08-17"
-  },
-  {
-    "party": "Manubhai Gems Pvt Ltd",
-    "rep": "chirag jadau",
     "date": "2026-06-18",
     "ref": "TI/26-27/0287",
-    "amount": 1490857,
+    "amount": 1180827.01,
     "due": "2026-08-17"
+  },
+  {
+    "party": "Manubhai Gems Pvt Ltd",
+    "rep": "chirag jadau",
+    "date": "2026-06-21",
+    "ref": "DI2606000128",
+    "amount": 3131,
+    "due": "2026-08-20"
+  },
+  {
+    "party": "Manubhai Gems Pvt Ltd",
+    "rep": "chirag jadau",
+    "date": "2026-06-22",
+    "ref": "TI/26-27/0294",
+    "amount": 769945,
+    "due": "2026-08-21"
+  },
+  {
+    "party": "Manubhai Gems Pvt Ltd",
+    "rep": "chirag jadau",
+    "date": "2026-06-25",
+    "ref": "TI/26-27/0310",
+    "amount": 2086072,
+    "due": "2026-08-24"
+  },
+  {
+    "party": "Manubhai Gems Pvt Ltd",
+    "rep": "chirag jadau",
+    "date": "2026-06-28",
+    "ref": "TI/26-27/0316",
+    "amount": 4112,
+    "due": "2026-08-27"
   },
   {
     "party": "Mawsim Gold Private Limited",
@@ -1817,7 +1625,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-03-24",
     "ref": "VJD/24-25/1430",
     "amount": 627888,
@@ -1825,7 +1633,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-03-28",
     "ref": "VJD/24-25/1449",
     "amount": 642042.37,
@@ -1833,7 +1641,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-04-09",
     "ref": "TI/25-26/0026",
     "amount": 82565,
@@ -1841,7 +1649,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-04-21",
     "ref": "TI/25-26/0077",
     "amount": 2065753,
@@ -1849,7 +1657,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-04-27",
     "ref": "TI/25-26/0102",
     "amount": 859966,
@@ -1857,7 +1665,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-05-29",
     "ref": "TI/25-26/0216",
     "amount": 2240804,
@@ -1865,7 +1673,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-06-24",
     "ref": "TI/25-26/0286",
     "amount": 568072,
@@ -1873,7 +1681,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-08-19",
     "ref": "TI/25-26/0496",
     "amount": 6443,
@@ -1881,7 +1689,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-09-21",
     "ref": "TI/25-26/0697",
     "amount": 1906101,
@@ -1889,7 +1697,7 @@
   },
   {
     "party": "M/S Karrat 22 Enterprises",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2025-09-21",
     "ref": "TI/25-26/0698",
     "amount": 6999516,
@@ -1897,19 +1705,11 @@
   },
   {
     "party": "Mukund International Private Limited",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-10",
     "ref": "TI/26-27/0048",
     "amount": 174947,
     "due": "2026-06-09"
-  },
-  {
-    "party": "Neelkanth Gold & Diamonds",
-    "rep": "sanjay jadau",
-    "date": "2026-04-27",
-    "ref": "TI/26-27/0120",
-    "amount": 1558178,
-    "due": "2026-06-26"
   },
   {
     "party": "Nikita Jewellers Pvt Ltd",
@@ -2032,19 +1832,19 @@
     "due": "2026-08-14"
   },
   {
-    "party": "Parekh Ornaments LLP",
+    "party": "Parekh Borthers",
     "rep": "chirag jadau",
-    "date": "2026-04-01",
-    "ref": "TI/25-26/0004",
-    "amount": 352629,
-    "due": "2026-05-31"
+    "date": "2026-06-23",
+    "ref": "TI/26-27/0297",
+    "amount": 59810,
+    "due": "2026-08-22"
   },
   {
     "party": "Parekh Ornaments LLP",
     "rep": "chirag jadau",
     "date": "2026-04-05",
     "ref": "TI/26-27/0019",
-    "amount": 1423366,
+    "amount": 353227,
     "due": "2026-06-04"
   },
   {
@@ -2088,6 +1888,14 @@
     "due": "2026-08-14"
   },
   {
+    "party": "Parekh Ornaments LLP",
+    "rep": "chirag jadau",
+    "date": "2026-06-26",
+    "ref": "TI/26-27/0314",
+    "amount": 644175,
+    "due": "2026-08-25"
+  },
+  {
     "party": "Parshwa Diamond Debor",
     "rep": "SUSPENSE",
     "date": "2026-03-30",
@@ -2128,14 +1936,6 @@
     "due": "2025-02-04"
   },
   {
-    "party": "Raj Tarun Diamond",
-    "rep": "sanjay jadau",
-    "date": "2026-05-31",
-    "ref": "TI/26-27/0230",
-    "amount": 398754,
-    "due": "2026-07-30"
-  },
-  {
     "party": "Ranka Jewellers Z3",
     "rep": "chirag jadau",
     "date": "2026-04-01",
@@ -2162,81 +1962,9 @@
   {
     "party": "Rathod Jewellers",
     "rep": "chirag jadau",
-    "date": "2026-02-09",
-    "ref": "TI/25-26/1468",
-    "amount": 750484.28,
-    "due": "2026-04-10"
-  },
-  {
-    "party": "Rathod Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-02-09",
-    "ref": "TI/25-26/1469",
-    "amount": 935697,
-    "due": "2026-04-10"
-  },
-  {
-    "party": "Rathod Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-02-16",
-    "ref": "TI/25-26/1507",
-    "amount": 118616,
-    "due": "2026-04-17"
-  },
-  {
-    "party": "Rathod Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-02-16",
-    "ref": "TI/25-26/1514",
-    "amount": 6659,
-    "due": "2026-04-17"
-  },
-  {
-    "party": "Rathod Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1549",
-    "amount": 659031,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Rathod Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1551",
-    "amount": 52406,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Rathod Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-03-04",
-    "ref": "TI/25-26/1552",
-    "amount": 1834,
-    "due": "2026-05-03"
-  },
-  {
-    "party": "Rathod Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-03-06",
-    "ref": "TI/25-26/1571",
-    "amount": 41830,
-    "due": "2026-05-05"
-  },
-  {
-    "party": "Rathod Jewellers",
-    "rep": "chirag jadau",
-    "date": "2026-03-16",
-    "ref": "TI/25-26/1600",
-    "amount": 6556,
-    "due": "2026-05-15"
-  },
-  {
-    "party": "Rathod Jewellers",
-    "rep": "chirag jadau",
     "date": "2026-03-19",
     "ref": "TI/25-26/1616",
-    "amount": 474120,
+    "amount": 47233.28,
     "due": "2026-05-18"
   },
   {
@@ -2344,19 +2072,19 @@
     "due": "2026-08-01"
   },
   {
-    "party": "Ratlam Abhushan Private Limited",
+    "party": "Rathod Jewellers",
     "rep": "chirag jadau",
-    "date": "2026-04-07",
-    "ref": "TI/26-27/0025",
-    "amount": 26855,
-    "due": "2026-06-06"
+    "date": "2026-06-25",
+    "ref": "TI/26-27/0306",
+    "amount": 838026,
+    "due": "2026-08-24"
   },
   {
     "party": "Ratlam Abhushan Private Limited",
     "rep": "chirag jadau",
     "date": "2026-04-21",
     "ref": "TI/26-27/0101",
-    "amount": 1193151,
+    "amount": 26946,
     "due": "2026-06-20"
   },
   {
@@ -2369,7 +2097,7 @@
   },
   {
     "party": "Regal Jewellers Pvt Ltd",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-08",
     "ref": "TI/26-27/0028",
     "amount": 9751878,
@@ -2377,7 +2105,7 @@
   },
   {
     "party": "Regal Jewellers Pvt Ltd",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-08",
     "ref": "TI/26-27/0034",
     "amount": 103153,
@@ -2385,7 +2113,7 @@
   },
   {
     "party": "Regal Jewellers Pvt Ltd",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-10",
     "ref": "TI/26-27/0161",
     "amount": 958370,
@@ -2417,10 +2145,10 @@
   },
   {
     "party": "Sagarmal & Sons Ventures Private Limited",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-02-23",
     "ref": "TI/25-26/1534",
-    "amount": 803758,
+    "amount": 673075,
     "due": "2026-04-24"
   },
   {
@@ -2442,14 +2170,6 @@
   {
     "party": "Sajavat Jewels",
     "rep": "chirag jadau",
-    "date": "2026-05-20",
-    "ref": "TI/26-27/0195",
-    "amount": 34160,
-    "due": "2026-07-19"
-  },
-  {
-    "party": "Sajavat Jewels",
-    "rep": "chirag jadau",
     "date": "2026-06-09",
     "ref": "TI/26-27/0262",
     "amount": 83131,
@@ -2457,7 +2177,7 @@
   },
   {
     "party": "Senco Gold Limited",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-04-12",
     "ref": "TI/26-27/0055",
     "amount": 6386,
@@ -2465,26 +2185,18 @@
   },
   {
     "party": "Senco Gold Limited",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-26",
     "ref": "TI/26-27/0209",
-    "amount": 2206340,
+    "amount": 2143,
     "due": "2026-07-25"
   },
   {
     "party": "Shah Virchand Govanji Jewellers Pvt Ltd",
     "rep": "chirag jadau",
     "date": "2026-02-11",
-    "ref": "TI/25-26/1474",
-    "amount": 1188360,
-    "due": "2026-04-12"
-  },
-  {
-    "party": "Shah Virchand Govanji Jewellers Pvt Ltd",
-    "rep": "chirag jadau",
-    "date": "2026-02-11",
     "ref": "TI/25-26/1475",
-    "amount": 611073,
+    "amount": 189788,
     "due": "2026-04-12"
   },
   {
@@ -2506,10 +2218,10 @@
   {
     "party": "Shah Virchand Govanji Jewellers Pvt Ltd",
     "rep": "chirag jadau",
-    "date": "2026-06-15",
-    "ref": "TI/26-27/0278",
-    "amount": 897645,
-    "due": "2026-08-14"
+    "date": "2026-06-22",
+    "ref": "TI/26-27/0295",
+    "amount": 757390,
+    "due": "2026-08-21"
   },
   {
     "party": "Shilpa Jewellers",
@@ -2625,42 +2337,18 @@
   },
   {
     "party": "Swarna Shilpi Jewellers Chennai Pvt Ltd",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-05-29",
     "ref": "TI/26-27/0228",
     "amount": 2705774,
     "due": "2026-07-28"
   },
   {
-    "party": "Tarun Jethi A Luxury Jeweller",
-    "rep": "kartik jadau",
-    "date": "2026-04-15",
-    "ref": "TI/26-27/0074",
-    "amount": 240974,
-    "due": "2026-06-14"
-  },
-  {
-    "party": "Tejaswi Jewellers Jawaharlal Motilal Saraf",
-    "rep": "chirag jadau",
-    "date": "2025-11-24",
-    "ref": "TI/25-26/1100",
-    "amount": 293232,
-    "due": "2026-01-23"
-  },
-  {
-    "party": "Tejaswi Jewellers Jawaharlal Motilal Saraf",
-    "rep": "chirag jadau",
-    "date": "2025-11-25",
-    "ref": "TI/25-26/1105",
-    "amount": 1664738,
-    "due": "2026-01-24"
-  },
-  {
     "party": "Tejaswi Jewellers Jawaharlal Motilal Saraf",
     "rep": "chirag jadau",
     "date": "2025-11-28",
     "ref": "TI/25-26/1127",
-    "amount": 1686087,
+    "amount": 1178909,
     "due": "2026-01-27"
   },
   {
@@ -2784,6 +2472,14 @@
     "due": "2026-08-10"
   },
   {
+    "party": "Valentine Jewellery International Basment",
+    "rep": "MUKESH SIR",
+    "date": "2026-06-28",
+    "ref": "TI/26-27/0318",
+    "amount": 12365,
+    "due": "2026-08-27"
+  },
+  {
     "party": "Varaa Jewels Private Limited",
     "rep": "sanjay jadau",
     "date": "2026-04-16",
@@ -2800,24 +2496,16 @@
     "due": "2026-06-22"
   },
   {
-    "party": "Varaa Jewels Private Limited",
-    "rep": "sanjay jadau",
-    "date": "2026-05-20",
-    "ref": "TI/265-27/0193",
-    "amount": 4167247,
-    "due": "2026-07-19"
-  },
-  {
-    "party": "Varaa Jewels Private Limited",
-    "rep": "sanjay jadau",
-    "date": "2026-05-25",
-    "ref": "TI/26-27/0204",
-    "amount": 649040,
-    "due": "2026-07-24"
+    "party": "V I M Gold & Jewellery LLC ( Export)",
+    "rep": "MUKESH SIR",
+    "date": "2026-06-28",
+    "ref": "EI/26-27/EX04",
+    "amount": 22988160,
+    "due": "2026-08-27"
   },
   {
     "party": "Vummidi Bangaru Jewellers (India) Private Limited",
-    "rep": "abhishek jadau",
+    "rep": "abhishek  jadau",
     "date": "2026-06-05",
     "ref": "TI/26-27/0251",
     "amount": 5409373,
